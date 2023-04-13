@@ -15,14 +15,15 @@ class Food extends Model
         'name',
         'description',
         'price',
-        // 'avaliability',
+        'availability',
         'vegetarian',
         'vegan',
         'img',
     ];
 
+    // relazione con tabella Restaurants
     public function restaurants()
     {
-        return $this->belongsToMany(Restaurant::class);
+        return $this->belongsTo(Restaurant::class);
     }
 }

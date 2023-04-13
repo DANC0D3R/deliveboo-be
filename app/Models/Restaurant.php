@@ -26,13 +26,15 @@ class Restaurant extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Relazione tabella Type
+    // Relazione tabella Types
     public function types()
     {
         return $this->belongsToMany(Type::class);
     }
+
+    // relazione con tabella Foods
     public function foods()
     {
-        return $this->belongsToMany(Food::class);
+        return $this->hasMany(Food::class);
     }
 }
