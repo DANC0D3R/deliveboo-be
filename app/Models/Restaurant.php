@@ -18,4 +18,8 @@ class Restaurant extends Model
         'description',
         'img',
     ];
+
+    public function users() {
+        return $this->belongsTo(User::class);
+    }
 }
