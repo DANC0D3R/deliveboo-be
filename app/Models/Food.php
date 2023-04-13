@@ -21,8 +21,8 @@ class Food extends Model
         'img',
     ];
 
-    // public function restaurants()
-    // {
-    //     return $this->belongsToMany(Restaurant::class);
-    // }
+    public function restaurants()
+    {
+        return $this->belongsToMany(Restaurant::class);
+    }
 }
