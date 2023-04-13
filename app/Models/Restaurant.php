@@ -19,7 +19,13 @@ class Restaurant extends Model
         'img',
     ];
 
+    // Relazione tabella User
     public function users() {
         return $this->belongsTo(User::class);
+    }
+
+    // Relazione tabella Type
+    public function type(){
+        return $this->belongsToMany(Type::class);
     }
 }
