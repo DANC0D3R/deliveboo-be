@@ -17,7 +17,6 @@ return new class extends Migration
                 $table->string('name', 30);
                 $table->text('description'); //ingredients
                 $table->decimal('price', $precision = 5, $scale = 2);
-                // $table->boolean('avaliability')->default(1);
                 $table->boolean('vegetarian')->default(0);
                 $table->boolean('vegan')->default(0);
                 $table->string('img')->nullable();
