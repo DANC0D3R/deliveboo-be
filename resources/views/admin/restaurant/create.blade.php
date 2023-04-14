@@ -26,13 +26,17 @@
         </div>
 
         <div>
+            <h2 class="mb-3">Inserisci il tuo ristorante</h2>
+
             {{-- Nome ristorante --}}
-            <label for="name">Nome Ristorante</label>
-            <input 
+            <label for="name">Nome Ristorante *</label>
+            <input
+            class="d-block mb-2" 
             id="name"
             type="text"
-            placeholder="Nome ristorante"
+            placeholder="Scrivi qui..."
             name="name"
+            value="{{ old('name') }}"
             maxlength="50"
             required
             >
@@ -40,12 +44,14 @@
 
         <div>
             {{-- Indirizzo --}}
-            <label for="address">Indirizzo</label>
+            <label for="address">Indirizzo *</label>
             <input 
+            class="d-block mb-2"
             id="address"
             type="text"
-            placeholder="Indirizzo"
+            placeholder="Es: Via Marco Polo 12"
             name="address"
+            value="{{ old('address') }}"
             minlength="5"
             maxlength="100"
             required
@@ -54,12 +60,14 @@
 
         <div>
             {{-- P.IVA --}}
-            <label for="p_iva">P. IVA</label>
+            <label for="p_iva">P. IVA *</label>
             <input 
+            class="d-block mb-2"
             id="p_iva"
             type="text"
-            placeholder="P. IVA"
+            placeholder="Es: IT123..."
             name="p_iva"
+            value="{{ old('p_iva') }}"
             size="11"
             required
         >
@@ -70,21 +78,24 @@
             {{-- Descrizione --}}
             <label for="description">Descrizione</label>
             <textarea 
+            class="d-block mb-2"
             name="description" 
             id="description" 
-            cols="30" 
-            rows="10" 
-            placeholder="Inserisci una descrizione del ristorante"></textarea>
+            cols="50" 
+            rows="5" 
+            placeholder="Inserisci una descrizione del ristorante">{{ old('description') }}</textarea>
         </div>
 
         <div>
             {{-- Telefono --}}
-            <label for="phone">Numero di telefono</label>
+            <label for="phone">Numero di telefono *</label>
             <input 
+            class="d-block mb-2"
             id="phone"
             type="tel"
-            placeholder="Numero di telefono"
+            placeholder="Es: +39 340..."
             name="phone"
+            value="{{ old('phone') }}"
             minlength="10"
             maxlength="15"
             required
@@ -93,8 +104,8 @@
 
         <div>
             {{-- Tipo --}}
-            <label for="type">Scegli la categoria del ristorante</label>
-            <select name="type" id="type">
+            <label class="d-block mb-2" for="type">Scegli la categoria del ristorante</label>
+            <select class="d-block mb-2" name="type" id="type">
                 <option value="italiano">Italiano</option>
                 <option value="cinese">Cinese</option>
                 <option value="internazionale">Internazionale</option>
@@ -113,7 +124,7 @@
             {{-- Immagine --}}
             <label for="img" class="form-label">Immagine</label>
             <input
-            class="form-control"
+            class="form-control w-50"
             type="file" 
             name="img" 
             id="img"
@@ -123,7 +134,7 @@
 
         <div>
             {{-- Bottone --}}
-            <button type="submit" class="mb-5 btn btn-success">
+            <button type="submit" class="mt-3 btn btn-success">
                 Crea
             </button>
         </div>
