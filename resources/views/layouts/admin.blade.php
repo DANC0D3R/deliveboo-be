@@ -25,7 +25,7 @@
         <div id="app">
 
             <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
-                <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">BoolPress</a>
+                <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">Deliveboo</a>
                 <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -50,7 +50,19 @@
                             <ul class="nav flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
-                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
+                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Il tuo ristorante
+                                    </a>
+
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
+                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Menù
+                                    </a>
+
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
+                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Ordini
+                                    </a>
+
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
+                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Statistiche
                                     </a>
                                 </li>
                             </ul>
