@@ -16,4 +16,7 @@ class Order extends Model
         'client_phone',
         'client_email' 
     ];
+    public function foods() {
+        return $this->belongsToMany(Food::class);
+    }
 }
