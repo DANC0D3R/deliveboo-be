@@ -13,6 +13,9 @@
                     <h6 class="ms-3 ">{{ $restaurant->address }}</h6>
                     <h4>{{ $restaurant->type }}</h4>
                 </div>
+                @if ($restaurant->img)
+                    <img src="{{ asset('storage/'.$restaurant->img) }}" class="mb-3" alt="immagine" style="height: 200px; width: 300px">
+                @endif
                 <p>{{ $restaurant->description }}</p>
                 <h6>Contatti:</h6>
                 <div class="contacts d-flex">
