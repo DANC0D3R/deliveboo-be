@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Storage;
 //Slug
 use Illuminate\Support\Str;
 
+// Models
+use App\Models\Type;
+
 class RestaurantController extends Controller
 {
     /**
@@ -32,7 +35,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        return view('admin.restaurant.create');
+        $types = Type::all();
+
+        return view('admin.restaurant.create',compact('types'));
     }
 
     /**
@@ -54,7 +59,11 @@ class RestaurantController extends Controller
 
         $newRestaurant = Restaurant::create($data);
 
-       // $newRestaurant->save();
+        if (array_key_exists('types', $data)) {
+            foreach ($data['types'] as $typeId) {
+                $newRestaurant->types()->attach($typeId);
+            }
+        }
 
         return redirect()->route('admin.restaurants.show', $newRestaurant)->with('success', 'Ristorante inserito con successo!');
     }
@@ -64,10 +73,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        // dd($restaurant);
-
-       return view('admin.restaurant.show', compact('restaurant'));
-
+        return view('admin.restaurant.show', compact('restaurant'));
     }
 
     /**
