@@ -56,7 +56,7 @@ class RestaurantController extends Controller
 
        // $newRestaurant->save();
 
-        return redirect()->route('admin.restaurants.show', $newRestaurant);
+        return redirect()->route('admin.restaurants.show', $newRestaurant)->with('success', 'Ristorante inserito con successo!');
     }
 
     /**
