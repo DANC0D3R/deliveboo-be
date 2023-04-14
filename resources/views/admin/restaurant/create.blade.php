@@ -102,20 +102,13 @@
             >
         </div>
 
-        <div>
-            {{-- Tipo --}}
-            <label class="d-block mb-2" for="type" class="form-label">Scegli la categoria del ristorante</label>
-            <select class="d-block mb-2 form-select" name="type" id="type">
-                <option value="italiano">Italiano</option>
-                <option value="cinese">Cinese</option>
-                <option value="internazionale">Internazionale</option>
-                <option value="giapponese">Giapponese</option>
-                <option value="messicano">Messicano</option>
-                <option value="indiano">Indiano</option>
-                <option value="pesce">Pesce</option>
-                <option value="carne">Carne</option>
-                <option value="pizza">Pizza</option>
-                <option value="thailandese">Thailandese</option>
+        <div class="mb-3">
+            <label for="type">Scegli una tipologia di progetto</label>
+            <select name="types[]" id="type" multiple>
+                <option value="">Non definito</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
             </select>
         </div>
 
