@@ -29,9 +29,9 @@
             <h2 class="mb-3">Inserisci il tuo ristorante</h2>
 
             {{-- Nome ristorante --}}
-            <label for="name">Nome Ristorante *</label>
+            <label for="name" class="form-laber">Nome Ristorante *</label>
             <input
-            class="d-block mb-2" 
+            class="d-block mb-2 form-control" 
             id="name"
             type="text"
             placeholder="Scrivi qui..."
@@ -44,9 +44,9 @@
 
         <div>
             {{-- Indirizzo --}}
-            <label for="address">Indirizzo *</label>
+            <label for="address" class="form-label">Indirizzo *</label>
             <input 
-            class="d-block mb-2"
+            class="d-block mb-2 form-control"
             id="address"
             type="text"
             placeholder="Es: Via Marco Polo 12"
@@ -60,9 +60,9 @@
 
         <div>
             {{-- P.IVA --}}
-            <label for="p_iva">P. IVA *</label>
+            <label for="p_iva" class="form-label">P. IVA *</label>
             <input 
-            class="d-block mb-2"
+            class="d-block mb-2 form-control"
             id="p_iva"
             type="text"
             placeholder="Es: IT123..."
@@ -76,9 +76,9 @@
 
         <div>
             {{-- Descrizione --}}
-            <label for="description">Descrizione</label>
+            <label for="description" form="form-label">Descrizione</label>
             <textarea 
-            class="d-block mb-2"
+            class="d-block mb-2 form-control"
             name="description" 
             id="description" 
             cols="50" 
@@ -88,9 +88,9 @@
 
         <div>
             {{-- Telefono --}}
-            <label for="phone">Numero di telefono *</label>
+            <label for="phone" class="form-label">Numero di telefono *</label>
             <input 
-            class="d-block mb-2"
+            class="d-block mb-2 form-control"
             id="phone"
             type="tel"
             placeholder="Es: +39 340..."
@@ -104,8 +104,8 @@
 
         <div>
             {{-- Tipo --}}
-            <label class="d-block mb-2" for="type">Scegli la categoria del ristorante</label>
-            <select class="d-block mb-2" name="type" id="type">
+            <label class="d-block mb-2" for="type" class="form-label">Scegli la categoria del ristorante</label>
+            <select class="d-block mb-2 form-select" name="type" id="type">
                 <option value="italiano">Italiano</option>
                 <option value="cinese">Cinese</option>
                 <option value="internazionale">Internazionale</option>
@@ -124,7 +124,7 @@
             {{-- Immagine --}}
             <label for="img" class="form-label">Immagine</label>
             <input
-            class="form-control w-50"
+            class="form-control w-50 mb-4"
             type="file" 
             name="img" 
             id="img"
@@ -132,10 +132,12 @@
 
         </div>
 
+        <p>I campi contrassegnati con <strong>*</strong> sono <strong>obbligatori</strong></p>
+
         <div>
             {{-- Bottone --}}
-            <button type="submit" class="mt-3 btn btn-success">
-                Crea
+            <button type="submit" class="m-3 btn btn-success">
+                Inserisci
             </button>
         </div>
 
