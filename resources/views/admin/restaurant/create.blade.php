@@ -6,8 +6,24 @@
 
     <div class="col">
 
-    <form action="#" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+
+        <div>
+            @if($errors->any())
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @endif
+        </div>
 
         <div>
             {{-- Nome ristorante --}}
@@ -17,6 +33,7 @@
             type="text"
             placeholder="Nome ristorante"
             name="name"
+            maxlength="50"
             required
             >
         </div>
@@ -29,18 +46,20 @@
             type="text"
             placeholder="Indirizzo"
             name="address"
+            minlength="5"
+            maxlength="100"
             required
             > 
         </div>  
 
         <div>
             {{-- P.IVA --}}
-            <label for="piva">P. IVA</label>
+            <label for="p_iva">P. IVA</label>
             <input 
-            id="piva"
+            id="p_iva"
             type="text"
             placeholder="P. IVA"
-            name="piva"
+            name="p_iva"
             size="11"
             required
         >
@@ -49,10 +68,10 @@
 
         <div>
             {{-- Descrizione --}}
-            <label for="descrizione">Descrizione</label>
+            <label for="description">Descrizione</label>
             <textarea 
-            name="descrizione" 
-            id="descrizione" 
+            name="description" 
+            id="description" 
             cols="30" 
             rows="10" 
             placeholder="Inserisci una descrizione del ristorante"></textarea>
@@ -60,12 +79,12 @@
 
         <div>
             {{-- Telefono --}}
-            <label for="telefono">Numero di telefono</label>
+            <label for="phone">Numero di telefono</label>
             <input 
-            id="telefono"
+            id="phone"
             type="tel"
             placeholder="Numero di telefono"
-            name="telefono"
+            name="phone"
             minlength="10"
             maxlength="15"
             required
@@ -73,36 +92,45 @@
         </div>
 
         <div>
-            {{-- Categoria --}}
-            <label for="categoria">Scegli la categoria del ristorante</label>
-            <select name="categoria" id="categoria">
-                <option value="">Italiano</option>
-                <option value="">Cinese</option>
-                <option value="">Internazionale</option>
-                <option value="">Giapponese</option>
-                <option value="">Messicano</option>
-                <option value="">Indiano</option>
-                <option value="">Pesce</option>
-                <option value="">Carne</option>
-                <option value="">Pizza</option>
-                <option value="">Thailandese</option>
+            {{-- Tipo --}}
+            <label for="type">Scegli la categoria del ristorante</label>
+            <select name="type" id="type">
+                <option value="italiano">Italiano</option>
+                <option value="cinese">Cinese</option>
+                <option value="internazionale">Internazionale</option>
+                <option value="giapponese">Giapponese</option>
+                <option value="messicano">Messicano</option>
+                <option value="indiano">Indiano</option>
+                <option value="pesce">Pesce</option>
+                <option value="carne">Carne</option>
+                <option value="pizza">Pizza</option>
+                <option value="thailandese">Thailandese</option>
             </select>
         </div>
 
         <div>
 
             {{-- Immagine --}}
-            <label for="image" class="form-label">Immagine</label>
+            <label for="img" class="form-label">Immagine</label>
             <input
             class="form-control"
             type="file" 
-            name="image" 
-            id="image"
+            name="img" 
+            id="img"
             placeholder="Inserisci l'immagine'">
 
         </div>
 
+        <div>
+            {{-- Bottone --}}
+            <button type="submit" class="mb-5 btn btn-success">
+                Crea
+            </button>
+        </div>
+
     </form>
+
+    
 </div>
 
 </div>
