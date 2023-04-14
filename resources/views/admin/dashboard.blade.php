@@ -15,6 +15,10 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <a href="{{ route('admin.restaurants.create') }}" class="btn btn-success">
+                        Inserisci il tuo ristorante
+                    </a>
                 </div>
             </div>
         </div>
