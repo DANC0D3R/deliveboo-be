@@ -9,6 +9,12 @@ use App\Http\Requests\UpdateRestaurantRequest;
 // Controller
 use App\Http\Controllers\Controller;
 
+// Storage
+use Illuminate\Support\Facades\Storage;
+
+//Slug
+use Illuminate\Support\Str;
+
 class RestaurantController extends Controller
 {
     /**
@@ -31,10 +37,26 @@ class RestaurantController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param  \App\Http\Requests\StoreRestaurantRequest  $request
+     * @return \Illuminate\Http\Response
      */
+    
     public function store(StoreRestaurantRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        if (array_key_exists('img', $data)) {
+            $imgPath = Storage::put('restaurants', $data['img']);
+            $data['img'] = $imgPath;
+        };
+
+        $data['slug'] = Str::slug($data['name']);
+
+        $newRestaurant = Restaurant::create($data);
+
+       // $newRestaurant->save();
+
+        return redirect()->route('admin.restaurants.show', $newRestaurant);
     }
 
     /**
@@ -42,7 +64,10 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        //
+        // dd($restaurant);
+
+       return view('admin.restaurant.show', compact('restaurant'));
+
     }
 
     /**
