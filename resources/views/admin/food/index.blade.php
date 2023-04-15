@@ -32,10 +32,10 @@
                             <h6 class="card-title">{{$food->price}}€</h6>
                             <h6 class="card-title">{{$food->description}}</h6>
 
-                            <a href="{{ route('admin.foods.show', $food) }}" class="btn btn-primary">
+                            <a href="{{ route('admin.foods.show', $food->id) }}" class="btn btn-primary">
                                 Vedi dettagli
                             </a>
-                            <a href="{{ route('admin.foods.edit', $food) }}" class="btn btn-warning">
+                            <a href="{{ route('admin.foods.edit', $food->id) }}" class="btn btn-warning">
                                 Aggiorna
                             </a>
                             <form action="{{route('admin.foods.destroy',$food->id)}}" method="POST" enctype="multipart/form-data" onsubmit="return confirm('Sei sicuro di voler eliminare questo piatto?')">
