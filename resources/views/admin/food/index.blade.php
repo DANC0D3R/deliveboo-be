@@ -29,6 +29,8 @@
                     <div class="card text-center">
                         <div class="card-body">
                             <h2 class="card-title">{{ $food->name }}</h2>
+                            <h6 class="card-title">{{$food->price}}€</h6>
+                            <h6 class="card-title">{{$food->description}}</h6>
 
                             <a href="{{ route('admin.foods.show', $food) }}" class="btn btn-primary">
                                 Vedi dettagli

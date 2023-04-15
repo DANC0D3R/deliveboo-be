@@ -64,6 +64,7 @@
             type="number"
             placeholder="Es: 9.99"
             name="price"
+            step="0.01"
             value="{{ old('price') }}"
             required
             >

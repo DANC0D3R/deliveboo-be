@@ -16,6 +16,9 @@
                     <div class="card-body">
                         <p>{{ $food->description }}</p>
                     </div>
+                    <div class="card-body">
+                        <p>{{ $food->price }}€</p>
+                    </div>
                 </div>
             </div>
         </div>
