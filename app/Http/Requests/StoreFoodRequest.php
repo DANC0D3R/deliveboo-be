@@ -13,7 +13,7 @@ class StoreFoodRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class StoreFoodRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'required|max:50',
+            'description'=> 'required',
+            'price'=>'required',
+            'img'=> 'nullable | image'
         ];
     }
 }

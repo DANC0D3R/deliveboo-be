@@ -53,7 +53,7 @@
                                         <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Il tuo ristorante
                                     </a>
 
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.foods.index' ? 'bg-secondary' : '' }}" href="{{route('admin.foods.index')}}">
                                         <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Menù
                                     </a>
 
