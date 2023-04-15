@@ -60,6 +60,39 @@
         </div>
 
         <div>
+            {{-- Tipologie di piatto --}}
+            <label class="form-label">Che tipo di piatto è?</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="vegetarian" value="1">
+                <label class="form-check-label" for="inlineCheckbox1">Vegetariano</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="vegan" value="1">
+                <label class="form-check-label" for="inlineCheckbox2">Vegano</label>
+            </div>
+        </div>
+
+        <div>
+            {{-- Disponibilità del piatto --}}
+            <div class="form-check">
+                {{-- Input del piatto disponibile --}}
+                <input class="form-check-input" type="radio" id="exampleRadios1" name="availability" value="1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    Piatto disponibile
+                </label>
+            </div>
+
+            <div class="form-check">
+                {{-- Input del piatto non disponibile --}}
+                <input class="form-check-input" type="radio" id="exampleRadios2" name="availability"  value="0">
+                <label class="form-check-label" for="exampleRadios2">
+                    Piatto non disponibile
+                </label>
+            </div>
+        </div>
+
+        <div>
             {{-- Immagine --}}
             <label for="img" class="form-label">Immagine</label>
 

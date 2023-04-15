@@ -84,8 +84,26 @@
             </div>
         </div>
 
+        {{-- Disponibilità del piatto --}}
         <div>
+            <div class="form-check">
+                {{-- Input del piatto disponibile --}}
+                <input class="form-check-input" type="radio" id="exampleRadios1" name="availability" value="1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    Piatto disponibile
+                </label>
+            </div>
+            
+            <div class="form-check">
+                {{-- Input del piatto non disponibile --}}
+                <input class="form-check-input" type="radio" id="exampleRadios2" name="availability"  value="0">
+                <label class="form-check-label" for="exampleRadios2">
+                    Piatto non disponibile
+                </label>
+            </div>
+        </div>
 
+        <div>
             {{-- Immagine --}}
             <label for="img" class="form-label">Immagine</label>
             <input
