@@ -16,8 +16,7 @@
                     </div>
                     @endif
 
-                    
-
+                    {{-- Pulsante create --}}
                     <a href="{{ route('admin.foods.create') }}" class="btn btn-success">
                         Inserisci il tuo piatto
                     </a>
@@ -30,13 +29,16 @@
                 <div class="col-4 mb-3">
                     <div class="card text-center">
                         <div class="card-body">
-                            <h2 class="card-title">{{ $food->name }}</h2>
-                            <h6 class="card-title">{{$food->price}}€</h6>
-                            <h6 class="card-title">{{$food->description}}</h6>
+                            <h2 class="card-title">{{ $food->name }}</h2> {{-- Nome piatto --}}
+                            <h6 class="card-title">{{$food->price}}€</h6> {{-- Prezzo piatto --}}
+                            <h6 class="card-title">{{$food->description}}</h6> {{-- Descrizione piatto --}}
 
-                            <a href="{{ route('admin.foods.show', $food->id) }}" class="btn btn-primary">
+                            
+                            {{-- Pulsante show --}}
+                            <a href="{{ route('admin.foods.show', $food->id) }}" class="btn btn-primary"> 
                                 Vedi dettagli
                             </a>
+                            {{-- Pulsante sedit --}}
                             <a href="{{ route('admin.foods.edit', $food->id) }}" class="btn btn-warning">
                                 Aggiorna
                             </a>
@@ -60,6 +62,7 @@
                                             @csrf
                                             @method('DELETE')
         
+                                            {{-- Pulsante delete --}}
                                             <button class="btn btn-danger">Elimina</button>
                                         </form>
                                     </div>
