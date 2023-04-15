@@ -8,11 +8,7 @@
         <div class="col">
 
             {{-- Messaggio successo --}}
-            @if (session('success'))
-            <div class="alert alert-success my-3">
-                {{ session('success') }}
-            </div>
-            @endif
+            @include('partials.success')
             
             <div class="card w-50 p-3">
                 <div class="d-flex">

@@ -27,6 +27,8 @@ class StoreFoodRequest extends FormRequest
             'name'=>'required|max:50',
             'description'=> 'required',
             'price'=>'required',
+            'vegetarian' => 'boolean',
+            'vegan' => 'boolean',
             'img'=> 'nullable | image'
         ];
     }
