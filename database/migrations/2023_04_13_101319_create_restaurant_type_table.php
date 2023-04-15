@@ -19,7 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')
                 ->references('id')
-                ->on('types');
+                ->on('types')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
 
             //Tabella Restaurant
