@@ -14,11 +14,25 @@ return new class extends Migration
     public function up()
     {
         Schema::create('food_order', function (Blueprint $table) {
-            $table->id();
+            // Food foreign key
             $table->unsignedBigInteger("food_id");
-            $table->foreign("food_id")->references("id")->on("foods");
+            $table->foreign("food_id")
+                ->references("id")
+                ->on("foods")
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            // Order foreign key
             $table->unsignedBigInteger("order_id");
-            $table->foreign("order_id")->references("id")->on("orders");
+            $table->foreign("order_id")
+                ->references("id")
+                ->on("orders")
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            // Definizione chiave primaria
+            $table->primary(['food_id', 'order_id']);
+
             $table->unsignedTinyInteger('quantity');
             $table->timestamps();
 
