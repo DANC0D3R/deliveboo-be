@@ -44,13 +44,14 @@
 
         <div>
             {{-- Descrizione --}}
-            <label for="description" form="form-label">Ingredienti</label>
+            <label for="description" form="form-label">Ingredienti *</label>
             <textarea 
             class="d-block mb-2 form-control"
             name="description" 
             id="description" 
             cols="50" 
-            rows="5" 
+            rows="5"
+            required 
             placeholder="Inserisci gli ingredienti del piatto">{{ old('description') }}</textarea>
         </div>
 

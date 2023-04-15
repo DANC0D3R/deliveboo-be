@@ -36,7 +36,7 @@ class FoodController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePostRequest  $request
+     * @param  \App\Http\Requests\StoreFoodRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreFoodRequest $request)
@@ -59,10 +59,10 @@ class FoodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function show(Food $post)
+    public function show(Food $food)
     {
         return view('admin.food.show',compact('food'));
     }
@@ -70,10 +70,10 @@ class FoodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function edit(Food $post)
+    public function edit(Food $food)
     {
         return view('admin.food.edit',compact('food'));
     }
@@ -81,8 +81,8 @@ class FoodController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePostRequest  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Http\Requests\UpdateFoodRequest  $request
+     * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateFoodRequest $request, Food $food)
