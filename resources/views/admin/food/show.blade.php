@@ -22,10 +22,11 @@
                 </div>
             </div>
         </div>
-                @if ($food->img)
-                    <div>
-                        <img src="{{ asset('storage/'.$food->img) }}" style="height: 300px;" alt="null">
-                    </div>
-                @endif
+        
+        @if ($food->img)
+            <div>
+                <img src="{{ asset('storage/'.$food->img) }}" style="height: 300px;" alt="null">
+            </div>
+        @endif
     </div>
 @endsection

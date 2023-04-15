@@ -53,7 +53,7 @@ class FoodController extends Controller
         $newFood = Food::create($data);
 
         
-        return redirect()->route('admin.foods.show', $newFood->id);
+        return redirect()->route('admin.foods.show', $newFood->id)->with('success', 'Piatto inserito con successo!');
     }
 
     /**
@@ -112,7 +112,7 @@ class FoodController extends Controller
 
         $food->update($data);
 
-        return redirect()->route('admin.foods.show', $food->id);
+        return redirect()->route('admin.foods.show', $food->id)->with('success', 'Piatto modificato con successo!');
     }
 
     /**

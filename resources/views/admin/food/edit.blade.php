@@ -11,19 +11,7 @@
         @method('PUT')
 
         <div>
-            @if($errors->any())
-                <div class="row">
-                    <div class="col">
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            @endif
+            @include('partials.error')
         </div>
 
         <div>
@@ -72,19 +60,6 @@
         </div>
 
         <div>
-
-            {{-- Immagine --}}
-            {{-- <label for="img" class="form-label">Immagine</label>
-            <input
-            class="form-control w-50 mb-4"
-            type="file" 
-            name="img" 
-            id="img"
-            placeholder="Inserisci l'immagine'"> --}}
-
-        </div>
-
-        <div>
             {{-- Immagine --}}
             <label for="img" class="form-label">Immagine</label>
 
@@ -106,8 +81,8 @@
 
         <div>
             {{-- Bottone --}}
-            <button type="submit" class="btn btn-success">
-                Inserisci
+            <button type="submit" class="btn btn-warning">
+                Modifica
             </button>
         </div>
 

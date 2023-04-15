@@ -71,6 +71,11 @@
         </div>
 
         <div>
+            {{-- Tipologie di piatto --}}
+            
+        </div>
+
+        <div>
 
             {{-- Immagine --}}
             <label for="img" class="form-label">Immagine</label>
