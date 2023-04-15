@@ -22,7 +22,17 @@
                 </div>
             </div>
         </div>
-        
+
+        <div>
+            @if ($food->vegetarian == true)
+                <p>Il piatto è vegetariano</p>
+            @endif
+            
+            @if ($food->vegan == true)
+                <p>Il piatto è vegano</p>
+            @endif
+        </div>
+
         @if ($food->img)
             <div>
                 <img src="{{ asset('storage/'.$food->img) }}" style="height: 300px;" alt="null">
