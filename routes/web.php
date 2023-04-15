@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 // Controllers
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Admin\FoodController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 
     Route::resource('restaurants', RestaurantController::class);
+    Route::resource('foods', FoodController::class);
 });
 
 Route::middleware('auth')->group(function () {
