@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Menù') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,7 +16,7 @@
 
                     
 
-                    <a href="{{ route('admin.restaurants.create') }}" class="btn btn-success">
+                    <a href="{{ route('admin.foods.create') }}" class="btn btn-success">
                         Inserisci il tuo piatto
                     </a>
                 </div>

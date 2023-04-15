@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreFoodRequest;
 use App\Http\Requests\UpdateFoodRequest;
 use App\Models\Food;
 // storage
 use Illuminate\Support\Facades\Storage;
+// Controller
+use App\Http\Controllers\Controller;
 
 class FoodController extends Controller
 {
@@ -18,7 +20,7 @@ class FoodController extends Controller
     public function index()
     {
         $foods=Food::all();
-        return view('admin.foods.index',compact('foods'));
+        return view('admin.food.index',compact('foods'));
     }
 
     /**
@@ -28,7 +30,7 @@ class FoodController extends Controller
      */
     public function create()
     {
-        return view('admin.foods.create');
+        return view('admin.food.create');
     }
 
     /**
@@ -62,7 +64,7 @@ class FoodController extends Controller
      */
     public function show(Food $post)
     {
-        return view('admin.foods.show',compact('food'));
+        return view('admin.food.show',compact('food'));
     }
 
     /**
@@ -73,7 +75,7 @@ class FoodController extends Controller
      */
     public function edit(Food $post)
     {
-        return view('admin.foods.edit',compact('food'));
+        return view('admin.food.edit',compact('food'));
     }
 
     /**
