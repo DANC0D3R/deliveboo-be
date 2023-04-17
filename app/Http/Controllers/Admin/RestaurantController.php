@@ -6,6 +6,7 @@ use App\Models\Restaurant;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 
+
 // Helpers
 use Illuminate\Support\Facades\DB;
 
@@ -15,12 +16,14 @@ use App\Http\Controllers\Controller;
 // Storage
 use Illuminate\Support\Facades\Storage;
 
+//auth
+use Illuminate\Support\Facades\Auth;
+
 //Slug
 use Illuminate\Support\Str;
 
 // Models
 use App\Models\Type;
-use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
@@ -29,9 +32,14 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurant::all();
+        // $restaurant = Restaurant::all();
 
-        return view('admin.restaurant.index');
+        $user = Auth::user();
+
+        $restaurant = Restaurant::where('user_id', $user->id)->get();
+
+        return view('admin.restaurant.index', compact('restaurant'));
+
     }
 
     /**
@@ -81,16 +89,11 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        // $targetRestaurant = DB::table('restaurants')->where('user_id', '=', 'users->id')->get();
-        // return view('admin.restaurant.show', $targetRestaurant);
+       // $user = Auth::user();
 
-        // $user = auth()->user();
-        // $userId = $user->id;
-        // $targetRestaurant = DB::table('restaurants')->where('user_id', '=', $userId)->get();
+    //     $restaurant = Restaurant::where('user_id', $user->id)->get();
 
-        // return view('admin.restaurant.show', $targetRestaurant);
-
-        $targetRestaurant = DB::table('restaurants')->where('user_id', '=', 1)->get();
+    //    $targetRestaurant = DB::table('restaurants')->where('user_id', '=', 1)->get();
 
         return view('admin.restaurant.show', compact('restaurant'));
 

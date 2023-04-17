@@ -1,6 +1,6 @@
-@extends('admin.dashboard') {{-- Con questo percorso pacciamo sì che la show del ristorante estenda la dashboard --}} 
+@extends('layouts.admin') 
 
-@section('restaurant_show') {{-- Il codice contenuto in questa section andrà a riempire lo yeld che ho messo in Dashboard--}} 
+@section('content') {{-- Il codice contenuto in questa section andrà a riempire lo yeld che ho messo in Dashboard--}} 
 
     <div class="container-fluid mt-4">
         <h1>Il mio ristorante</h1>
