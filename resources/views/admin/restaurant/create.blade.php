@@ -89,15 +89,6 @@
             >
         </div>
 
-        <div class="mb-3">
-            <label for="type">Scegli una tipologia di progetto</label>
-            <select name="types[]" id="type" multiple>
-                <option value="">Non definito</option>
-                @foreach ($types as $type)
-                    <option value="{{ $type->id }}">{{ $type->name }}</option>
-                @endforeach
-            </select>
-        </div>
 
         <div>
 
