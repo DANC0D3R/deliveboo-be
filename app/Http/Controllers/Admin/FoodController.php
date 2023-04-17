@@ -19,6 +19,7 @@ class FoodController extends Controller
      */
     public function index()
     {
+        
         $foods=Food::all();
         return view('admin.food.index',compact('foods'));
     }
