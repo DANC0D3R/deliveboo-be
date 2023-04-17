@@ -89,20 +89,33 @@
             >
         </div>
 
-        <div class="mb-3">
-            <label for="type">Scegli una tipologia di progetto</label>
-            <select name="types[]" id="type" multiple>
-                <option value="">Non definito</option>
-                @foreach ($types as $type)
-                    <option value="{{ $type->id }}">{{ $type->name }}</option>
-                @endforeach
-            </select>
-        </div>
+        {{-- Tipo --}}
+
+        <p class="mb-1">Tipo di ristorante</p>
+        @foreach ($types as $type)
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input
+                    class="btn-check"
+                    name="types[]"
+                    type="checkbox"
+                    id="type-{{ $type->id }}"
+                    {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}
+                    {{--
+                        ALTERNATIVA:
+                        @if (old('tags') && is_array(old('tags')) && count(old('tags')) > 0)
+                            {{ in_array($tag->id, old('tags')) ? 'checked' : '' }}
+                        @endif
+                    --}}
+                    value="{{ $type->id }}">
+                <label class="btn btn-outline-warning" for="type-{{ $type->id }}">
+                    {{ $type->name }}
+                </label>
+            </div>
+        @endforeach
 
         <div>
-
             {{-- Immagine --}}
-            <label for="img" class="form-label">Immagine</label>
+            <label for="img" class="form-label mt-2">Immagine</label>
             <input
             class="form-control w-50 mb-4"
             type="file" 
