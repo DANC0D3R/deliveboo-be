@@ -57,6 +57,10 @@ class RestaurantController extends Controller
 
         $data['slug'] = Str::slug($data['name']);
 
+        // test foreign key user
+        $user = auth()->user();
+        $data['user_id'] = $user->id;
+        
         $newRestaurant = Restaurant::create($data);
 
         if (array_key_exists('types', $data)) {

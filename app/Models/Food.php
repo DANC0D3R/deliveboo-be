@@ -12,6 +12,7 @@ class Food extends Model
     protected $table = "foods";
 
     protected $fillable = [
+        'restaurant_id',
         'name',
         'description',
         'price',
@@ -22,8 +23,7 @@ class Food extends Model
     ];
 
     // relazione con tabella Restaurants
-    public function restaurants()
-    {
+    public function restaurant() {
         return $this->belongsTo(Restaurant::class);
     }
     public function orders() {
