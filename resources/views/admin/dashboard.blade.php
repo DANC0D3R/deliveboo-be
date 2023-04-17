@@ -20,7 +20,7 @@
                         Inserisci il tuo ristorante
                     </a>
 
-                    {{-- @yield('restaurant_show') --}} {{-- Qui creiamo uno spazio dove inserire la show del ristorante --}} 
+                    @yield('restaurant_show') {{-- Qui creiamo uno spazio dove inserire la show del ristorante --}} 
                 </div>
             </div>
         </div>

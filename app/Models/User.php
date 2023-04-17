@@ -46,7 +46,7 @@ class User extends Authenticatable
     ];
 
     
-    public function restaurants() {
+    public function restaurant() {
         return $this->hasOne(Restaurant::class);
     }
   

@@ -10,6 +10,7 @@ class Restaurant extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'name',
         'slug',
         'address',
@@ -20,7 +21,7 @@ class Restaurant extends Model
     ];
 
     // Relazione tabella User
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
@@ -32,8 +33,7 @@ class Restaurant extends Model
     }
 
     // relazione con tabella Foods
-    public function foods()
-    {
+    public function foods() {
         return $this->hasMany(Food::class);
     }
 }
