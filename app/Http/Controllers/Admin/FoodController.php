@@ -5,10 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\StoreFoodRequest;
 use App\Http\Requests\UpdateFoodRequest;
 use App\Models\Food;
+use App\Models\Restaurant;
+
+// Helpers
+use Illuminate\Support\Facades\Auth;
 // storage
 use Illuminate\Support\Facades\Storage;
 // Controller
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class FoodController extends Controller
 {
@@ -31,7 +36,10 @@ class FoodController extends Controller
      */
     public function create()
     {
-        return view('admin.restaurant.create');
+        $user = auth()->user(); //acquisizione user loggato
+        $userId = $user->id; //ricerca id dello user loggato
+        $targetRestaurant = DB::table('restaurants')->where('user_id', '=', $userId)->get(); //salvataggio ristorante dello user
+        return view('admin.food.create', compact('targetRestaurant'));
     }
 
     /**
