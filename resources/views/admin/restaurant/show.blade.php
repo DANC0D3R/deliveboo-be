@@ -53,6 +53,7 @@
                         <h6 class="ms-3">Partita IVA: {{ $restaurant->p_iva }}</h6>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 
