@@ -6,6 +6,9 @@ use App\Models\Restaurant;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 
+// Helpers
+use Illuminate\Support\Facades\DB;
+
 // Controller
 use App\Http\Controllers\Controller;
 
@@ -17,6 +20,7 @@ use Illuminate\Support\Str;
 
 // Models
 use App\Models\Type;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
@@ -77,7 +81,19 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
+        // $targetRestaurant = DB::table('restaurants')->where('user_id', '=', 'users->id')->get();
+        // return view('admin.restaurant.show', $targetRestaurant);
+
+        // $user = auth()->user();
+        // $userId = $user->id;
+        // $targetRestaurant = DB::table('restaurants')->where('user_id', '=', $userId)->get();
+
+        // return view('admin.restaurant.show', $targetRestaurant);
+
+        $targetRestaurant = DB::table('restaurants')->where('user_id', '=', 1)->get();
+
         return view('admin.restaurant.show', compact('restaurant'));
+
     }
 
     /**
