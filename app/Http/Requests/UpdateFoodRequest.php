@@ -24,6 +24,7 @@ class UpdateFoodRequest extends FormRequest
     public function rules()
     {
         return [
+            'restaurant_id' => 'nullable|exists:restaurants,id',
             'name'=>'required|max:50',
             'description'=> 'required',
             'price'=>'required',
