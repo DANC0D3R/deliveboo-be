@@ -33,12 +33,12 @@ class OrderSeeder extends Seeder
 
             order::create([
                 'total_price' => $order['total_price'],
-                'order_time' => $order['order_time'],
-                'order_date' => $order['order_date'],
                 'client_name' => $order['client_name'],
+                'client_surname' => $order['client_surname'],
                 'client_address' => $order['client_address'],
                 'client_phone' => $order['client_phone'],
                 'client_email' => $order['client_email'],
+                'notes' => $order['notes']
             ]);
         }
 

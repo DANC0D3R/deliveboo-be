@@ -17,11 +17,11 @@ return new class extends Migration
         if(!Schema::hasTable('orders')) {
             Schema::create('orders', function (Blueprint $table) {
                 $table->id();
-                $table->decimal('price', $precision = 5, $scale = 2);
+                $table->decimal('total_price', $precision = 5, $scale = 2);
                 $table->string('client_name', 20);
                 $table->string('client_surname', 20);
-                $table->string('address', 100);
-                $table->string('phone', 15);
+                $table->string('client_address', 100);
+                $table->string('client_phone', 15);
                 $table->string('client_email', 255);
                 $table->text('notes')->nullable();
                 $table->timestamps();
