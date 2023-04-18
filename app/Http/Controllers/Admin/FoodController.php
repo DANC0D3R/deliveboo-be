@@ -24,8 +24,14 @@ class FoodController extends Controller
      */
     public function index()
     {
+        //Prendo l'id dell'user che è al momento loggato
+        $user_id = auth()->user()->id;
         
-        $foods=Food::all();
+        //Query che ritorna il piatto che corrisponde all'user id e al restaurant id
+        $foods = Food::where("restaurant_id", $user_id)->get();
+       
+      
+
         return view('admin.food.index',compact('foods'));
     }
 

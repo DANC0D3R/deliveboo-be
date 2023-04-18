@@ -31,6 +31,7 @@ class StoreRestaurantRequest extends FormRequest
             'phone'=>'required | string | min:10 | max:15',
             'types'=> 'required | array | exists:types,id',
             'img'=> 'nullable | image'
+            
         ];
     }
 }
