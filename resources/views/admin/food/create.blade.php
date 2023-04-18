@@ -70,6 +70,7 @@
             placeholder="Es: 9.99"
             name="price"
             step="0.01"
+            min="0"
             value="{{ old('price') }}"
             required
             >
