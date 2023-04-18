@@ -22,7 +22,8 @@ class FoodSeeder extends Seeder
             "price" => 12.99,
             "vegetarian" => "0",
             "vegan" => "0",
-            "img" => "https://www.giallozafferano.it/images/251-2513/Spaghetti-alla-carbonara_780x520_wm.jpg"
+            "img" => "https://www.giallozafferano.it/images/251-2513/Spaghetti-alla-carbonara_780x520_wm.jpg",
+            "restaurant_id" => 1
             ],
             [
             "name" => "Pizza Margherita",
@@ -100,14 +101,7 @@ class FoodSeeder extends Seeder
         
         foreach ($foods as $food) {
 
-            Food::create([
-                'name' => $food['name'],
-                'description' => $food['description'],
-                'price' => $food['price'],
-                'vegetarian' => $food['vegetarian'],
-                'vegan' => $food['vegan'],
-                'img' => $food['img'],
-            ]);
+            Food::create($food);
         }
     }
 }

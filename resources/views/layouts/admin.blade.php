@@ -49,9 +49,6 @@
                         <div class="position-sticky pt-3">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
-                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Inserisci ristorante
-                                    </a>
 
                                     <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurants.index' ? 'bg-secondary' : '' }}" href="{{route('admin.restaurants.index')}}">
                                         <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Il tuo ristorante
