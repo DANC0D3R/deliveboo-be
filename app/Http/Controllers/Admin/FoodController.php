@@ -84,7 +84,11 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
-        return view('admin.food.edit',compact('food'));
+        $user = auth()->user(); //acquisizione user loggato
+        $userId = $user->id; //ricerca id dello user loggato
+        $targetRestaurant = DB::table('restaurants')->where('user_id', '=', $userId)->get(); //salvataggio ristorante dello user
+        
+        return view('admin.food.edit',compact('food', 'targetRestaurant'));
     }
 
     /**

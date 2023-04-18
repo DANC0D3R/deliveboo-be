@@ -17,6 +17,11 @@
         <div>
             <h2 class="mb-3">Modifica il tuo piatto</h2>
 
+            {{-- Salvataggio Id ristorante dello user loggato --}}
+            <div class="d-none">
+                <input type="number" name="restaurant_id" value="{{ $targetRestaurant[0]->id }}">
+            </div>
+
             {{-- Nome piatto --}}
             <label for="name" class="form-laber">Nome Piatto *</label>
             <input
