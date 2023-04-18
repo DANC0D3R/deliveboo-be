@@ -24,6 +24,7 @@ class StoreRestaurantRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => 'nullable | exists:users, id',
             'name'=>'required | string |min:1| max:50',
             'address'=>'required | string | max:100 | min:5',
             'p_iva'=>'required | string | size:11 ',

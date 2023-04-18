@@ -20,8 +20,9 @@ class RestaurantSeeder extends Seeder
     {
         $restaurants = [
             [
+                'user_id' => '1',
                 'name' => 'Ristorante da Mario',
-                'slug' => '',
+                'slug' => 'ristorante-da-mario',
                 'address' => 'Via Roma 1',
                 'p_iva' => 'IT123456389',
                 'phone' => '+39 012345678',
@@ -29,8 +30,9 @@ class RestaurantSeeder extends Seeder
                 'img' => 'https://www.example.com/ristorante-mario.jpg',
             ],
             [
+                'user_id' => '1',
                 'name' => 'La Trattoria del Sole',
-                'slug' => '',
+                'slug' => 'la-trattoria-del-sole',
                 'address' => 'Via Garibaldi 23',
                 'p_iva' => 'IT987654621',
                 'phone' => '+39 056789012',
@@ -38,8 +40,9 @@ class RestaurantSeeder extends Seeder
                 'img' => 'https://www.example.com/trattoria-del-sole.jpg',
             ],
             [
+                'user_id' => '2',
                 'name' => 'Il Ristorantino',
-                'slug' => 'ristorantino',
+                'slug' => 'il-ristorantino',
                 'address' => 'Via Giotto 5',
                 'p_iva' => 'IT456729123',
                 'phone' => '+39 034567890',
@@ -47,8 +50,9 @@ class RestaurantSeeder extends Seeder
                 'img' => 'https://www.example.com/ristorantino.jpg',
             ],
             [
+                'user_id' => '2',
                 'name' => 'La Pizzeria del Corso',
-                'slug' => 'pizzeria-del-corso',
+                'slug' => 'la-pizzeria-del-corso',
                 'address' => 'Via Dante Alighieri 11',
                 'p_iva' => 'IT234569891',
                 'phone' => '+39 098765432',
@@ -56,13 +60,64 @@ class RestaurantSeeder extends Seeder
                 'img' => 'https://www.example.com/pizzeria-del-corso.jpg',
             ],
             [
+                'user_id' => '3',
                 'name' => 'Il Bistrot',
-                'slug' => 'bistrot',
+                'slug' => 'il-bistrot',
                 'address' => 'Via Verdi 8',
                 'p_iva' => 'IT891274567',
                 'phone' => '+39 012345678',
                 'description' => 'Un bistrot di atmosfera, dove il menu è sempre diverso e stagionale e dove i cocktail sono una vera delizia.',
                 'img' => 'https://www.example.com/bistrot.jpg',
+            ],
+            [
+                'user_id' => '3',
+                'name' => 'Ristorante al Mare',
+                'slug' => 'ristorante-al-mare',
+                'address' => 'Lungomare Trieste, 25',
+                'p_iva' => 'IT234529397',
+                'phone' => '+39 02 0123456',
+                'description' => 'Ristorante di pesce con vista sul mare e specialità della cucina mediterranea.',
+                'img' => 'https://www.example.com/images/ristorante_al_mare.jpg'
+            ],
+            [
+                'user_id' => '4',
+                'name' => 'Il Samurai',
+                'slug' => 'il-samurai',
+                'address' => 'Minato Mirai 789, Yokohama',
+                'p_iva' => 'IT914725806',
+                'phone' => '+81 45 1234567',
+                'description' => 'Specialità giapponesi preparate con maestria e servite con eleganza',
+                'img' => 'https://www.example.com/images/il_samurai.jpg'
+            ],
+            [
+                'user_id' => '4',
+                'name' => 'Il Dragone',
+                'slug' => 'il-dragone',
+                'address' => 'Via della Repubblica, 20',
+                'p_iva' => 'IT901234567',
+                'phone' => '+39 02 7890123',
+                'description' => 'Ristorante cinese con specialità della cucina cantonese, sichuan e shanghainese.',
+                'img' => 'https://www.example.com/images/ristorante_cinese.jpg'
+            ],
+            [
+                'user_id' => '5',
+                'name' => 'Il Grottino',
+                'slug' => 'il-grottino',
+                'address' => 'Via dei Cacciatori, 15',
+                'p_iva' => 'IT678901234',
+                'phone' => '+39 02 4567890',
+                'description' => 'Ristorante con cucina toscana e cantina con ampia selezione di vini.',
+                'img' => 'https://www.example.com/images/il_grottino.jpg'
+            ],
+            [
+                'user_id' => '5',
+                'name' => 'La Hacienda',
+                'slug' => 'la-hacienda',
+                'address' => 'Avenida Reforma 123, Città del Messico',
+                'p_iva' => 'IT125836902',
+                'phone' => '+52 55 1234567',
+                'description' => 'Cucina messicana tradizionale, rivisitata con un tocco di creatività',
+                'img' => 'https://www.example.com/images/la_hacienda.jpg'
             ],
         ];
 
@@ -82,6 +137,7 @@ class RestaurantSeeder extends Seeder
             $name = $restaurant['name'];
 
             Restaurant::create([
+                'user_id'=>$restaurant['user_id'],
                 'name'=>$name,
                 'slug'=>Str::slug($name),
                 'address'=>$restaurant['address'],
