@@ -96,7 +96,8 @@ class FoodSeeder extends Seeder
             "vegan" => "0",
             "img" => "https://www.giallozafferano.it/images/173-17327/Goulash-ungherese_780x520_wm.jpg"
             ]
-            ];
+        ];
+        
         foreach ($foods as $food) {
 
             Food::create([

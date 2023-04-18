@@ -14,17 +14,19 @@ return new class extends Migration
     public function up()
     {
         // tabella orders
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->decimal('total_price',  10,2)->default(0.00);
-            $table->date('order_time');
-            $table->date('order_date');
-            $table->string('client_name');
-            $table->string('client_address');
-            $table->string('client_phone');
-            $table->string('client_email');
-            $table->timestamps();
-        });
+        if(!Schema::hasTable('orders')) {
+            Schema::create('orders', function (Blueprint $table) {
+                $table->id();
+                $table->decimal('total_price', $precision = 5, $scale = 2);
+                $table->string('client_name', 20);
+                $table->string('client_surname', 20);
+                $table->string('client_address', 100);
+                $table->string('client_phone', 15);
+                $table->string('client_email', 255);
+                $table->text('notes')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**

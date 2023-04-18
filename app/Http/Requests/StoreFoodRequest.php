@@ -25,9 +25,9 @@ class StoreFoodRequest extends FormRequest
     {
         return [
             'restaurant_id' => 'nullable|exists:restaurants,id',
-            'name'=>'required | max:50',
+            'name'=>'required | string | max:50',
             'description'=> 'required',
-            'price'=>'required | unsigned | min:0',
+            'price'=>'required | min:0 | decimal:2',
             'vegetarian' => 'boolean',
             'vegan' => 'boolean',
             'availability' => 'boolean',
