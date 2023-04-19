@@ -17,8 +17,10 @@ use App\Http\Controllers\Api\OrderController;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
-Route::resource('orders', OrderController::class);
+Route::name('api.')->group(function () {
+    Route::resource('orders', OrderController::class);
+});
