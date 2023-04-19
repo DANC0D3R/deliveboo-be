@@ -13,13 +13,11 @@
                         {{ session('status') }}
                     </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
-
-                    <a href="{{ route('admin.restaurants.create') }}" class="btn btn-success">
-                        Inserisci il tuo ristorante
-                    </a>
-
+                    <!-- Prendo il nome dell'utente loggato -->
+                    Benvenuto {{ Auth::user()->name }}
+                    
+                    
+                   
                 </div>
             </div>
         </div>

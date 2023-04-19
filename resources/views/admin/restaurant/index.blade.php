@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container-fluid mt-4">
+    @if(count($restaurant)>0)
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -37,5 +38,10 @@
             </div>
         </div>
     </div>
+    @else
+    <a href="{{ route('admin.restaurants.create') }}" class="btn btn-success">
+        Inserisci il tuo ristorante
+    </a>
+    @endif
 </div>
 @endsection
