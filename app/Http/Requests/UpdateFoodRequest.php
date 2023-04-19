@@ -27,7 +27,7 @@ class UpdateFoodRequest extends FormRequest
             'restaurant_id' => 'nullable|exists:restaurants,id',
             'name'=>'required | string | max:50',
             'description'=> 'required',
-            'price'=>'required | min:0 | decimal:2',
+            'price'=>'required | min:0 | decimal: 0,2',
             'vegetarian' => 'boolean',
             'vegan' => 'boolean',
             'availability' => 'boolean',
