@@ -12,5 +12,8 @@ Istruzioni per creazione e riempimento database e tabelle
 4 - Eseguire il seguente comando per riempire la tabella "RESTAURANTS":
     - php artisan db:seed --class=RestaurantSeeder
 
-5 - Eseguire il seguente comando per riempire la tabella "ORDERS":
+5 - Eseguire il seguente comando per riempire la tabella "RESTAURANTS":
+    - php artisan db:seed --class=FoodSeeder
+
+6 - Eseguire il seguente comando per riempire la tabella "ORDERS":
     - php artisan db:seed --class=OrderSeeder
