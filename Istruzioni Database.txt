@@ -1,0 +1,16 @@
+Istruzioni per creazione e riempimento database e tabelle
+
+1 - Eseguire il seguente comando per creare tutte le tabelle:
+    - php artisan migrate
+
+2 - Eseguire il seguente comando per riempire la tabella "USERS":
+    - php artisan db:seed --class=UserSeeder
+
+3 - Eseguire il seguente comando per riempire la tabella "TYPES":
+    - php artisan db:seed --class=TypeSeeder
+
+4 - Eseguire il seguente comando per riempire la tabella "RESTAURANTS":
+    - php artisan db:seed --class=RestaurantSeeder
+
+5 - Eseguire il seguente comando per riempire la tabella "ORDERS":
+    - php artisan db:seed --class=OrderSeeder
