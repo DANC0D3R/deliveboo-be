@@ -30,7 +30,9 @@ class StoreOrderRequest extends FormRequest
             'client_address' => 'required | string | max:100 | min:5',
             'client_phone' => 'required | string | min:10 | max:15',
             'client_email' => 'required | string | email',
-            'notes'=> 'nullable',
+            'notes'=> 'required',
+            'restaurant_id' => 'required',
+            'food_id' => 'required',
         ];
     }
 }
