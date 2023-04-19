@@ -31,7 +31,7 @@ class RestaurantSeeder extends Seeder
         ])->types()->attach($type_id);
             
         
-        $type_id = Type::find(6)->id;
+        $type_id = Type::find(1)->id;
         Restaurant::create([
             'user_id' => '1',
             'name' => 'La Trattoria del Sole',
@@ -44,7 +44,7 @@ class RestaurantSeeder extends Seeder
         ])->types()->attach($type_id);
             
         
-        $type_id = Type::whereIn('id', [2,5])->pluck('id')->toArray();
+        $type_id = Type::find(4)->id;
         Restaurant::create([
             'user_id' => '2',
             'name' => 'Il Ristorantino',
@@ -57,7 +57,7 @@ class RestaurantSeeder extends Seeder
         ])->types()->attach($type_id);
             
         
-        $type_id = Type::find(4)->id;
+        $type_id = Type::whereIn('id', [1,9])->pluck('id')->toArray();
         Restaurant::create([
             'user_id' => '2',
             'name' => 'La Pizzeria del Corso',
@@ -70,7 +70,7 @@ class RestaurantSeeder extends Seeder
         ])->types()->attach($type_id);
             
         
-        $type_id = Type::whereIn('id', [2,7])->pluck('id')->toArray();
+        $type_id = Type::whereIn('id', [1,3])->pluck('id')->toArray();
         Restaurant::create([
             'user_id' => '3',
             'name' => 'Il Bistrot',
@@ -84,6 +84,7 @@ class RestaurantSeeder extends Seeder
 
 
         $type_id = Type::find(5)->id;
+        $type_id = Type::whereIn('id', [1,7])->pluck('id')->toArray();
         Restaurant::create([
             'user_id' => '3',
             'name' => 'Ristorante al Mare',
@@ -96,7 +97,7 @@ class RestaurantSeeder extends Seeder
         ])->types()->attach($type_id);
 
 
-        $type_id = Type::whereIn('id', [3,6])->pluck('id')->toArray();
+        $type_id = Type::whereIn('id', [4,7])->pluck('id')->toArray();
         Restaurant::create([
             'user_id' => '4',
             'name' => 'Il Samurai',
@@ -109,7 +110,7 @@ class RestaurantSeeder extends Seeder
         ])->types()->attach($type_id);
 
 
-        $type_id = Type::find(5)->id;
+        $type_id = Type::find(2)->id;
         Restaurant::create([
             'user_id' => '4',
             'name' => 'Il Dragone',
@@ -122,7 +123,7 @@ class RestaurantSeeder extends Seeder
         ])->types()->attach($type_id);
 
 
-        $type_id = Type::whereIn('id', [1,2])->pluck('id')->toArray();
+        $type_id = Type::whereIn('id', [1,8])->pluck('id')->toArray();
         Restaurant::create([
             'user_id' => '5',
             'name' => 'Il Grottino',
@@ -135,7 +136,7 @@ class RestaurantSeeder extends Seeder
         ])->types()->attach($type_id);
 
 
-        $type_id = Type::find(7)->id;
+        $type_id = Type::find(5)->id;
         Restaurant::create([
             'user_id' => '5',
             'name' => 'La Hacienda',
