@@ -18,12 +18,12 @@ class FoodSeeder extends Seeder
         $foods = [
             [
                 'restaurant_id' => '1',
-                "name" => "Spaghetti alla carbonara",
-                "description" => "Spaghetti, pancetta, pecorino romano, uova, pepe",
-                "price" => 12.99,
-                "vegetarian" => "0",
-                "vegan" => "0",
-                "img" => "https://www.giallozafferano.it/images/251-2513/Spaghetti-alla-carbonara_780x520_wm.jpg",
+                'name' => 'Spaghetti alla carbonara',
+                'description' => 'Spaghetti, pancetta, pecorino romano, uova, pepe',
+                'price' => 12.99,
+                'vegetarian' => '0',
+                'vegan' => '0',
+                'img' => 'https://www.giallozafferano.it/images/251-2513/Spaghetti-alla-carbonara_780x520_wm.jpg'
             ],
             [
                 'restaurant_id' => '1',
