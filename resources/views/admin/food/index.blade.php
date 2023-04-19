@@ -180,7 +180,7 @@
         background-color: #FFA559;
     }
     .edit{
-        background-color: #F7D060;
+        background-color: #FF8400;
     }
     .delete{
         background-color: red;

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container mt-4">
+<div class="container form mt-4">
     <div class="row">
 
         <div class="col">
@@ -107,7 +107,7 @@
 
                 <p class="mb-1">Tipo di ristorante *</p>
                 @foreach ($types as $type)
-                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <div class="btn-group click" role="group" aria-label="Basic checkbox toggle button group">
                         <input
                         class="btn-check"
                         name="types[]"
@@ -153,3 +153,9 @@
     </div>
 </div>
 @endsection
+<style scoped>
+.click{
+    background-color: #FF8400;
+    
+}
+</style>

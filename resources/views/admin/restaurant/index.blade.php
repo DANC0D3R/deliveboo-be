@@ -39,9 +39,34 @@
         </div>
     </div>
     @else
-    <a href="{{ route('admin.restaurants.create') }}" class="btn btn-success">
-        Inserisci il tuo ristorante
-    </a>
+    <div class="home-jumbotron py-5">
+
+            <div class="container rounded-4 p-5 presentation-banner text-center shadow welcome-container">
+                <h1 class="custom-color">Benvenuto {{ Auth::user()->name }}</h1>
+
+
+
+                <h2 class="py-3">DeliveBoo,la piattaforma che ti permette di gestire il tuo ristorante</h2>
+                <h3 class="py-3">
+                    Con un click
+                </h3>
+                <a href="{{ route('admin.restaurants.create') }}" class="btn btn-success">
+                        Inserisci il tuo ristorante
+                </a>
+            </div>
+
+           
+            
+
+        </div>
+    
     @endif
 </div>
 @endsection
+<style scoped>
+.container{
+    background-color: #FF8400;
+}
+
+   
+</style>
