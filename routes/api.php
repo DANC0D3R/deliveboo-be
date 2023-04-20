@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Questa rotta dirige i dati ricevuti dal back end verso OrderController, seguendo il percorso api/orders
 Route::name('api.')->group(function () {
     Route::resource('orders', OrderController::class);
 });

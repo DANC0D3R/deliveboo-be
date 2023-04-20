@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-// Helpers
-use App\Http\Resources\Api\OrderResource;
 
 class OrderController extends Controller
 {
@@ -40,9 +38,12 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        Order::create($request->all());
+        // Qui nello store credo che potremmo inserire le funzioni che ci servono per calcolare il prezzo finale dell'ordine e per connetterlo con la tabella ponte.
+        // Dovremmo anche pensare a come far passare i dati da una validazione back end prima di arrivare a creare l'ordine
+        
+        Order::create($request->all()); //così prendiamo i dati ricevuti dal front end in request e creiamo un nuovo ordine nel database
 
-        return (['message' => 'Ordine ricevuto']);
+        return (['message' => 'Ordine ricevuto']); //il messaggio di ordine ricevuto verrà visualizzato nell'inspector, alla sezione network->fetch/xhr
     }
 
     /**
