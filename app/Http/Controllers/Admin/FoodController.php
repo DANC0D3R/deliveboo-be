@@ -59,7 +59,7 @@ class FoodController extends Controller
         $data = $request->validated();
 
         if (array_key_exists('img', $data)) {
-            $imgPath = Storage::put('posts', $data['img']);
+            $imgPath = Storage::put('foods', $data['img']);
             $data['img'] = $imgPath;
         }
 
@@ -118,7 +118,7 @@ class FoodController extends Controller
             }
         }
         else if (array_key_exists('img', $data)) {
-            $imgPath = Storage::put('posts', $data['img']);
+            $imgPath = Storage::put('foods', $data['img']);
             $data['img'] = $imgPath;
 
             if ($food->img) {

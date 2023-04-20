@@ -22,10 +22,15 @@
 
                         {{-- Immagine --}}
                         @if ($food->img)
-                            <div>
-                                {{-- <img src="{{ asset('storage/'.$food->img) }}" style="height: 300px;" alt="null">  Immagine del piatto --}}
-                                <img src="https://www.cucchiaio.it/content/cucchiaio/it/ricette/2020/04/pasta-alla-zozzona/jcr:content/imagePreview.img10.jpg/1588238376193.jpg" alt="">
-                            </div>
+                        <div>
+                            @if(str_contains($food->img, "https"))
+                            <img src="{{ $food->img }}" style="height: 300px" alt="{{ $food->name }}">
+                            @else
+                            <img   src="{{asset('storage/'. $food->img)}}" style="height: 300px" alt="{{ $food->name }}">
+                            @endif
+                            {{-- Placeholder --}}
+                            {{-- <img src="https://www.cucchiaio.it/content/cucchiaio/it/ricette/2020/04/pasta-alla-zozzona/jcr:content/imagePreview.img10.jpg/1588238376193.jpg" alt=""> --}}
+                        </div>
                         @endif
 
                         <div class="text-container">
