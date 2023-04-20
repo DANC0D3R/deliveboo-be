@@ -123,8 +123,9 @@
                     <label for="img" class="form-label">Immagine</label>
                     <input
                     class="form-control w-50 mb-4"
-                    type="file" 
-                    name="img" 
+                    type="file"
+                    accept="image/*" 
+                    name="img"
                     id="img"
                     placeholder="Inserisci l'immagine'"
                     >
