@@ -30,7 +30,7 @@ class RestaurantSeeder extends Seeder
             'img' => 'https://www.example.com/ristorante-mario.jpg',
         ])->types()->attach($type_id);
         
-        $type_id = Type::find(4)->id;
+        $type_id = Type::find(1)->id;
         Restaurant::create([
             'user_id' => '2',
             'name' => 'Il Ristorantino',
@@ -38,7 +38,7 @@ class RestaurantSeeder extends Seeder
             'address' => 'Via Giotto 5',
             'p_iva' => 'IT456729123',
             'phone' => '+39 034567890',
-            'description' => 'Un ristorante chic e raffinato, dove la cucina moderna incontra le tradizioni gastronomiche regionali.',
+            'description' => 'Un ristorante chic e raffinato, dove la cucina moderna che comprende anche tante opzioni vegetariane e vegane.',
             'img' => 'https://www.example.com/ristorantino.jpg',
         ])->types()->attach($type_id);
             
