@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
@@ -15,7 +17,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        // $user_id = auth()->user()->id;
+        // $order = Order::where('restaurant_id', $user_id)->get();
+        // return view('admin.food.index',compact('order'));
+        // @dd($order);
     }
 
     /**

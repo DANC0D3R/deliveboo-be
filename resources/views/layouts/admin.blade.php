@@ -59,7 +59,7 @@
                                         <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Menù
                                     </a>
 
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.orders.index' ? 'bg-secondary' : '' }}" href="{{route('admin.orders.index')}}">
                                         <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Ordini
                                     </a>
 
