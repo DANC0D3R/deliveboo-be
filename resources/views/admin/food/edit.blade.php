@@ -109,18 +109,9 @@
                     {{-- Immagine --}}
                     <label for="img" class="form-label">Immagine</label>
 
-                    @if ($food->img)
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" name="delete-img" id="delete-img">
-                            <label class="form-check-label" for="delete-img">
-                                Elimina immagine
-                            </label>
-                        </div>
+                    <img src="{{ asset('storage/'.$food->img) }}" class="card-img-top mb-3" alt="immagine" style="height: 200px; width: 300px">
 
-                        <img src="{{ asset('storage/'.$food->img) }}" class="card-img-top mb-3" alt="immagine" style="height: 200px; width: 300px">
-                    @endif
-
-                    <input class="form-control w-50 mb-4" type="file" id="img" name="img" accept="image/*" placeholder="Inserisci l'immagine'">
+                    <input class="form-control w-50 mb-4" type="file" id="img" name="img" accept="image/*" placeholder="Inserisci la nuova immagine'">
                 </div>
 
                 <p>I campi contrassegnati con <strong>*</strong> sono <strong>obbligatori</strong></p>
