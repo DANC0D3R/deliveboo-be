@@ -13,11 +13,13 @@ class Order extends Model
         'notes',
         'total_price',
         'client_name', 
+        'client_surname', 
         'client_address', 
         'client_phone',
         'client_email',
-        
+        'notes'
     ];
+    
     public function foods() {
         return $this->belongsToMany(Food::class);
     }

@@ -7,6 +7,9 @@ use App\Http\Controllers\API\RestaurantController;
 // models
 use App\Models\Restaurant;
 
+// Controllers
+use App\Http\Controllers\Api\OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,11 +21,16 @@ use App\Models\Restaurant;
 |
 */
 
-Route::name('api.')->group(function () {
-    
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
+Route::name('api.')->group(function () {
     Route::resource('restaurants', RestaurantController::class)->only([
-        'index',
-        'show'
+    'index',
+    'show'
     ]);
+
+    //Questa rotta dirige i dati ricevuti dal back end verso OrderController, seguendo il percorso api/orders
+    Route::resource('orders', OrderController::class);
 });
