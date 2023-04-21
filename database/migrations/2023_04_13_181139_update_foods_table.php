@@ -21,6 +21,8 @@ return new class extends Migration
             // così aggiungiamo la colonna availability
             $table->boolean('availability')->default(1)->after('price');
 
+            // cosi aggiungiamo la colonna gluten free
+            $table->boolean('glutenfree')->default(0);
         });
     }
 

@@ -60,7 +60,7 @@
                             
                             <div class="mb-3">
                                 @if ($food->glutenfree == true)
-                                <i class="fa-regular fa-wheat-awn-slash type"></i>
+                                    <i class="fa-regular fa-wheat-awn-slash type"></i>
                                     <span>Il piatto è <strong>Senza Glutine</strong></span>
                                 @endif
                             </div>

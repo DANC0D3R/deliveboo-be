@@ -154,8 +154,5 @@
 </div>
 @endsection
 <style scoped>
-.click{
-    background-color: #FF8400;
-    
-}
+
 </style>
