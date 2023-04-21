@@ -19,18 +19,14 @@
                         {{ $restaurant[0]->description }}
                     </p>
 
-                    {{-- <div>
-                        <a href="{{ route('admin.restaurant.show', $restaurant->id) }}" class="crud-button show"> 
-                            <i class="fa-solid fa-eye"></i>
-                        </a>
-                     </div> --}}
-
-                    {{-- <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.index' ? 'bg-secondary' : '' }}" href="{{route('admin.restaurants.index')}}">
-                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Il tuo ristorante
-                    </a>  --}}
-
+                    {{-- Pulsante di show del ristorante --}}
                     <a href="{{ route('admin.restaurants.show', $restaurant[0]) }}" class="btn btn-primary mb-2">
                         Dettagli
+                    </a>
+
+                    {{-- Pulsante di modifica ristorante --}}
+                    <a href="{{ route('admin.restaurants.edit', $restaurant[0]) }}" class="btn btn-warning mb-2">
+                        Modifica
                     </a>
 
                     

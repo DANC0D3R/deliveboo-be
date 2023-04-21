@@ -6,14 +6,15 @@
 
             <div class="col">
 
-                <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
 
 
                     @include('partials.error')
 
                     <div>
-                        <h2 class="mb-3">Inserisci il tuo ristorante</h2>
+                        <h2 class="mb-3">Modifica il tuo ristorante</h2>
 
                         {{-- Nome ristorante --}}
                         <label for="name" class="form-laber @error('name') text-danger @enderror">Nome Ristorante *</label>
@@ -23,7 +24,7 @@
                         type="text"
                         placeholder="Scrivi qui..."
                         name="name"
-                        value="{{ old('name') }}"
+                        value="{{ old('name', $restaurant->name) }}"
                         maxlength="50"
                         required
                         >
@@ -41,7 +42,7 @@
                         type="text"
                         placeholder="Es: Via Marco Polo 12"
                         name="address"
-                        value="{{ old('address') }}"
+                        value="{{ old('address', $restaurant->address) }}"
                         minlength="5"
                         maxlength="100"
                         required
@@ -60,7 +61,7 @@
                         type="text"
                         placeholder="Es: IT123..."
                         name="p_iva"
-                        value="{{ old('p_iva') }}"
+                        value="{{ old('p_iva', $restaurant->p_iva) }}"
                         maxlength="11"
                         pattern="{11}"
                         required
@@ -80,7 +81,7 @@
                             id="description" 
                             cols="50" 
                             rows="5" 
-                            placeholder="Inserisci una descrizione del ristorante">{{ old('description') }}
+                            placeholder="Inserisci una descrizione del ristorante">{{ old('description', $restaurant->description) }}
                         </textarea>
                     </div>
 
@@ -93,7 +94,7 @@
                         type="tel"
                         placeholder="Es: +39 340..."
                         name="phone"
-                        value="{{ old('phone') }}"
+                        value="{{ old('phone', $restaurant->phone) }}"
                         minlength="10"
                         maxlength="15"
                         required
@@ -124,14 +125,11 @@
 
                     <div>
                         {{-- Immagine --}}
-                        <label for="img" class="form-label mt-2">Immagine</label>
-                        <input
-                        class="form-control w-50 mb-4"
-                        type="file" 
-                        name="img" 
-                        id="img"
-                        placeholder="Inserisci l'immagine'"
-                        >
+                        <label for="img" class="form-label">Immagine</label>
+    
+                        <img src="{{ asset('storage/'.$restaurant->img) }}" class="card-img-top mb-3" alt="immagine" style="height: 200px; width: 300px">
+    
+                        <input class="form-control w-50 mb-4" type="file" id="img" name="img" accept="image/*" placeholder="Inserisci la nuova immagine'">
                     </div>
 
                     <p>I campi contrassegnati con <strong>*</strong> sono <strong>obbligatori</strong></p>
@@ -147,9 +145,3 @@
         </div>
     </div>
 @endsection
-<style scoped>
-.click{
-    background-color: #FF8400;
-    
-}
-</style>
