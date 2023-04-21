@@ -142,6 +142,13 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        if ($restaurant->img) {
+            // Cancella il vecchio file
+            Storage::delete($restaurant->img);
+        }
+
+        $restaurant->delete();
+
+        return redirect()->route('admin.restaurants.index');
     }
 }
