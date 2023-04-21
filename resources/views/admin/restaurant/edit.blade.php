@@ -134,7 +134,11 @@
                         {{-- Immagine --}}
                         <label for="img" class="form-label">Immagine</label>
     
-                        <img src="{{ asset('storage/'.$restaurant->img) }}" class="card-img-top mb-3" alt="immagine" style="height: 200px; width: 300px">
+                        @if(str_contains($restaurant->img, "https"))
+                            <img src="{{ $restaurant->img }}" style="height: 300px" alt="{{ $restaurant->name }}">
+                            @else
+                            <img   src="{{asset('storage/'. $restaurant->img)}}" style="height: 300px" alt="{{ $restaurant->name }}">
+                        @endif
     
                         <input class="form-control w-50 mb-4" type="file" id="img" name="img" accept="image/*" placeholder="Inserisci la nuova immagine'">
                     </div>
