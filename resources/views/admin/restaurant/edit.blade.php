@@ -109,13 +109,20 @@
                     <p class="mb-1">Tipo di ristorante *</p>
                     @foreach ($types as $type)
                         <div class="btn-group click" role="group" aria-label="Basic checkbox toggle button group">
-                            <input
+                            {{-- <input
                             class="btn-check"
                             name="types[]"
                             type="checkbox"
                             id="type-{{ $type->id }}"
                             {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}
                             value="{{ $type->id }}"
+                            > --}}
+                            <input class="btn-check" type="checkbox" name="types[]" id="type-{{ $type->id }}" value="{{ $type->id }}"
+                                @if (old('types') && is_array(old('types')) && count(old('types')) > 0)
+                                    {{ in_array($type->id, old('types')) ? 'checked' : '' }}
+                                @elseif($restaurant->types->contains($type))
+                                    checked
+                                @endif
                             >
                             <label class="btn btn-outline-warning" for="type-{{ $type->id }}">
                                 {{ $type->name }}

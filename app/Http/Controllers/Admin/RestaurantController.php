@@ -124,6 +124,12 @@ class RestaurantController extends Controller
             }
         }
 
+        if (array_key_exists('types', $data)) {
+            foreach ($data['types'] as $typeId) {
+                $restaurant->types()->sync($typeId);
+            }
+        }
+
         $data['slug'] = Str::slug($data['name']);
 
         $restaurant->update($data);
