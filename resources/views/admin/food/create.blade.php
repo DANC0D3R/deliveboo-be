@@ -97,6 +97,11 @@
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="vegan" value="1">
                         <label class="form-check-label" for="inlineCheckbox2">Vegano</label>
                     </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="glutenfree" value="1">
+                        <label class="form-check-label" for="inlineCheckbox3">Senza Glutine</label>
+                    </div>
                 </div>
 
                 {{-- Disponibilità del piatto --}}

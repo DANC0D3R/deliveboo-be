@@ -27,7 +27,7 @@ class RestaurantSeeder extends Seeder
             'p_iva' => 'IT123456389',
             'phone' => '+39 012345678',
             'description' => 'Il ristorante più antico della città, con una tradizione centenaria di piatti tipici del territorio.',
-            'img' => 'https://www.example.com/ristorante-mario.jpg',
+            'img' => 'https://media-cdn.tripadvisor.com/media/photo-s/19/37/9e/2b/accoccolato-nel-cuore.jpg',
         ])->types()->attach($type_id);
         
         $type_id = Type::find(1)->id;
@@ -39,7 +39,7 @@ class RestaurantSeeder extends Seeder
             'p_iva' => 'IT456729123',
             'phone' => '+39 034567890',
             'description' => 'Un ristorante chic e raffinato, dove la cucina moderna che comprende anche tante opzioni vegetariane e vegane.',
-            'img' => 'https://www.example.com/ristorantino.jpg',
+            'img' => 'https://www.grazia.it/content/uploads/2022/07/ristorante-baia-sul-lago.jpg',
         ])->types()->attach($type_id);
             
         
@@ -52,7 +52,7 @@ class RestaurantSeeder extends Seeder
             'p_iva' => 'IT234569891',
             'phone' => '+39 098765432',
             'description' => 'La pizzeria più famosa della città, dove le pizze sono cotte in forno a legna e sfornate una dopo l\'altra.',
-            'img' => 'https://www.example.com/pizzeria-del-corso.jpg',
+            'img' => 'https://media-cdn.tripadvisor.com/media/photo-s/16/ae/e5/9a/eccoci.jpg',
         ])->types()->attach($type_id);
 
         $type_id = Type::whereIn('id', [4,7])->pluck('id')->toArray();
@@ -64,7 +64,7 @@ class RestaurantSeeder extends Seeder
             'p_iva' => 'IT914725806',
             'phone' => '+81 45 1234567',
             'description' => 'Specialità giapponesi preparate con maestria e servite con eleganza',
-            'img' => 'https://www.example.com/images/il_samurai.jpg'
+            'img' => 'https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,q_auto,f_auto/restaurant/f49c9886-7b0b-48eb-a7aa-8050a79e143c/56e61c15-2506-4984-930b-d0a2f3ae8fe5.jpg'
         ])->types()->attach($type_id);
 
         $type_id = Type::find(5)->id;
@@ -76,7 +76,7 @@ class RestaurantSeeder extends Seeder
             'p_iva' => 'IT125836902',
             'phone' => '+52 55 1234567',
             'description' => 'Cucina messicana tradizionale, rivisitata con un tocco di creatività',
-            'img' => 'https://www.example.com/images/la_hacienda.jpg'
+            'img' => 'https://images.squarespace-cdn.com/content/v1/5ac54d2e4611a0382c06da9c/1547721417713-88LDTOJB0NPMWEI4ZT6N/37307918_251995848963956_4114157539434692608_n.jpg'
         ])->types()->attach($type_id);
     }
 }

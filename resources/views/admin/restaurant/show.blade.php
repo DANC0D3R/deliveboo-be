@@ -28,30 +28,31 @@
                             <h6 class="mb-3">Tipologia di ristorante:
                             </h6>
                         </div>
-                        
-                            
-                                    @if (count($restaurant->types) > 0)
-                                        @foreach ($restaurant->types as $type)
-                                            <ul class="pb-3 fw-bold">
-                                                <li>
-                                                    @if (!empty($type->name)) 
-                                                        {{ $type->name }}
-                                                    
-                                                    @endif
-                                                </li>
-                                            </ul>
-                                        @endforeach
-                                    @else
-                                        Non specificato.
-                                    @endif
-                            
-                        
-                        
+                            @if (count($restaurant->types) > 0)
+                                @foreach ($restaurant->types as $type)
+                                    <ul class="pb-3 fw-bold">
+                                        <li>
+                                            @if (!empty($type->name)) 
+                                                {{ $type->name }}
+                                            
+                                            @endif
+                                        </li>
+                                    </ul>
+                                @endforeach
+                            @else
+                                Non specificato.
+                            @endif
                     </div>
 
                     {{-- Immagine --}}
                     @if ($restaurant->img)
-                        <img src="{{ asset('storage/'.$restaurant->img) }}" class="mb-3" alt="immagine" style="height: 200px; width: 300px">
+                        <div>
+                            @if(str_contains($restaurant->img, "https"))
+                            <img src="{{ $restaurant->img }}" style="height: 200px; width: 300px" alt="{{ $restaurant->name }}">
+                            @else
+                            <img   src="{{asset('storage/'. $restaurant->img)}}" style="height: 200px; width: 300px" alt="{{ $restaurant->name }}">
+                        @endif
+                        </div>
                     @endif
 
                     {{-- Descrizione --}}

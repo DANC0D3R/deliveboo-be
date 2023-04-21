@@ -19,6 +19,7 @@ class Food extends Model
         'availability',
         'vegetarian',
         'vegan',
+        'glutenfree',
         'img',
     ];
 
