@@ -30,6 +30,7 @@ class UpdateFoodRequest extends FormRequest
             'price'=>'required | min:0 | decimal: 0,2',
             'vegetarian' => 'boolean',
             'vegan' => 'boolean',
+            'glutenfree' => 'boolean',
             'availability' => 'boolean',
             'img'=> 'nullable | image'
         ];

@@ -19,7 +19,6 @@ return new class extends Migration
                 $table->decimal('price', $precision = 5, $scale = 2);
                 $table->boolean('vegetarian')->default(0);
                 $table->boolean('vegan')->default(0);
-                $table->boolean('glutenfree')->default(0);
                 $table->string('img')->nullable();
                 $table->timestamps();
             });

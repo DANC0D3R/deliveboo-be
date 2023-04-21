@@ -85,23 +85,16 @@
                     @enderror
                 </div>
 
-                <div>
-                    {{-- Tipologie di piatto --}}
-                    <label class="form-label">Che tipo di piatto è?</label>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="vegetarian" value="1">
-                        <label class="form-check-label" for="inlineCheckbox1">Vegetariano</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="vegan" value="1">
-                        <label class="form-check-label" for="inlineCheckbox2">Vegano</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="glutenfree" value="1">
-                        <label class="form-check-label" for="inlineCheckbox3">Senza Glutine</label>
-                    </div>
+                {{-- Tipologie di piatto --}}
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" value="1" name="vegetarian">
+                    <label class="btn btn-outline-primary" for="btncheck1">Vegetariano</label>
+                  
+                    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" value="1" name="vegan">
+                    <label class="btn btn-outline-primary" for="btncheck2">Vegano</label>
+                  
+                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" value="1" name="glutenfree">
+                    <label class="btn btn-outline-primary" for="btncheck3">Gluten Free</label>
                 </div>
 
                 {{-- Disponibilità del piatto --}}

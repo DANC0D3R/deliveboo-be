@@ -22,20 +22,17 @@
 <body>
     <div id="app">
 
-
+        {{-- NAVBAR --}}
         <nav class="navbar navbar-expand-md navbar-light  shadow">
             <div class="container">
               
-                    
-                        <div class="logo fs-2 fw-bold d-flex align-items-center custom-color m-2 p-2" style="height:48px">
-                            <i class="fa-solid fa-bowl-food px-2"></i>
-                            DeliveBoo
-                        </div>
-                        {{-- config('app.name', 'Laravel') --}}
+                {{-- Logo --}}
+                <div class="logo fs-2 fw-bold d-flex align-items-center custom-color m-2 p-2" style="height:48px">
+                    <i class="fa-solid fa-burger"></i>
+                    DeliveBoo
+                </div>
                     
                 
-
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
@@ -50,7 +47,7 @@
                         @if (Auth::check())
                     <a class="navbar-brand d-flex align-items-center offcanvas-title" id="offcanvasNavbarLabel" href="{{ url('/dashboard') }}">
                         <div class="logo fs-2 fw-bold d-flex align-items-center custom-color" style="height:48px">
-                            <i class="fa-solid fa-bowl-food px-2"></i>
+                            <i class="fa-solid fa-burger"></i>
                             DeliveBoo
                         </div>
                         {{-- config('app.name', 'Laravel') --}}
@@ -58,7 +55,7 @@
                 @else
                     <a class="navbar-brand d-flex align-items-center offcanvas-title" id="offcanvasNavbarLabel" href="{{ url('/') }}">
                         <div class="logo fs-2 fw-bold d-flex align-items-center custom-color" style="height:48px">
-                            <i class="fa-solid fa-bowl-food px-2"></i>
+                            <i class="fa-solid fa-burger"></i>
                             DeliveBoo
                         </div>
                         {{-- config('app.name', 'Laravel') --}}
@@ -79,8 +76,6 @@
                                     @else
                                         <a class="nav-link custom-color" href="{{ url('/dashboard') }}">{{ __('Vai al tuo Ristorante') }}</a>
                                     @endif
-                                @else
-                                    <a class="nav-link custom-color link" href="{{ url('/') }}">{{ __('Home') }}</a>
                                 @endif
                             </li>
                         </ul>
@@ -90,12 +85,16 @@
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
-                                    <a class="nav-link custom-color link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                                    <a class="nav-link orange-color link" href="{{ route('login') }}">
+                                       <strong> {{ __('Accedi') }} </strong>
+                                    </a>
                                 </li>
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link custom-color link"
-                                            href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                                        <a class="nav-link orange-color link"
+                                            href="{{ route('register') }}">
+                                            <strong> {{ __('Registrati') }} </strong> 
+                                        </a>
                                     </li>
                                 @endif
                             @else
@@ -153,8 +152,10 @@
 </body>
 
 </html>
+
 <style scoped>
-
-
+.orange-color{
+    color: #FF8400;
+}
    
 </style>
