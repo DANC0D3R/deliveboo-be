@@ -77,7 +77,7 @@
                                 <a href="{{ route('admin.foods.show', $food->id) }}" class="crud-button show"> 
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
-                                {{-- Pulsante sedit --}}
+                                {{-- Pulsante edit --}}
                                 <a href="{{ route('admin.foods.edit', $food->id) }}" class="crud-button edit">
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
@@ -102,7 +102,7 @@
                                             <form action="{{ route('admin.foods.destroy', $food->id) }}" method="POST" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 @csrf
                                                 @method('DELETE')
-            
+
                                                 {{-- Pulsante delete --}}
                                                 <button class="btn btn-danger">Elimina</button>
                                             </form>

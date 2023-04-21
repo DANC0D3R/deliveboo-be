@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -24,15 +25,61 @@
     <body class="app">
         <div id="app">
 
-            <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
-                <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">Deliveboo</a>
-                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <header class="navbar sticky-top flex-md-nowrap p-2">
+                {{-- <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> --}}
+
+                {{-- Utente --}}
+                <div class="nav-item dropdown custom-color px-2">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle custom-color" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+                    @if (Auth::user()->role === 'admin')
+                    {{-- Dropdow super admin --}}
+                    <div class="dropdown-menu dropdown-menu-right custom-color" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item custom-color" href="{{ url('dashboard') }}">{{ __('Pannello di controllo') }}</a>
+                        <a class="dropdown-item custom-color" href="{{ url('profile') }}">{{ __('Profilo') }}</a>
+                        <a class="dropdown-item custom-color" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            {{ __('Esci') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                            class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                    
+                    
+                    @else
+                    <div class="dropdown-menu dropdown-menu-right custom-color" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item custom-color" href="{{ url('dashboard') }}">{{ __('Pannello di controllo') }}</a>
+                        <a class="dropdown-item custom-color" href="{{ url('profile') }}">{{ __('Profilo') }}</a>
+                        <a class="dropdown-item custom-color" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            {{ __('Esci') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                            class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                    @endif
+                </div>
+
+                {{-- Logo --}}
+                <a class="navbar-brand col-md-3 col-lg-2 text-center" href="/">
+                    <i class="fa-solid fa-burger"></i> <strong>Deliveboo</strong>
+                </a>
                 
                 <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
                 <div class="navbar-nav">
-                    <div class="nav-item text-nowrap ms-2">
+                    <div class="nav-item text-nowrap ms-2 px-4">
                         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                             {{ __('Esci') }}
@@ -46,26 +93,49 @@
 
             <div class="container-fluid vh-100">
                 <div class="row h-100">
-                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  navbar-dark  sidebar collapse">
-                        <div class="position-sticky  pt-3">
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse shadow">
+                        <div class="position-sticky pt-4">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
 
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurants.index' ? 'bg-secondary' : '' }}" href="{{route('admin.restaurants.index')}}">
-                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Il tuo ristorante
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }}" href="{{route('admin.dashboard')}}">
+                                        <i class="fa-solid fa-house"></i> Home
                                     </a>
 
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.foods.index' ? 'bg-secondary' : '' }}" href="{{route('admin.foods.index')}}">
-                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Menù
+                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurants.index' ? 'active' : '' }}" href="{{route('admin.restaurants.index')}}">
+                                        <i class="fa-solid fa-building"></i> Il tuo ristorante
                                     </a>
 
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.orders.index' ? 'bg-secondary' : '' }}" href="{{route('admin.orders.index')}}">
-                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Ordini
-                                    </a>
+                                    @php
+                                        use App\Models\Restaurant;
 
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
-                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Statistiche
-                                    </a>
+                                        //Prendo l'id dell'user che è al momento loggato
+                                        $user_id = auth()->user()->id;
+
+                                        // Prendo i ristoranti
+                                        $restaurants = Restaurant::all();
+                                        
+                                        // Inizializzo un avariabile flag
+                                        $flag = false;
+
+                                        // Per ogni ristorante, se lo user_id corrisponde all'id dell'utente autenticato (e quindi l'utente ha un ristorante associato), la flag diventa true
+                                        foreach ($restaurants as $restaurant) {
+                                            if ($restaurant->user_id == $user_id) {
+                                                $flag = true;
+                                            }
+                                        }
+                                    @endphp
+
+                                    {{-- Se la flag è true, significa che l'utente autenticato ha un ristorante e, quindi, può avere accesso alle sezioni menù e ordini --}}
+                                    @if ($flag == true)
+                                        <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.foods.index' ? 'active' : '' }}" href="{{route('admin.foods.index')}}">
+                                            <i class="fa-solid fa-utensils"></i> Menù
+                                        </a>
+
+                                        <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.orders.index' ? 'active' : '' }}" href="{{route('admin.orders.index')}}">
+                                            <i class="fa-solid fa-circle-check"></i> Ordini
+                                        </a>
+                                    @endif
                                 </li>
                             </ul>
 
@@ -75,7 +145,6 @@
 
                     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                         @yield('content')
-                    </main>
                 </div>
             </div>
 
@@ -84,12 +153,24 @@
 
 </html>
 <style scoped>
-.app{
-    background-color: #F7D060;
-}
-.sidebar{
-    background-color: #FF8400;
-}
+    .app{
+        /* background-color: #FFF2CC; */
+    }
 
-   
+    /* Navbar */
+    .navbar{
+        background-color: #FFD966;
+        color: black !important;
+    }
+    .sidebar{
+        background-color: #FF8400;
+        border-radius:50px 50px 0 0;
+        height: 95%;
+        align-self: flex-end
+    }
+    .active{
+        background-color: #FFD966;
+        border-radius: 15px;
+        color: black !important;
+    }
 </style>

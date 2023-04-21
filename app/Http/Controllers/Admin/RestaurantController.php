@@ -89,14 +89,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-       // $user = Auth::user();
-
-    //     $restaurant = Restaurant::where('user_id', $user->id)->get();
-
-    //    $targetRestaurant = DB::table('restaurants')->where('user_id', '=', 1)->get();
-
         return view('admin.restaurant.show', compact('restaurant'));
-
     }
 
     /**
@@ -104,7 +97,8 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+        $types = Type::all();
+        return view('admin.restaurant.edit', compact('restaurant', 'types'));
     }
 
     /**
@@ -112,7 +106,35 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        $data = $request->validated();
+
+        if (array_key_exists('delete-img', $data)) {
+            if ($restaurant->img) {
+                Storage::delete($restaurant->img);
+                $restaurant->img = null;
+                $restaurant->save();
+            }
+        }
+        else if (array_key_exists('img', $data)) {
+            $imgPath = Storage::put('restaurants', $data['img']);
+            $data['img'] = $imgPath;
+
+            if ($restaurant->img) {
+                Storage::delete($restaurant->img);
+            }
+        }
+
+        if (array_key_exists('types', $data)) {
+            foreach ($data['types'] as $typeId) {
+                $restaurant->types()->sync($typeId);
+            }
+        }
+
+        $data['slug'] = Str::slug($data['name']);
+
+        $restaurant->update($data);
+
+        return redirect()->route('admin.restaurants.index')->with('success', 'Ristorante modificato con successo!');
     }
 
     /**
@@ -120,6 +142,13 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        if ($restaurant->img) {
+            // Cancella il vecchio file
+            Storage::delete($restaurant->img);
+        }
+
+        $restaurant->delete();
+
+        return redirect()->route('admin.restaurants.index');
     }
 }

@@ -46,15 +46,22 @@
                             {{-- Tipologia del piatto --}}
                             <div class="mb-1">
                                 @if ($food->vegetarian == true)
-                                    <i class="fa-solid fa-leaf vegan"></i>
-                                    <span>Il piatto è vegetariano</span>
+                                    <i class="fa-solid fa-leaf type"></i>
+                                    <span>Il piatto è <strong>Vegetariano</strong></span>
                                 @endif
                             </div>
 
                             <div class="mb-3">
                                 @if ($food->vegan == true)
-                                    <i class="fa-solid fa-leaf vegan"></i>
-                                    <span>Il piatto è vegano</span>
+                                    <i class="fa-solid fa-leaf type"></i>
+                                    <span>Il piatto è <strong>Vegano</strong></span>
+                                @endif
+                            </div>
+                            
+                            <div class="mb-3">
+                                @if ($food->glutenfree == true)
+                                    <i class="fa-regular fa-wheat-awn-slash type"></i>
+                                    <span>Il piatto è <strong>Senza Glutine</strong></span>
                                 @endif
                             </div>
 
@@ -70,9 +77,16 @@
                                     </strong></p>
                                 @endif
                             </div>
-
                         </div>
-
+                        {{-- Bottoni --}}
+                        <div>
+                            {{-- Pulsante edit --}}
+                            <a href="{{ route('admin.foods.edit', $food->id) }}" class="btn btn-warning edit">
+                                Modifica
+                            </a>
+                            {{-- Pulsante delete --}}
+                            <button class="btn btn-danger">Elimina</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,8 +116,8 @@
         margin-bottom: 2rem;
     }
 
-    /* VEGETARIANO e VEGANO */
-    .vegan{
+    /* VEGETARIANO, VEGANO E SENZA GLUTINE*/
+    .type   {
         background-color: green;
         color: white;
         padding: 0.4rem;
