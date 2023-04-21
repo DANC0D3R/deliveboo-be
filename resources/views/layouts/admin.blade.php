@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -105,13 +106,36 @@
                                         <i class="fa-solid fa-building"></i> Il tuo ristorante
                                     </a>
 
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.foods.index' ? 'active' : '' }}" href="{{route('admin.foods.index')}}">
-                                        <i class="fa-solid fa-utensils"></i> Menù
-                                    </a>
+                                    @php
+                                        use App\Models\Restaurant;
 
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.orders.index' ? 'active' : '' }}" href="{{route('admin.orders.index')}}">
-                                        <i class="fa-solid fa-circle-check"></i> Ordini
-                                    </a>
+                                        //Prendo l'id dell'user che è al momento loggato
+                                        $user_id = auth()->user()->id;
+
+                                        // Prendo i ristoranti
+                                        $restaurants = Restaurant::all();
+                                        
+                                        // Inizializzo un avariabile flag
+                                        $flag = false;
+
+                                        // Per ogni ristorante, se lo user_id corrisponde all'id dell'utente autenticato (e quindi l'utente ha un ristorante associato), la flag diventa true
+                                        foreach ($restaurants as $restaurant) {
+                                            if ($restaurant->user_id == $user_id) {
+                                                $flag = true;
+                                            }
+                                        }
+                                    @endphp
+
+                                    {{-- Se la flag è true, significa che l'utente autenticato ha un ristorante e, quindi, può avere accesso alle sezioni menù e ordini --}}
+                                    @if ($flag == true)
+                                        <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.foods.index' ? 'active' : '' }}" href="{{route('admin.foods.index')}}">
+                                            <i class="fa-solid fa-utensils"></i> Menù
+                                        </a>
+
+                                        <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.orders.index' ? 'active' : '' }}" href="{{route('admin.orders.index')}}">
+                                            <i class="fa-solid fa-circle-check"></i> Ordini
+                                        </a>
+                                    @endif
                                 </li>
                             </ul>
 
@@ -129,26 +153,24 @@
 
 </html>
 <style scoped>
-.app{
-    /* background-color: #FFF2CC; */
-}
+    .app{
+        /* background-color: #FFF2CC; */
+    }
 
-/* Navbar */
-.navbar{
-    background-color: #FFD966;
-    color: black !important;
-}
-.sidebar{
-    background-color: #FF8400;
-    border-radius:50px 50px 0 0;
-    height: 95%;
-    align-self: flex-end
-}
-.active{
-    background-color: #FFD966;
-    border-radius: 15px;
-    color: black !important;
-}
-
-   
+    /* Navbar */
+    .navbar{
+        background-color: #FFD966;
+        color: black !important;
+    }
+    .sidebar{
+        background-color: #FF8400;
+        border-radius:50px 50px 0 0;
+        height: 95%;
+        align-self: flex-end
+    }
+    .active{
+        background-color: #FFD966;
+        border-radius: 15px;
+        color: black !important;
+    }
 </style>
