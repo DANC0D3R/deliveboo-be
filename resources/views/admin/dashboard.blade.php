@@ -4,8 +4,12 @@
 <div class="container-fluid mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
-
+            
+            
             <div class="mt-4">
+                {{-- Messaggio di errore (non riesco a farlo visualizzare) --}}
+                @include('partials.error')
+
                 <h2>
                     <!-- Prendo il nome dell'utente loggato -->
                     Benvenut* {{ Auth::user()->name }}!

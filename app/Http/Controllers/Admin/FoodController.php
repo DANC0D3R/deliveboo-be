@@ -79,7 +79,16 @@ class FoodController extends Controller
      */
     public function show(Food $food)
     {
-        return view('admin.food.show',compact('food'));
+        $user = auth()->user(); //acquisizione user loggato
+        $userId = $user->id; //ricerca id dello user loggato
+        $targetRestaurant = DB::table('restaurants')->where('user_id', '=', $userId)->get(); //salvataggio ristorante dello user
+        
+        if ($targetRestaurant[0]->id == $food->restaurant_id) {
+            return view('admin.food.show',compact('food'));
+        }
+        else {
+            return view('admin.dashboard')->with('error','Accesso negato: quel piatto non appartiene al tuo ristorante');
+        }
     }
 
     /**
@@ -94,7 +103,12 @@ class FoodController extends Controller
         $userId = $user->id; //ricerca id dello user loggato
         $targetRestaurant = DB::table('restaurants')->where('user_id', '=', $userId)->get(); //salvataggio ristorante dello user
         
-        return view('admin.food.edit',compact('food', 'targetRestaurant'));
+        if ($targetRestaurant[0]->id == $food->restaurant_id) {
+            return view('admin.food.edit',compact('food', 'targetRestaurant'));
+        }
+        else {
+            return view('admin.dashboard')->with('error','Accesso negato: quel piatto non appartiene al tuo ristorante');
+        }
     }
 
     /**
