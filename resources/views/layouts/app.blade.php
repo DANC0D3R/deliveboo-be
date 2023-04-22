@@ -155,7 +155,7 @@
 
 <style scoped>
 .orange-color{
-    color: #FF8400;
+    color: #8f4a00;
 }
    
 </style>
