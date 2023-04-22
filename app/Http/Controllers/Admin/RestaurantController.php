@@ -89,7 +89,14 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        return view('admin.restaurant.show', compact('restaurant'));
+        $user = auth()->user();
+
+        if ($restaurant->user_id == $user->id) {
+            return view('admin.restaurant.show', compact('restaurant'));
+        }
+        else {
+            return view('admin.dashboard')->with('error','Accesso negato: quello non è il tuo ristorante');
+        }
     }
 
     /**
@@ -98,7 +105,14 @@ class RestaurantController extends Controller
     public function edit(Restaurant $restaurant)
     {
         $types = Type::all();
-        return view('admin.restaurant.edit', compact('restaurant', 'types'));
+        $user = auth()->user();
+
+        if ($restaurant->user_id == $user->id) {
+            return view('admin.restaurant.edit', compact('restaurant', 'types'));
+        }
+        else {
+            return view('admin.dashboard')->with('error','Accesso negato: quello non è il tuo ristorante');
+        }
     }
 
     /**
