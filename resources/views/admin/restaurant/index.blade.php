@@ -68,20 +68,22 @@
             </div>        
         {{-- Utente registrato che non ha un ristorante --}}
         @else
-            <div class="home-jumbotron py-5">
+            <div class="home-jumbotron py-4 row justify-content-center">
 
-                <div class="container rounded-4 p-5 presentation-banner text-center shadow welcome-container">
-                    <h1 class="custom-color">Benvenuto {{ Auth::user()->name }}</h1>
+                <div class="col-md-8">
 
+                    <h1 class="custom-color mb-3">Ciao {{ Auth::user()->name }}!</h1>
 
+                    <div class="container rounded-4 p-5 presentation-banner shadow welcome-container">
 
-                    <h2 class="py-3">DeliveBoo,la piattaforma che ti permette di gestire il tuo ristorante</h2>
-                    
-                    <h3 class="py-3">Con un click</h3>
-                    
-                    <a href="{{ route('admin.restaurants.create') }}" class="btn btn-success">
-                            Inserisci il tuo ristorante
-                    </a>
+                        <h3 class="mb-3">DeliveBoo,la piattaforma che ti permette di gestire il tuo ristorante</h3>
+                        
+                        <p>In questa sezione con un semplice click inserisci i dati della tua attività</p>
+                        <a href="{{ route('admin.restaurants.create') }}" class="btn btn-success">
+                                Inserisci ristorante
+                        </a>
+                    </div>
+
                 </div>
             </div>
         @endif
@@ -89,7 +91,7 @@
 @endsection
 <style scoped>
 .container{
-    background-color: #FF8400 !important;
+    background-color: #FFF2CC !important;
 }
 .details{
     background-color: #FF8400 !important;

@@ -12,11 +12,11 @@
 
                     @include('partials.error')
 
-                    <div>
-                        <h2 class="mb-3">Inserisci il tuo ristorante</h2>
+                    <h2 class="mb-4">Inserisci il tuo ristorante</h2>
 
+                    <div class="mb-4">
                         {{-- Nome ristorante --}}
-                        <label for="name" class="form-laber @error('name') text-danger @enderror">Nome Ristorante *</label>
+                        <label for="name" class="form-label @error('name') text-danger @enderror">Nome Ristorante <strong class="orange">*</strong></label>
                         <input
                         class="d-block mb-2 form-control" 
                         id="name"
@@ -32,9 +32,9 @@
                         @enderror
                     </div>
 
-                    <div>
+                    <div class="mb-4">
                         {{-- Indirizzo --}}
-                        <label for="address" class="form-label @error('address') text-danger @enderror">Indirizzo *</label>
+                        <label for="address" class="form-label @error('address') text-danger @enderror">Indirizzo <strong class="orange">*</strong></label>
                         <input 
                         class="d-block mb-2 form-control"
                         id="address"
@@ -51,9 +51,9 @@
                         @enderror
                     </div>  
 
-                    <div>
+                    <div class="mb-4">
                         {{-- P.IVA --}}
-                        <label for="p_iva" class="form-label @error('p_iva') text-danger @enderror">P. IVA *</label>
+                        <label for="p_iva" class="form-label @error('p_iva') text-danger @enderror">P. IVA <strong class="orange">*</strong></label>
                         <input 
                         class="d-block mb-2 form-control"
                         id="p_iva"
@@ -71,7 +71,7 @@
                     </div>
                     
 
-                    <div>
+                    <div class="mb-4">
                         {{-- Descrizione --}}
                         <label for="description" form="form-label">Descrizione</label>
                         <textarea 
@@ -84,9 +84,9 @@
                         </textarea>
                     </div>
 
-                    <div>
+                    <div class="mb-4">
                         {{-- Telefono --}}
-                        <label for="phone" class="form-label @error('name') text-danger @enderror">Numero di telefono *</label>
+                        <label for="phone" class="form-label @error('name') text-danger @enderror">Numero di telefono <strong class="orange">*</strong></label>
                         <input 
                         class="d-block mb-2 form-control"
                         id="phone"
@@ -104,25 +104,26 @@
                     </div>
 
                     {{-- Tipo --}}
+                    <div class="mb-4">
+                        <p class="mb-1">Tipo di ristorante <strong class="orange">*</strong></p>
+                        @foreach ($types as $type)
+                            <div class="btn-group click" role="group" aria-label="Basic checkbox toggle button group">
+                                <input
+                                class="btn-check"
+                                name="types[]"
+                                type="checkbox"
+                                id="type-{{ $type->id }}"
+                                {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}
+                                value="{{ $type->id }}"
+                                >
+                                <label class="btn btn-outline-warning" for="type-{{ $type->id }}">
+                                    {{ $type->name }}
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
 
-                    <p class="mb-1">Tipo di ristorante *</p>
-                    @foreach ($types as $type)
-                        <div class="btn-group click" role="group" aria-label="Basic checkbox toggle button group">
-                            <input
-                            class="btn-check"
-                            name="types[]"
-                            type="checkbox"
-                            id="type-{{ $type->id }}"
-                            {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}
-                            value="{{ $type->id }}"
-                            >
-                            <label class="btn btn-outline-warning" for="type-{{ $type->id }}">
-                                {{ $type->name }}
-                            </label>
-                        </div>
-                    @endforeach
-
-                    <div>
+                    <div class="mb-4">
                         {{-- Immagine --}}
                         <label for="img" class="form-label mt-2">Immagine</label>
                         <input
@@ -134,19 +135,20 @@
                         >
                     </div>
 
-                    <p>I campi contrassegnati con <strong>*</strong> sono <strong>obbligatori</strong></p>
+                    <p>I campi contrassegnati con <strong class="orange">*</strong> sono <strong>obbligatori</strong></p>
 
-                    <div>
-                        {{-- Bottone --}}
-                        <button type="submit" class="m-3 btn btn-success">
-                            Inserisci
-                        </button>
-                    </div>
+                    {{-- Bottone --}}
+                    <button type="submit" class="my-3 btn btn-success">
+                        Inserisci
+                    </button>
                 </form>
             </div>
         </div>
     </div>
 @endsection
 <style scoped>
+    .orange{
+        color: #FF8400;
+    }
 
 </style>

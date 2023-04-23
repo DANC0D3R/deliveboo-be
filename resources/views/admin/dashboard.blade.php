@@ -26,7 +26,7 @@
                     In questa area personale puoi:
                     <ul>
                         <li>
-                            Visualizzare i dati del tuoi ristorante, dalla voce <br>
+                            Inserire e visualizzare i dati del tuoi ristorante, dalla voce <br>
                             <strong class="orange">"Il tuo ristorante"</strong>
                         </li>
                         <li>

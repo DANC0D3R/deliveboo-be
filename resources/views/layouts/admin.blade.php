@@ -26,9 +26,9 @@
         <div id="app">
 
             <header class="navbar sticky-top flex-md-nowrap p-2">
-                {{-- <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button> --}}
+                </button>
 
                 {{-- Utente --}}
                 <div class="nav-item dropdown custom-color px-2">
@@ -76,8 +76,9 @@
                 <a class="navbar-brand col-md-3 col-lg-2 text-center" href="/">
                     <i class="fa-solid fa-burger"></i> <strong>Deliveboo</strong>
                 </a>
+
+                {{-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> --}}
                 
-                <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
                 <div class="navbar-nav">
                     <div class="nav-item text-nowrap ms-2 px-4">
                         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -164,9 +165,9 @@
     }
     .sidebar{
         background-color: #FF8400;
-        border-radius:50px 50px 0 0;
-        height: 95%;
-        align-self: flex-end
+        border-radius:0 0 50px 50px;
+        height: 85%;
+        align-self: flex-start
     }
     .active{
         background-color: #FFD966;
