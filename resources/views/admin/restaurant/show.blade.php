@@ -17,7 +17,7 @@
             </div>
 
             <div class="row">
-                <div class="restaurant-card d-flex py-5">
+                <div class="restaurant-card d-flex py-5 shadow">
 
                     <div class="img-container col-5">
                         {{-- Immagine --}}
@@ -32,7 +32,7 @@
                         @endif 
                     </div>
 
-                    <div class="text-container shadow col-7">
+                    <div class="text-container col-7">
 
                         {{-- Indirizzo ristorante --}}
                         <div>
@@ -44,16 +44,18 @@
 
                         {{-- Tipologia ristorante --}}
                         <div>
-                        
+                        <h6>Tipologia</h6>
                             @if (count($restaurant->types) > 0)
+                            <ul>
                                 @foreach ($restaurant->types as $type)
-                                    <p>
+                                    <li>
                                         @if (!empty($type->name)) 
                                             {{ $type->name }}
                                         
                                         @endif
-                                    </p>
+                                    </li>
                                 @endforeach
+                            </ul>
                             @else
                                 Non specificato.
                             @endif
@@ -61,21 +63,30 @@
 
                         {{-- Descrizione --}}
                         <div>
-                            {{ $restaurant->description }}
+                            <h6>Descrizione</h6>
+                            <p>
+                                {{ $restaurant->description }}
+                            </p>
                         </div>
 
                         {{-- Contatti --}}
                         <div>
                             <h6>
-                                {{ $restaurant->phone }}
+                                Contatti
                             </h6>
+                            <p>
+                                {{ $restaurant->phone }}
+                            </p>
                         </div>
 
                         {{-- P.IVA --}}
                         <div>
                             <h6>
-                                {{ $restaurant->p_iva }}
+                                Partita iva
                             </h6>
+                            <p>
+                                {{ $restaurant->p_iva }}
+                            </p>
                         </div>
 
                     </div>
@@ -92,9 +103,13 @@
         border-radius: 20px;
         width: 80%;
     }
-    .text-container{
+    .restaurant-card{
         border-radius:20px;
         padding: 25px 15px;
-        background-color: #FFF2CC;
+        background-color: white;
+        border: 2px solid #FF8400;
+    }
+    p{
+        margin: 10px 0;
     }
 </style>

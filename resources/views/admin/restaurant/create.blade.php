@@ -2,17 +2,16 @@
 
 @section('content')
     <div class="container form mt-4">
-        <div class="row">
+        <div class="row justify-content-center">
 
-            <div class="col">
+            <div class="col-md-9 ">
 
-                <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
+                <h2 class="mb-4">Inserisci il tuo ristorante</h2>
+
+                <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="shadow p-4">
                     @csrf
 
-
                     @include('partials.error')
-
-                    <h2 class="mb-4">Inserisci il tuo ristorante</h2>
 
                     <div class="mb-4">
                         {{-- Nome ristorante --}}
@@ -80,8 +79,7 @@
                             id="description" 
                             cols="50" 
                             rows="5" 
-                            placeholder="Inserisci una descrizione del ristorante">{{ old('description') }}
-                        </textarea>
+                            placeholder="Inserisci una descrizione del ristorante">{{ old('description') }}</textarea>
                     </div>
 
                     <div class="mb-4">
@@ -116,7 +114,7 @@
                                 {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}
                                 value="{{ $type->id }}"
                                 >
-                                <label class="btn btn-outline-warning" for="type-{{ $type->id }}">
+                                <label class="btn btn-outline-warning my-1" for="type-{{ $type->id }}">
                                     {{ $type->name }}
                                 </label>
                             </div>
@@ -138,7 +136,7 @@
                     <p>I campi contrassegnati con <strong class="orange">*</strong> sono <strong>obbligatori</strong></p>
 
                     {{-- Bottone --}}
-                    <button type="submit" class="my-3 btn btn-success">
+                    <button type="submit" class="my-3 btn create-button">
                         Inserisci
                     </button>
                 </form>
@@ -149,6 +147,18 @@
 <style scoped>
     .orange{
         color: #FF8400;
+    }
+
+    form{
+        border-radius:20px;
+        padding: 25px 15px;
+        background-color: white;
+        border: 2px solid #FF8400;
+    }
+
+    .create-button{
+        background-color: #FF8400 !important;
+        color: white !important;
     }
 
 </style>

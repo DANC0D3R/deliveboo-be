@@ -22,6 +22,7 @@
             </div>
             
             <div class="dash-card shadow">
+                
                 <p>
                     In questa area personale puoi:
                     <ul>
