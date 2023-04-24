@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // api controllers
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\FoodController;
+use App\Http\Controllers\Api\TypeController;
 // models
 use App\Models\Restaurant;
 
@@ -35,6 +36,9 @@ Route::name('api.')->group(function () {
     'index',
     'show',
     'showSingleFood'
+    ]);
+    Route::resource('types', TypeController::class)->only([
+        'index',
     ]);
 
     //Questa rotta dirige i dati ricevuti dal back end verso OrderController, seguendo il percorso api/orders
