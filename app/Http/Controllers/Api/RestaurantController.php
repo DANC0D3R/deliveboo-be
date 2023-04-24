@@ -17,6 +17,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
+
         $restaurants = Restaurant::with('types')->paginate(0);
 
         // foreach ($posts as $post) {
