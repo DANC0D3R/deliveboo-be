@@ -24,6 +24,7 @@
 
     <body class="app">
         <div id="app">
+        <div class="background-white">
 
             <header class="navbar sticky-top flex-md-nowrap p-2">
                 <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -148,18 +149,23 @@
                         @yield('content')
                 </div>
             </div>
-
+        </div>
         </div>
     </body>
 
 </html>
 <style scoped>
     .app{
-        /* background-color: #FFF2CC; */
+        background-color: #fff2ccc3;
         background-image: url('https://img.freepik.com/premium-vector/seamless-pattern-cute-funny-fast-food-kawaii-style-icons-isolated-pink-background_71374-1384.jpg?w=2000');
         /* background-image: url('https://i.pinimg.com/564x/b5/7d/ee/b57dee88a2914487905c8516f8df2a19.jpg'); */
         /* background-image: url('https://i.pinimg.com/564x/cf/f4/23/cff4237259e33904ab1a617e9d57603c.jpg'); */
         background-size: cover;
+        
+        background-blend-mode:screen;
+    }
+    .background-white{
+        /* background-color: rgba(255, 255, 255, 0.3); */
     }
 
     /* Navbar */
