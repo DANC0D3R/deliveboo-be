@@ -24,9 +24,9 @@
                         @if ($food->img)
                         <div>
                             @if(str_contains($food->img, "https"))
-                            <img src="{{ $food->img }}" style="height: 300px" alt="{{ $food->name }}">
+                            <img src="{{ $food->img }}" alt="{{ $food->name }}">
                             @else
-                            <img   src="{{asset('storage/'. $food->img)}}" style="height: 300px" alt="{{ $food->name }}">
+                            <img src="{{asset('storage/'. $food->img)}}" alt="{{ $food->name }}">
                             @endif
                             {{-- Placeholder --}}
                             {{-- <img src="https://www.cucchiaio.it/content/cucchiaio/it/ricette/2020/04/pasta-alla-zozzona/jcr:content/imagePreview.img10.jpg/1588238376193.jpg" alt=""> --}}
@@ -35,11 +35,11 @@
 
                         <div class="text-container">
                             
-                            <h5>Ingredienti:</h5>
+                            <h6>Ingredienti</h6>
                             {{-- Descrizione del piatto --}}
                             <p>{{ $food->description }}</p>
                     
-                            <h5>Prezzo:</h5>
+                            <h6>Prezzo</h6>
                             {{-- Prezzo del piatto --}}
                             <p>{{ $food->price }}€</p>
 
@@ -60,7 +60,7 @@
                             
                             <div class="mb-3">
                                 @if ($food->glutenfree == true)
-                                    <i class="fa-regular fa-wheat-awn-slash type"></i>
+                                    <i class="fa-solid fa-wheat-awn gluten"></i>
                                     <span>Il piatto è <strong>Senza Glutine</strong></span>
                                 @endif
                             </div>
@@ -117,7 +117,7 @@
     }
 
     /* VEGETARIANO, VEGANO E SENZA GLUTINE*/
-    .type   {
+    .type, .gluten   {
         background-color: green;
         color: white;
         padding: 0.4rem;
@@ -125,6 +125,9 @@
         text-align: center;
         border-radius: 50%;
         border: none;
+    }
+    .gluten{
+        background-color: #FFD966;
     }
 
     /* DISPONIBILITA */

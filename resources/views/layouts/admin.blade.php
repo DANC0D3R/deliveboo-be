@@ -156,7 +156,7 @@
 </html>
 <style scoped>
     .app{
-        background-color: #fff2ccc3;
+        background-color: #fff2ccdb;
         background-image: url('https://img.freepik.com/premium-vector/seamless-pattern-cute-funny-fast-food-kawaii-style-icons-isolated-pink-background_71374-1384.jpg?w=2000');
         /* background-image: url('https://i.pinimg.com/564x/b5/7d/ee/b57dee88a2914487905c8516f8df2a19.jpg'); */
         /* background-image: url('https://i.pinimg.com/564x/cf/f4/23/cff4237259e33904ab1a617e9d57603c.jpg'); */

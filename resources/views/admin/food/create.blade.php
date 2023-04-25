@@ -2,39 +2,25 @@
 
 @section('content')
 <div class="container mt-4">
-    <div class="row">
+    <div class="row justify-content-center">
 
-        <div class="col">
+        <div class="col-md-9">
+
+            @include('partials.error')
+
+            <h2 class="mb-3">Inserisci il tuo piatto</h2>
 
             <form action="{{ route('admin.foods.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-                <div>
-                    @if($errors->any())
-                    <div class="row">
-                        <div class="col">
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
-                </div>
-
-                <div>
-                    <h2 class="mb-3">Inserisci il tuo piatto</h2>
-
+                <div class="mb-4">
                     {{-- Salvataggio Id ristorante dello user loggato --}}
                     <div class="d-none">
                         <input type="number" name="restaurant_id" value="{{ $targetRestaurant[0]->id }}">
                     </div>
 
                     {{-- Nome piatto --}}
-                    <label for="name" class="form-laber @error('name') text-danger @enderror">Nome Piatto *</label>
+                    <label for="name" class="form-laber @error('name') text-danger @enderror">Nome Piatto <strong class="orange">*</strong></label>
                     <input
                     class="d-block mb-2 form-control" 
                     id="name"
@@ -50,9 +36,9 @@
                     @enderror
                 </div>    
 
-                <div>
+                <div class="mb-4">
                     {{-- Descrizione / Ingredienti --}}
-                    <label for="description" form="form-label" class="@error('description') text-danger @enderror">Ingredienti *</label>
+                    <label for="description" form="form-label" class="@error('description') text-danger @enderror">Ingredienti <strong class="orange">*</strong></label>
                     <textarea 
                     class="d-block mb-2 form-control"
                     name="description" 
@@ -66,9 +52,9 @@
                     @enderror
                 </div>
 
-                <div>
+                <div class="mb-4">
                     {{-- Prezzo --}}
-                    <label for="price" class="form-label" class="@error('price') text-danger @enderror">Prezzo €*</label>
+                    <label for="price" class="form-label" class="@error('price') text-danger @enderror">Prezzo € <strong class="orange">*</strong></label>
                     <input 
                     class="d-block mb-2 form-control"
                     id="price"
@@ -86,19 +72,22 @@
                 </div>
 
                 {{-- Tipologie di piatto --}}
-                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" value="1" name="vegetarian">
-                    <label class="btn btn-outline-primary" for="btncheck1">Vegetariano</label>
-                  
-                    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" value="1" name="vegan">
-                    <label class="btn btn-outline-primary" for="btncheck2">Vegano</label>
-                  
-                    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" value="1" name="glutenfree">
-                    <label class="btn btn-outline-primary" for="btncheck3">Gluten Free</label>
+                <div class="mb-4">
+                    <p class="mb-1">Tipologia del piatto</p>
+                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" value="1" name="vegetarian">
+                        <label class="btn btn-outline-warning" for="btncheck1">Vegetariano</label>
+                    
+                        <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" value="1" name="vegan">
+                        <label class="btn btn-outline-warning" for="btncheck2">Vegano</label>
+                    
+                        <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" value="1" name="glutenfree">
+                        <label class="btn btn-outline-warning" for="btncheck3">Gluten Free</label>
+                    </div>
                 </div>
 
                 {{-- Disponibilità del piatto --}}
-                <div>
+                <div class="mb-4">
                     <div class="form-check">
                         {{-- Input del piatto disponibile --}}
                         <input class="form-check-input" type="radio" id="exampleRadios1" name="availability" value="1" checked>
@@ -116,7 +105,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="mb-4">
                     {{-- Immagine --}}
                     <label for="img" class="form-label">Immagine</label>
                     <input
@@ -129,11 +118,11 @@
                     >
                 </div>
 
-                <p>I campi contrassegnati con <strong>*</strong> sono <strong>obbligatori</strong></p>
+                <p>I campi contrassegnati con <strong class="orange">*</strong> sono <strong>obbligatori</strong></p>
 
-                <div>
+                <div class="mb-2">
                     {{-- Bottone --}}
-                    <button type="submit" class="m-3 btn btn-success">
+                    <button type="submit" class="btn create-button">
                         Inserisci
                     </button>
                 </div>
@@ -142,3 +131,21 @@
     </div>
 </div>
 @endsection
+
+<style>
+    .orange{
+        color: #FF8400;
+    }
+
+    form{
+        border-radius:20px;
+        padding: 25px 15px;
+        background-color: white;
+        border: 2px solid #FF8400;
+    }
+
+    .create-button{
+        background-color: #FF8400 !important;
+        color: white !important;
+    }
+</style>

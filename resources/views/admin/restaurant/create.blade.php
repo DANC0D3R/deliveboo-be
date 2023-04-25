@@ -4,14 +4,15 @@
     <div class="container form mt-4">
         <div class="row justify-content-center">
 
-            <div class="col-md-9 ">
+            <div class="col-md-9">
+                
+                @include('partials.error')
 
                 <h2 class="mb-4">Inserisci il tuo ristorante</h2>
 
                 <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="shadow p-4">
                     @csrf
 
-                    @include('partials.error')
 
                     <div class="mb-4">
                         {{-- Nome ristorante --}}
@@ -144,6 +145,7 @@
         </div>
     </div>
 @endsection
+
 <style scoped>
     .orange{
         color: #FF8400;

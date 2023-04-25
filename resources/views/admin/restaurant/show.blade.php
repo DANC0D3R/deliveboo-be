@@ -35,7 +35,8 @@
                     <div class="text-container col-7">
 
                         {{-- Indirizzo ristorante --}}
-                        <div>
+                        <div class="mb-3">
+                            <h6 class="orange">Indirizzo</h6>
                             <p>
                                 <i class="fa-solid fa-location-dot"></i>
                                 {{ $restaurant->address }}
@@ -43,8 +44,8 @@
                         </div>
 
                         {{-- Tipologia ristorante --}}
-                        <div>
-                        <h6>Tipologia</h6>
+                        <div class="mb-3">
+                        <h6 class="orange">Tipologia</h6>
                             @if (count($restaurant->types) > 0)
                             <ul>
                                 @foreach ($restaurant->types as $type)
@@ -62,29 +63,31 @@
                         </div>
 
                         {{-- Descrizione --}}
-                        <div>
-                            <h6>Descrizione</h6>
+                        <div class="mb-3">
+                            <h6 class="orange">Descrizione</h6>
                             <p>
                                 {{ $restaurant->description }}
                             </p>
                         </div>
 
                         {{-- Contatti --}}
-                        <div>
-                            <h6>
+                        <div class="mb-3">
+                            <h6 class="orange">
                                 Contatti
                             </h6>
                             <p>
+                                <i class="fa-solid fa-phone"></i>
                                 {{ $restaurant->phone }}
                             </p>
                         </div>
 
                         {{-- P.IVA --}}
-                        <div>
-                            <h6>
+                        <div class="mb-3">
+                            <h6 class="orange">
                                 Partita iva
                             </h6>
                             <p>
+                                <i class="fa-solid fa-circle-info"></i>
                                 {{ $restaurant->p_iva }}
                             </p>
                         </div>
@@ -93,12 +96,24 @@
 
                 </div>
             </div>
+
+            {{-- Back button --}}
+            <div  class="button-container my-3">
+                <a href="{{ route('admin.restaurants.index') }}" class="btn back-button">
+                    <i class="fa-solid fa-arrow-left"></i> Torna indietro
+                </a>
+            </div>
+
         </div>
     </div>
 
 @endsection
 
 <style>
+
+    .orange{
+        color: #FF8400;
+    }
     .img-container img{
         border-radius: 20px;
         width: 80%;
@@ -111,5 +126,18 @@
     }
     p{
         margin: 10px 0;
+    }
+
+    /* BACK BUTTON */
+    .back-button{
+        background-color: #FF8400 !important;
+    }
+
+    .button-container a{
+        color: white;
+    }
+    .button-container a:hover{
+        background-color: #FFA559 !important;
+        color: white;
     }
 </style>

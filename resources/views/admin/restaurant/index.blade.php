@@ -6,14 +6,11 @@
         {{-- Utente già regostrato --}}
         @if(count($restaurant)>0)
             <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
+                <div class="col-md-8">
 
-                    <div class="restaurant-card p-4 mt-4 shadow">
-                        <h2 class="mb-3">
-                            {{ $restaurant[0]->name }}
-                        </h2>
-
-                        <div class="img-container mb-4">
+                    <div class="card restaurant-card shadow">
+                        <div class="card-body">
+                            
                             {{-- Immagine --}}
                             @if ($restaurant[0]->img)
                             <div>
@@ -23,53 +20,65 @@
                                     <img src="{{asset('storage/'. $restaurant[0]->img)}}" alt="{{ $restaurant[0]->name }}">
                                 @endif
                             </div>
-                            @endif 
-                        </div>
+                            @endif
 
-                        <div class="button-container">
+                            <div>
+                                {{-- Nome piatto --}}
+                                <h3 class="mb-3">
+                                    {{ $restaurant[0]->name }}
+                                </h3>
 
-                            {{-- Pulsante di show del ristorante --}}
-                            <a href="{{ route('admin.restaurants.show', $restaurant[0]) }}" class="crud-button show">
-                                <i class="fa-solid fa-eye"></i>
-                            </a>
+                                <p class="mb-3">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    {{ $restaurant[0]->address }}
+                                </p>
+                            </div>
 
-                            {{-- Pulsante di modifica ristorante --}}
-                            <a href="{{ route('admin.restaurants.edit', $restaurant[0]) }}" class="crud-button edit">
-                                <i class="fa-solid fa-pen"></i>
-                            </a>
+                            <div class="button-container d-flex my-2">
 
-                            {{-- eliminazione tramite modale --}}
-                            <button class="crud-button delete" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $restaurant[0]->id }}">
-                                <i class="fa-solid fa-trash-can"></i>
-                            </button>
+                                {{-- Pulsante di show del ristorante --}}
+                                <a href="{{ route('admin.restaurants.show', $restaurant[0]) }}" class="crud-button show">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
 
-                            <div class="modal fade" id="deleteModal_{{ $restaurant[0]->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Elimminazione ristorante</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
+                                {{-- Pulsante di modifica ristorante --}}
+                                <a href="{{ route('admin.restaurants.edit', $restaurant[0]) }}" class="crud-button edit">
+                                    <i class="fa-solid fa-pen"></i>
+                                </a>
 
-                                        <div class="modal-body">
-                                            Confermi di voler eliminare {{ $restaurant[0]->name }}?
-                                        </div>
+                                {{-- eliminazione tramite modale --}}
+                                <button class="crud-button delete" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $restaurant[0]->id }}">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
 
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                            
-                                            <form action="{{ route('admin.restaurants.destroy', $restaurant[0]->id) }}" method="POST" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                @csrf
-                                                @method('DELETE')
+                                <div class="modal fade" id="deleteModal_{{ $restaurant[0]->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Elimminazione ristorante</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
 
-                                                {{-- Pulsante delete --}}
-                                                <button class="btn btn-danger">Elimina</button>
-                                            </form>
+                                            <div class="modal-body">
+                                                Confermi di voler eliminare {{ $restaurant[0]->name }}?
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                                
+                                                <form action="{{ route('admin.restaurants.destroy', $restaurant[0]->id) }}" method="POST" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                    {{-- Pulsante delete --}}
+                                                    <button class="btn btn-danger">Elimina</button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
 
                     </div>
@@ -107,21 +116,23 @@
     color: white !important;
 }
 
-.restaurant-card{
-    border-radius:20px;
-    padding: 25px 15px;
-    background-color: white;
-    border: 2px solid #FF8400
-}
 
-.img-container img{
+.card-body{
+    border-radius:20px;
+    background-color: white;
+    border:2px solid #FF8400;
+}
+.restaurant-card{
+    border-radius:20px !important;
+}
+.card-body img{
     border-radius: 20px;
+    width: 100%;
 }
 
 /* Crud button */
 .button-container{
-        flex-direction: column;
-        justify-content: space-around;
+        justify-content: center;
     }
     .crud-button{
         color: white;

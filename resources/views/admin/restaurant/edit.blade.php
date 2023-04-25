@@ -2,22 +2,22 @@
 
 @section('content')
     <div class="container form mt-4">
-        <div class="row">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
 
-            <div class="col">
+                <h2 class="mb-3">Modifica il tuo ristorante</h2>
 
                 <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
-
-                    @include('partials.error')
-
                     <div>
-                        <h2 class="mb-3">Modifica il tuo ristorante</h2>
+                        @include('partials.error')
+                    </div>
 
+                    <div class="mb-4">
                         {{-- Nome ristorante --}}
-                        <label for="name" class="form-laber @error('name') text-danger @enderror">Nome Ristorante *</label>
+                        <label for="name" class="form-laber @error('name') text-danger @enderror">Nome Ristorante <strong class="orange">*</strong></label>
                         <input
                         class="d-block mb-2 form-control" 
                         id="name"
@@ -33,9 +33,9 @@
                         @enderror
                     </div>
 
-                    <div>
+                    <div class="mb-4">
                         {{-- Indirizzo --}}
-                        <label for="address" class="form-label @error('address') text-danger @enderror">Indirizzo *</label>
+                        <label for="address" class="form-label @error('address') text-danger @enderror">Indirizzo <strong class="orange">*</strong></label>
                         <input 
                         class="d-block mb-2 form-control"
                         id="address"
@@ -52,9 +52,9 @@
                         @enderror
                     </div>  
 
-                    <div>
+                    <div class="mb-4">
                         {{-- P.IVA --}}
-                        <label for="p_iva" class="form-label @error('p_iva') text-danger @enderror">P. IVA *</label>
+                        <label for="p_iva" class="form-label @error('p_iva') text-danger @enderror">P. IVA <strong class="orange">*</strong></label>
                         <input 
                         class="d-block mb-2 form-control"
                         id="p_iva"
@@ -72,7 +72,7 @@
                     </div>
                     
 
-                    <div>
+                    <div class="mb-4">
                         {{-- Descrizione --}}
                         <label for="description" form="form-label">Descrizione</label>
                         <textarea 
@@ -85,9 +85,9 @@
                         </textarea>
                     </div>
 
-                    <div>
+                    <div class="mb-4">
                         {{-- Telefono --}}
-                        <label for="phone" class="form-label @error('name') text-danger @enderror">Numero di telefono *</label>
+                        <label for="phone" class="form-label @error('name') text-danger @enderror">Numero di telefono <strong class="orange">*</strong></label>
                         <input 
                         class="d-block mb-2 form-control"
                         id="phone"
@@ -105,45 +105,47 @@
                     </div>
 
                     {{-- Tipo --}}
+                    <div class="mb-4">
+                        <p class="mb-1">Tipo di ristorante <strong class="orange">*</strong></p>
+                        @foreach ($types as $type)
+                            <div class="btn-group click" role="group" aria-label="Basic checkbox toggle button group">
+                                <input class="btn-check" type="checkbox" name="types[]" id="type-{{ $type->id }}" value="{{ $type->id }}"
+                                    @if (old('types') && is_array(old('types')) && count(old('types')) > 0)
+                                        {{ in_array($type->id, old('types')) ? 'checked' : '' }}
+                                    @elseif($restaurant->types->contains($type))
+                                        checked
+                                    @endif
+                                >
+                                <label class="btn btn-outline-warning my-1" for="type-{{ $type->id }}">
+                                    {{ $type->name }}
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
 
-                    <p class="mb-1">Tipo di ristorante *</p>
-                    @foreach ($types as $type)
-                        <div class="btn-group click" role="group" aria-label="Basic checkbox toggle button group">
-                            {{-- <input
-                            class="btn-check"
-                            name="types[]"
-                            type="checkbox"
-                            id="type-{{ $type->id }}"
-                            {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}
-                            value="{{ $type->id }}"
-                            > --}}
-                            <input class="btn-check" type="checkbox" name="types[]" id="type-{{ $type->id }}" value="{{ $type->id }}"
-                                @if (old('types') && is_array(old('types')) && count(old('types')) > 0)
-                                    {{ in_array($type->id, old('types')) ? 'checked' : '' }}
-                                @elseif($restaurant->types->contains($type))
-                                    checked
-                                @endif
-                            >
-                            <label class="btn btn-outline-warning" for="type-{{ $type->id }}">
-                                {{ $type->name }}
-                            </label>
-                        </div>
-                    @endforeach
-
-                    <div>
+                    <div class="mb-4">
                         {{-- Immagine --}}
-                        <label for="img" class="form-label">Immagine</label>
+                        <label for="img" class="form-label img-label">Immagine</label>
     
-                        <img src="{{ asset('storage/'.$restaurant->img) }}" class="card-img-top mb-3" alt="immagine" style="height: 200px; width: 300px">
-    
+                        {{-- Immagine --}}
+                        @if ($restaurant->img)
+                        <div class="mb-3">
+                            @if(str_contains($restaurant->img, "https"))
+                                <img src="{{ $restaurant->img }}"  alt="{{ $restaurant->name }}">
+                            @else
+                                <img src="{{asset('storage/'. $restaurant->img)}}" alt="{{ $restaurant->name }}">
+                            @endif
+                        </div>
+                        @endif 
+                        
                         <input class="form-control w-50 mb-4" type="file" id="img" name="img" accept="image/*" placeholder="Inserisci la nuova immagine'">
                     </div>
 
-                    <p>I campi contrassegnati con <strong>*</strong> sono <strong>obbligatori</strong></p>
+                    <p>I campi contrassegnati con <strong class="orange">*</strong> sono <strong>obbligatori</strong></p>
 
-                    <div>
+                    <div class="mb-2">
                         {{-- Bottone --}}
-                        <button type="submit" class="m-3 btn btn-success">
+                        <button type="submit" class="btn create-button">
                             Inserisci
                         </button>
                     </div>
@@ -152,3 +154,31 @@
         </div>
     </div>
 @endsection
+
+<style scoped>
+    .orange{
+        color: #FF8400;
+    }
+
+    form{
+        border-radius:20px;
+        padding: 25px 15px;
+        background-color: white;
+        border: 2px solid #FF8400;
+    }
+
+    .create-button{
+        background-color: #FF8400 !important;
+        color: white !important;
+    }
+    
+    .img-label{
+        display: block;
+    }
+
+    form img{
+        width: 100%;
+    }
+
+</style>
+
