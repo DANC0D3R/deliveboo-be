@@ -95,7 +95,7 @@ class RestaurantController extends Controller
             return view('admin.restaurant.show', compact('restaurant'));
         }
         else {
-            return view('admin.dashboard')->with('error','Accesso negato: quello non è il tuo ristorante');
+            return redirect()->route('admin.dashboard')->with('error', 'Accesso negato: puoi visualizzare i dettagli solo il tuo ristorante');
         }
     }
 
@@ -109,9 +109,8 @@ class RestaurantController extends Controller
 
         if ($restaurant->user_id == $user->id) {
             return view('admin.restaurant.edit', compact('restaurant', 'types'));
-        }
-        else {
-            return view('admin.dashboard')->with('error','Accesso negato: quello non è il tuo ristorante');
+        } else {
+            return redirect()->route('admin.dashboard')->with('error', 'Accesso negato: puoi modificare i dettagli solo del tuo ristorante');
         }
     }
 

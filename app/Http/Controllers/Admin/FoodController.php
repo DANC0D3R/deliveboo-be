@@ -87,7 +87,7 @@ class FoodController extends Controller
             return view('admin.food.show',compact('food'));
         }
         else {
-            return view('admin.dashboard')->with('error','Accesso negato: quel piatto non appartiene al tuo ristorante');
+            return redirect()->route('admin.dashboard')->with('error', 'Accesso negato: quel piatto non appartiene al tuo ristorante');
         }
     }
 
@@ -107,7 +107,7 @@ class FoodController extends Controller
             return view('admin.food.edit',compact('food', 'targetRestaurant'));
         }
         else {
-            return view('admin.dashboard')->with('error','Accesso negato: quel piatto non appartiene al tuo ristorante');
+            return redirect()->route('admin.dashboard')->with('error', 'Accesso negato: quel piatto non appartiene al tuo ristorante');
         }
     }
 
