@@ -33,7 +33,7 @@
 
                 {{-- Utente --}}
                 <div class="nav-item dropdown custom-color px-2">
-                    <strong style="font-size: 1.5rem">
+                    <strong style="font-size: 1.2rem">
                         {{ Auth::user()->name }}
                     </strong>
                 </div>
@@ -45,7 +45,9 @@
 
                 <div class="background background--light">
                     <button class="logoutButton logoutButton--dark" href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
+                    setTimeout(function() {
+                    document.getElementById('logout-form').submit();
+                    }, 1500);">
                         <span class="button-text">Esci</span>
                         <svg class="doorway" viewBox="0 0 100 100">
                             <path d="M93.4 86.3H58.6c-1.9 0-3.4-1.5-3.4-3.4V17.1c0-1.9 1.5-3.4 3.4-3.4h34.8c1.9 0 3.4 1.5 3.4 3.4v65.8c0 1.9-1.5 3.4-3.4 3.4z" />
@@ -142,146 +144,145 @@
         </div>
         <script>
             document.querySelectorAll('.logoutButton').forEach(button => {
-  button.state = 'default'
+                button.state = 'default'
 
-  // function to transition a button from one state to the next
-  let updateButtonState = (button, state) => {
-    if (logoutButtonStates[state]) {
-      button.state = state
-      for (let key in logoutButtonStates[state]) {
-        button.style.setProperty(key, logoutButtonStates[state][key])
-      }
-    }
-  }
+                // function to transition a button from one state to the next
+                let updateButtonState = (button, state) => {
+                    if (logoutButtonStates[state]) {
+                    button.state = state
+                    for (let key in logoutButtonStates[state]) {
+                        button.style.setProperty(key, logoutButtonStates[state][key])
+                    }
+                    }
+                }
 
-  // mouse hover listeners on button
-  button.addEventListener('mouseenter', () => {
-    if (button.state === 'default') {
-      updateButtonState(button, 'hover')
-    }
-  })
-  button.addEventListener('mouseleave', () => {
-    if (button.state === 'hover') {
-      updateButtonState(button, 'default')
-    }
-  })
+                // mouse hover listeners on button
+                button.addEventListener('mouseenter', () => {
+                    if (button.state === 'default') {
+                    updateButtonState(button, 'hover')
+                    }
+                })
+                button.addEventListener('mouseleave', () => {
+                    if (button.state === 'hover') {
+                    updateButtonState(button, 'default')
+                    }
+                })
 
-  // click listener on button
-  button.addEventListener('click', () => {
-    if (button.state === 'default' || button.state === 'hover') {
-      button.classList.add('clicked')
-      updateButtonState(button, 'walking1')
-      setTimeout(() => {
-        button.classList.add('door-slammed')
-        updateButtonState(button, 'walking2')
-        setTimeout(() => {
-          button.classList.add('falling')
-          updateButtonState(button, 'falling1')
-          setTimeout(() => {
-            updateButtonState(button, 'falling2')
-            setTimeout(() => {
-              updateButtonState(button, 'falling3')
-              setTimeout(() => {
-                button.classList.remove('clicked')
-                button.classList.remove('door-slammed')
-                button.classList.remove('falling')
-                updateButtonState(button, 'default')
-              }, 1000)
-            }, logoutButtonStates['falling2']['--walking-duration'])
-          }, logoutButtonStates['falling1']['--walking-duration'])
-        }, logoutButtonStates['walking2']['--figure-duration'])
-      }, logoutButtonStates['walking1']['--figure-duration'])
-    }
-  })
-})
+                // click listener on button
+                button.addEventListener('click', () => {
+                    if (button.state === 'default' || button.state === 'hover') {
+                    button.classList.add('clicked')
+                    updateButtonState(button, 'walking1')
+                    setTimeout(() => {
+                        button.classList.add('door-slammed')
+                        updateButtonState(button, 'walking2')
+                        setTimeout(() => {
+                        button.classList.add('falling')
+                        updateButtonState(button, 'falling1')
+                        setTimeout(() => {
+                            updateButtonState(button, 'falling2')
+                            setTimeout(() => {
+                            updateButtonState(button, 'falling3')
+                            setTimeout(() => {
+                                button.classList.remove('clicked')
+                                button.classList.remove('door-slammed')
+                                button.classList.remove('falling')
+                                updateButtonState(button, 'default')
+                            }, 1000)
+                            }, logoutButtonStates['falling2']['--walking-duration'])
+                        }, logoutButtonStates['falling1']['--walking-duration'])
+                        }, logoutButtonStates['walking2']['--figure-duration'])
+                    }, logoutButtonStates['walking1']['--figure-duration'])
+                    }
+                })
+            })
 
-const logoutButtonStates = {
-  'default': {
-    '--figure-duration': '100',
-    '--transform-figure': 'none',
-    '--walking-duration': '100',
-    '--transform-arm1': 'none',
-    '--transform-wrist1': 'none',
-    '--transform-arm2': 'none',
-    '--transform-wrist2': 'none',
-    '--transform-leg1': 'none',
-    '--transform-calf1': 'none',
-    '--transform-leg2': 'none',
-    '--transform-calf2': 'none'
-  },
-  'hover': {
-    '--figure-duration': '100',
-    '--transform-figure': 'translateX(1.5px)',
-    '--walking-duration': '100',
-    '--transform-arm1': 'rotate(-5deg)',
-    '--transform-wrist1': 'rotate(-15deg)',
-    '--transform-arm2': 'rotate(5deg)',
-    '--transform-wrist2': 'rotate(6deg)',
-    '--transform-leg1': 'rotate(-10deg)',
-    '--transform-calf1': 'rotate(5deg)',
-    '--transform-leg2': 'rotate(20deg)',
-    '--transform-calf2': 'rotate(-20deg)'
-  },
-  'walking1': {
-    '--figure-duration': '300',
-    '--transform-figure': 'translateX(11px)',
-    '--walking-duration': '300',
-    '--transform-arm1': 'translateX(-4px) translateY(-2px) rotate(120deg)',
-    '--transform-wrist1': 'rotate(-5deg)',
-    '--transform-arm2': 'translateX(4px) rotate(-110deg)',
-    '--transform-wrist2': 'rotate(-5deg)',
-    '--transform-leg1': 'translateX(-3px) rotate(80deg)',
-    '--transform-calf1': 'rotate(-30deg)',
-    '--transform-leg2': 'translateX(4px) rotate(-60deg)',
-    '--transform-calf2': 'rotate(20deg)'
-  },
-  'walking2': {
-    '--figure-duration': '400',
-    '--transform-figure': 'translateX(17px)',
-    '--walking-duration': '300',
-    '--transform-arm1': 'rotate(60deg)',
-    '--transform-wrist1': 'rotate(-15deg)',
-    '--transform-arm2': 'rotate(-45deg)',
-    '--transform-wrist2': 'rotate(6deg)',
-    '--transform-leg1': 'rotate(-5deg)',
-    '--transform-calf1': 'rotate(10deg)',
-    '--transform-leg2': 'rotate(10deg)',
-    '--transform-calf2': 'rotate(-20deg)'
-  },
-  'falling1': {
-    '--figure-duration': '1600',
-    '--walking-duration': '400',
-    '--transform-arm1': 'rotate(-60deg)',
-    '--transform-wrist1': 'none',
-    '--transform-arm2': 'rotate(30deg)',
-    '--transform-wrist2': 'rotate(120deg)',
-    '--transform-leg1': 'rotate(-30deg)',
-    '--transform-calf1': 'rotate(-20deg)',
-    '--transform-leg2': 'rotate(20deg)'
-  },
-  'falling2': {
-    '--walking-duration': '300',
-    '--transform-arm1': 'rotate(-100deg)',
-    '--transform-arm2': 'rotate(-60deg)',
-    '--transform-wrist2': 'rotate(60deg)',
-    '--transform-leg1': 'rotate(80deg)',
-    '--transform-calf1': 'rotate(20deg)',
-    '--transform-leg2': 'rotate(-60deg)'
-  },
-  'falling3': {
-    '--walking-duration': '500',
-    '--transform-arm1': 'rotate(-30deg)',
-    '--transform-wrist1': 'rotate(40deg)',
-    '--transform-arm2': 'rotate(50deg)',
-    '--transform-wrist2': 'none',
-    '--transform-leg1': 'rotate(-30deg)',
-    '--transform-leg2': 'rotate(20deg)',
-    '--transform-calf2': 'none'
-  }
-}
+            const logoutButtonStates = {
+            'default': {
+                '--figure-duration': '100',
+                '--transform-figure': 'none',
+                '--walking-duration': '100',
+                '--transform-arm1': 'none',
+                '--transform-wrist1': 'none',
+                '--transform-arm2': 'none',
+                '--transform-wrist2': 'none',
+                '--transform-leg1': 'none',
+                '--transform-calf1': 'none',
+                '--transform-leg2': 'none',
+                '--transform-calf2': 'none'
+            },
+            'hover': {
+                '--figure-duration': '100',
+                '--transform-figure': 'translateX(1.5px)',
+                '--walking-duration': '100',
+                '--transform-arm1': 'rotate(-5deg)',
+                '--transform-wrist1': 'rotate(-15deg)',
+                '--transform-arm2': 'rotate(5deg)',
+                '--transform-wrist2': 'rotate(6deg)',
+                '--transform-leg1': 'rotate(-10deg)',
+                '--transform-calf1': 'rotate(5deg)',
+                '--transform-leg2': 'rotate(20deg)',
+                '--transform-calf2': 'rotate(-20deg)'
+            },
+            'walking1': {
+                '--figure-duration': '300',
+                '--transform-figure': 'translateX(11px)',
+                '--walking-duration': '300',
+                '--transform-arm1': 'translateX(-4px) translateY(-2px) rotate(120deg)',
+                '--transform-wrist1': 'rotate(-5deg)',
+                '--transform-arm2': 'translateX(4px) rotate(-110deg)',
+                '--transform-wrist2': 'rotate(-5deg)',
+                '--transform-leg1': 'translateX(-3px) rotate(80deg)',
+                '--transform-calf1': 'rotate(-30deg)',
+                '--transform-leg2': 'translateX(4px) rotate(-60deg)',
+                '--transform-calf2': 'rotate(20deg)'
+            },
+            'walking2': {
+                '--figure-duration': '400',
+                '--transform-figure': 'translateX(17px)',
+                '--walking-duration': '300',
+                '--transform-arm1': 'rotate(60deg)',
+                '--transform-wrist1': 'rotate(-15deg)',
+                '--transform-arm2': 'rotate(-45deg)',
+                '--transform-wrist2': 'rotate(6deg)',
+                '--transform-leg1': 'rotate(-5deg)',
+                '--transform-calf1': 'rotate(10deg)',
+                '--transform-leg2': 'rotate(10deg)',
+                '--transform-calf2': 'rotate(-20deg)'
+            },
+            'falling1': {
+                '--figure-duration': '1600',
+                '--walking-duration': '400',
+                '--transform-arm1': 'rotate(-60deg)',
+                '--transform-wrist1': 'none',
+                '--transform-arm2': 'rotate(30deg)',
+                '--transform-wrist2': 'rotate(120deg)',
+                '--transform-leg1': 'rotate(-30deg)',
+                '--transform-calf1': 'rotate(-20deg)',
+                '--transform-leg2': 'rotate(20deg)'
+            },
+            'falling2': {
+                '--walking-duration': '300',
+                '--transform-arm1': 'rotate(-100deg)',
+                '--transform-arm2': 'rotate(-60deg)',
+                '--transform-wrist2': 'rotate(60deg)',
+                '--transform-leg1': 'rotate(80deg)',
+                '--transform-calf1': 'rotate(20deg)',
+                '--transform-leg2': 'rotate(-60deg)'
+            },
+            'falling3': {
+                '--walking-duration': '500',
+                '--transform-arm1': 'rotate(-30deg)',
+                '--transform-wrist1': 'rotate(40deg)',
+                '--transform-arm2': 'rotate(50deg)',
+                '--transform-wrist2': 'none',
+                '--transform-leg1': 'rotate(-30deg)',
+                '--transform-leg2': 'rotate(20deg)',
+                '--transform-calf2': 'none'
+            }
+            }
         </script>
     </body>
-
 </html>
 <style scoped>
     .app{
@@ -291,7 +292,7 @@ const logoutButtonStates = {
         /* background-image: url('https://i.pinimg.com/564x/cf/f4/23/cff4237259e33904ab1a617e9d57603c.jpg'); */
         background-size: cover;
         
-        background-blend-mode:screen;
+        background-blend-mode: screen;
     }
     .background-white{
         /* background-color: rgba(255, 255, 255, 0.3); */
@@ -300,7 +301,7 @@ const logoutButtonStates = {
     /* Navbar */
     .navbar{
         background-color: #FFD966;
-        color: black !important;
+        color: #000000 !important;
     }
     .sidebar{
         background-color: #FF8400;
@@ -311,207 +312,205 @@ const logoutButtonStates = {
     .active{
         background-color: #FFD966;
         border-radius: 15px;
-        color: black !important;
+        color: #000000 !important;
     }
 
-
-
-
-
-
+    /* Logout Button */
     .logoutButton {
-  --figure-duration: 100ms;
-  --transform-figure: none;
-  --walking-duration: 100ms;
-  --transform-arm1: none;
-  --transform-wrist1: none;
-  --transform-arm2: none;
-  --transform-wrist2: none;
-  --transform-leg1: none;
-  --transform-calf1: none;
-  --transform-leg2: none;
-  --transform-calf2: none;
-  background: none;
-  border: 0;
-  color: #0000000;
-  cursor: pointer;
-  display: block;
-  font-family: 'Quicksand', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  height: 40px;
-  outline: none;
-  padding: 0 0 0 20px;
-  perspective: 100px;
-  position: relative;
-  text-align: left;
-  width: 130px;
-  -webkit-tap-highlight-color: transparent;
-}
+        --figure-duration: 100ms;
+        --transform-figure: none;
+        --walking-duration: 100ms;
+        --transform-arm1: none;
+        --transform-wrist1: none;
+        --transform-arm2: none;
+        --transform-wrist2: none;
+        --transform-leg1: none;
+        --transform-calf1: none;
+        --transform-leg2: none;
+        --transform-calf2: none;
+        background: none;
+        border: 0;
+        color: #0000000;
+        cursor: pointer;
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        height: 40px;
+        outline: none;
+        padding: 0 0 0 20px;
+        perspective: 100px;
+        position: relative;
+        text-align: left;
+        width: 100px;
+        -webkit-tap-highlight-color: transparent;
+    }
 
-.logoutButton::before {
-  background-color: #FFFFFF;
-  border-radius: 5px;
-  content: '';
-  display: block;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: none;
-  transition: transform 50ms ease;
-  width: 100%;
-  z-index: 2;
-}
-.logoutButton:hover .door {
-  transform: rotateY(20deg);
-}
-.logoutButton:active::before {
-  transform: scale(0.96);
-}
+    .logoutButton::before {
+        background-color: #FFFFFF;
+        border-radius: 5px;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: none;
+        transition: transform 30ms ease;
+        width: 100%;
+        z-index: 2;
+    }
+    .logoutButton:hover .door {
+        transform: rotateY(20deg);
+    }
+    .logoutButton:active::before {
+        transform: scale(0.96);
+    }
 
-.logoutButton:active .door {
-  transform: rotateY(28deg);
-}
-.logoutButton.clicked::before {
-  transform: none;
-}
-.logoutButton.clicked .door {
-  transform: rotateY(35deg);
-}
-.logoutButton.door-slammed .door {
-  transform: none;
-  transition: transform 100ms ease-in 250ms;
-}
-.logoutButton.falling {
-  animation: shake 200ms linear;
-}
-.logoutButton.falling .bang {
-  animation: flash 300ms linear;
-}
+    .logoutButton:active .door {
+        transform: rotateY(28deg);
+    }
+    .logoutButton.clicked::before {
+        transform: none;
+    }
+    .logoutButton.clicked .door {
+        transform: rotateY(35deg);
+    }
+    .logoutButton.door-slammed .door {
+        transform: none;
+        transition: transform 100ms ease-in 250ms;
+    }
+    .logoutButton.falling {
+        animation: shake 100ms linear;
+    }
+    .logoutButton.falling .bang {
+        animation: flash 100ms linear;
+    }
 
-.logoutButton.falling .figure {
-  animation: spin 1000ms infinite linear;
-  bottom: -1080px;
-  opacity: 0;
-  right: 1px;
-  transition: transform calc(var(--figure-duration) * 1ms) linear, bottom calc(var(--figure-duration) * 1ms) cubic-bezier(0.7, 0.1, 1, 1) 100ms, opacity calc(var(--figure-duration) * 0.25ms) linear calc(var(--figure-duration) * 0.75ms);
-  z-index: 1;
-}
-.logoutButton--light::before {
-  background-color: #0000000;
-}
-.logoutButton--light .button-text {
-  color: #1f2335;
-}
+    .logoutButton.falling .figure {
+        animation: spin 1000ms infinite linear;
+        bottom: -200px;
+        opacity: 0;
+        right: 1px;
+        transition: transform calc(var(--figure-duration) * 1ms) linear, bottom calc(var(--figure-duration) * 1ms) cubic-bezier(0.7, 0.1, 1, 1) 100ms, opacity calc(var(--figure-duration) * 0.25ms) linear calc(var(--figure-duration) * 0.75ms);
+        z-index: 1;
+    }
+    .logoutButton--light::before {
+        background-color: #0000000;
+        }
+    .logoutButton--light .button-text {
+        color: #1F2335;
+    }
 
-.logoutButton--light .door, .logoutButton--light .doorway {
-  fill: #1f2335;
-}
-.button-text {
-  color: #0000000;
-  font-weight: 500;
-  position: relative;
-  z-index: 10;
-}
-svg {
-  display: block;
-  position: absolute;
-}
+    .logoutButton--light .door, .logoutButton--light .doorway {
+        fill: #1F2335;
+    }
+    .button-text {
+        color: #0000000;
+        font-weight: 500;
+        position: relative;
+        z-index: 10;
+    }
+    svg {
+        display: block;
+        position: absolute;
+    }
 
-.figure {
-  bottom: 5px;
-  fill: #FF8400;
-  right: 18px;
-  transform: var(--transform-figure);
-  transition: transform calc(var(--figure-duration) * 1ms) cubic-bezier(0.2, 0.1, 0.8, 0.9);
-  width: 30px;
-  z-index: 4;
-}
-.door, .doorway {
-  bottom: 4px;
-  fill: #0000000;
-  right: 12px;
-  width: 32px;
-}
-.door {
-  transform: rotateY(20deg);
-  transform-origin: 100% 50%;
-  transform-style: preserve-3d;
-  transition: transform 200ms ease;
-  z-index: 5;
-}
-.door path {
-  fill: #FF8400;
-  stroke: #FF8400   ;
-  stroke-width: 4;
-}
-.doorway {
-  z-index: 3;
-}
-.bang {
-  opacity: 0;
-}
-.arm1, .wrist1, .arm2, .wrist2, .leg1, .calf1, .leg2, .calf2 {
-  transition: transform calc(var(--walking-duration) * 1ms) ease-in-out;
-}
-.arm1 {
-  transform: var(--transform-arm1);
-  transform-origin: 52% 45%;
-}
-.wrist1 {
-  transform: var(--transform-wrist1);
-  transform-origin: 59% 55%;
-}
-.arm2 {
-  transform: var(--transform-arm2);
-  transform-origin: 47% 43%;
-}
-.wrist2 {
-  transform: var(--transform-wrist2);
-  transform-origin: 35% 47%;
-}
-.leg1 {
-  transform: var(--transform-leg1);
-  transform-origin: 47% 64.5%;
-}
-.calf1 {
-  transform: var(--transform-calf1);
-  transform-origin: 55.5% 71.5%;
-}
-.leg2 {
-  transform: var(--transform-leg2);
-  transform-origin: 43% 63%;
-}
-.calf2 {
-  transform: var(--transform-calf2);
-  transform-origin: 41.5% 73%;
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg) scale(0.94);
-  }
-  to {
-    transform: rotate(359deg) scale(0.94);
-  }
-}
-@keyframes shake {
-  0% {
-    transform: rotate(-1deg);
-  }
-  50% {
-    transform: rotate(2deg);
-  }
-  100% {
-    transform: rotate(-1deg);
-  }
-}
-@keyframes flash {
-  0% {
-    opacity: 0.4;
-  }
-  100% {
-    opacity: 0;
-  }
-}
+    .figure {
+        bottom: 5px;
+        fill: #FF8400;
+        right: 18px;
+        transform: var(--transform-figure);
+        transition: transform calc(var(--figure-duration) * 1ms) cubic-bezier(0.2, 0.1, 0.8, 0.9);
+        width: 30px;
+        z-index: 4;
+    }
+    .door, .doorway {
+        bottom: 4px;
+        fill: #0000000;
+        right: 12px;
+        width: 32px;
+        }
+    .door {
+        transform: rotateY(20deg);
+        transform-origin: 100% 50%;
+        transform-style: preserve-3d;
+        transition: transform 200ms ease;
+
+        z-index: 5;
+    }
+    .door path {
+        fill: #FF8400;
+        stroke: #FF8400   ;
+        stroke-width: 4;
+        }
+    .doorway {
+        z-index: 3;
+    }
+    .bang {
+        opacity: 0;
+    }
+    .arm1, .wrist1, .arm2, .wrist2, .leg1, .calf1, .leg2, .calf2 {
+        transition: transform calc(var(--walking-duration) * 1ms) ease-in-out;
+    }
+    .arm1 {
+        transform: var(--transform-arm1);
+        transform-origin: 52% 45%;
+    }
+    .wrist1 {
+        transform: var(--transform-wrist1);
+        transform-origin: 59% 55%;
+    }
+    .arm2 {
+        transform: var(--transform-arm2);
+        transform-origin: 47% 43%;
+        }
+    .wrist2 {
+        transform: var(--transform-wrist2);
+        transform-origin: 35% 47%;
+    }
+    .leg1 {
+        transform: var(--transform-leg1);
+        transform-origin: 47% 64.5%;
+    }
+    .calf1 {
+        transform: var(--transform-calf1);
+        transform-origin: 55.5% 71.5%;
+        }
+    .leg2 {
+        transform: var(--transform-leg2);
+        transform-origin: 43% 63%;
+    }
+    .calf2 {
+        transform: var(--transform-calf2);
+        transform-origin: 41.5% 73%;
+    }
+
+    /* KEYFRAMES */
+    @keyframes spin {
+        from {
+            transform: rotate(0deg) scale(0.94);
+        }
+        to {
+            transform: rotate(359deg) scale(0.94);
+        }
+    }
+    @keyframes shake {
+        0% {
+            transform: rotate(-1deg);
+        }
+        50% {
+            transform: rotate(2deg);
+        }
+        100% {
+            transform: rotate(-1deg);
+        }
+    }
+    @keyframes flash {
+        0% {
+            opacity: 0.4;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
 </style>
