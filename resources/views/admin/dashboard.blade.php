@@ -28,19 +28,19 @@
                     <ul>
                         <li>
                             Inserire e visualizzare i dati del tuoi ristorante, dalla voce <br>
-                            <strong class="orange">"Il tuo ristorante"</strong>
+                            <a href="{{ url('admin/restaurants') }}"><strong class="orange">"Il tuo ristorante"</strong></a>
                         </li>
                         <li>
                             Visualizzare il tuo menu, inserire nuovi piatti, modificarli ed eliminare con semplicità le vecchie portate, dalla voce <br>
-                            <strong class="orange">"Menù"</strong> 
+                            <a href="{{route('admin.foods.index')}}"><strong class="orange">"Menù"</strong></a>
                         </li>
                         <li>
                             Visualizzare gli ordini ricevuti dai clienti, dalla voce <br>
-                            <strong class="orange">"Ordini"</strong>
+                            <a href="{{route('admin.orders.index')}}"><strong class="orange">"Ordini"</strong></a>
                         </li>
                         <li>
                             Visualizzare le statistiche degli ordini ricevuti per mese e/o anno, dalla voce <br>
-                            <strong class="orange">"Statistiche"</strong>
+                            <a href="#"><strong class="orange">"Statistiche"</strong></a>
                         </li>
                     </ul>
                 </p>
@@ -62,5 +62,8 @@
     }
     li{
         margin-bottom: 15px;
+    }
+    li a{
+        text-decoration: none;
     }
 </style>
