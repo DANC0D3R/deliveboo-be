@@ -40,7 +40,7 @@
                     @if (Auth::user()->role === 'admin')
                     {{-- Dropdow super admin --}}
                     <div class="dropdown-menu dropdown-menu-right custom-color" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item custom-color" href="{{ url('dashboard') }}">{{ __('Pannello di controllo') }}</a>
+                        <a class="dropdown-item custom-color" href="{{ url('admin/dashboard') }}">{{ __('Pannello di controllo') }}</a>
                         <a class="dropdown-item custom-color" href="{{ url('profile') }}">{{ __('Profilo') }}</a>
                         <a class="dropdown-item custom-color" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
@@ -57,7 +57,7 @@
                     
                     @else
                     <div class="dropdown-menu dropdown-menu-right custom-color" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item custom-color" href="{{ url('dashboard') }}">{{ __('Pannello di controllo') }}</a>
+                        <a class="dropdown-item custom-color" href="{{ url('admin/dashboard') }}">{{ __('Pannello di controllo') }}</a>
                         <a class="dropdown-item custom-color" href="{{ url('profile') }}">{{ __('Profilo') }}</a>
                         <a class="dropdown-item custom-color" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
