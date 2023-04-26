@@ -116,7 +116,7 @@
                             @if(str_contains($food->img, "https"))
                             <img src="{{ $food->img }}" alt="{{ $food->name }}">
                             @else
-                            <img src="{{asset('storage/'. $food->img)}}" style="height: 300px" alt="{{ $food->name }}">
+                            <img src="{{asset('storage/'. $food->img)}}" alt="{{ $food->name }}">
                             @endif
                             {{-- Placeholder --}}
                             {{-- <img src="https://www.cucchiaio.it/content/cucchiaio/it/ricette/2020/04/pasta-alla-zozzona/jcr:content/imagePreview.img10.jpg/1588238376193.jpg" alt=""> --}}
@@ -154,5 +154,9 @@
 
     .img-label{
         display: block;
+    }
+
+    form img{
+        width: 100%;
     }
 </style>

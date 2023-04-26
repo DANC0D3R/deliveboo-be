@@ -89,12 +89,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div  class="button-container mb-3">
-                <a href="{{ route('admin.foods.index') }}" class="btn back-button">
-                    <i class="fa-solid fa-arrow-left"></i> Torna indietro
-                </a>
+                <div  class="button-container my-4">
+                    <a href="{{ route('admin.foods.index') }}" class="btn back-button">
+                        <i class="fa-solid fa-arrow-left"></i> Torna indietro
+                    </a>
+                </div>
+
             </div>
 
         </div>
