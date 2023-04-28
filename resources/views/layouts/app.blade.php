@@ -28,8 +28,10 @@
               
                 {{-- Logo --}}
                 <div class="logo fs-2 fw-bold d-flex align-items-center custom-color m-2 p-2" style="height:48px">
-                    <i class="fa-solid fa-burger"></i>
-                    DeliveBoo
+                    <a href="http://localhost:5174/Home" style="text-decoration: none; color: #000000">
+                        <i class="fa-solid fa-burger"></i>
+                        DeliveBoo
+                    </a>
                 </div>
                     
                 

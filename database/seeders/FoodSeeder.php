@@ -65,7 +65,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 1,
                 "vegan" => 0,
                 "glutenfree" => 0,
-                "img" => "https://www.ricettasprint.it/wp-content/uploads/2019/04/Gnocchi-alla-sorrentina.jpg"
+                "img" => "https://www.giallozafferano.it/images/ricette/197/19745/foto_hd/hd650x433_wm.jpg"
             ],
             [
                 'restaurant_id' => '1',
@@ -75,7 +75,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 0,
-                "img" => "https://www.pasticceriainternazionale.com/wp-content/uploads/2018/07/99RISTVD_ARANCINI_VILLETTI_GIUSEPPE_02.jpg"
+                "img" => "https://cdn.cook.stbm.it/thumbnails/ricette/144/144684/hd750x421.jpg"
             ],
             [
                 'restaurant_id' => '1',
@@ -343,7 +343,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 1,
                 'vegan' => 0,
                 "glutenfree" => 0,
-                'img' => 'https://www.sbs.com.au/food/sites/sbs.com.au.food/files/styles/full/public/Japanese-tempura-500x333_0.jpg?itok=CvRkDJWz&mtime=1439971916'
+                'img' => 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/E3AF6E67-0180-4A0A-8E8F-FF8CF8C97939/Derivates/759c5ff9-a816-41f1-8ae5-dd05dd304856.jpg'
             ],
             [
                 'restaurant_id' => '4',
@@ -353,7 +353,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 0,
-                'img' => 'https://media-cdn.tripadvisor.com/media/photo-s/0d/9b/02/56/tonkatsu.jpg'
+                'img' => 'https://www.japanesecooking101.com/wp-content/uploads/2012/03/IMG_3833.jpeg'
             ],
             [
                 'restaurant_id' => '4',
@@ -363,7 +363,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 0,
-                'img' => 'https://www.seriousseats.com/assets/ramen/ramen-totto-midtown.jpg'
+                'img' => 'https://www.tavolartegusto.it/wp/wp-content/uploads/2023/03/ramen.jpg'
             ],
             [
                 'restaurant_id' => '4',
@@ -373,7 +373,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 0,
-                'img' => 'https://www.deliciousmagazine.co.uk/wp-content/uploads/2017/07/UDON.jpg'
+                'img' => 'https://images.dissapore.com/wp-content/uploads/2022/06/shutterstock_794066152.jpg'
             ],
             [
                 'restaurant_id' => '4',
@@ -383,7 +383,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 0,
-                'img' => 'https://t.bstatic.com/restaurant-review/3_5/asset/static_image/item/inline_item/gyoza-2143502828.jpg'
+                'img' => 'https://assets.epicurious.com/photos/628ba0d3fa016bab2139efa2/1:1/w_4546,h_4546,c_limit/Gyoza_RECIPE_051922_34332.jpg'
             ],
             [
                 'restaurant_id' => '4',
@@ -393,7 +393,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 0,
-                'img' => 'https://i.pinimg.com/originals/e8/62/08/e86208dab22fa996d5a8f3b9713ac9d9.jpg'
+                'img' => 'https://www.ikiya.it/files/2020/03/yakisoba.jpg'
             ],
             [
                 'restaurant_id' => '4',
@@ -403,7 +403,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://i.ytimg.com/vi/H8Anuk2k-oc/maxresdefault.jpg'
+                'img' => 'https://cdn.media.amplience.net/i/japancentre/recipe-1434-unagi-don-grilled-eel-rice-bowl/Unagi-don-grilled-eel-rice-bowl?$poi$&w=1200&h=630&sm=c&fmt=auto'
             ],
             [
                 'restaurant_id' => '4',
@@ -413,7 +413,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 1,
                 'vegan' => 1,
                 "glutenfree" => 0,
-                'img' => 'https://i.pinimg.com/originals/22/88/1d/22881d10842151f7ab928f6ba99e6a96.jpg'
+                'img' => 'https://blog.giallozafferano.it/melacannellaefantasia/wp-content/uploads/2022/10/soba-noodles-con-verdure-720x480.jpg'
             ],
             [
                 'restaurant_id' => '4',
@@ -423,7 +423,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://cookiesandthecity.files.wordpress.com/2016/06/okonomiyaki_02.jpg?w=438&h=329'
+                'img' => 'https://www.donnamoderna.com/content/uploads/2022/07/Okonomiyaki-frittata-giapponese.jpg'
             ],
 
 
