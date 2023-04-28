@@ -15,7 +15,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = Type::paginate();
+        $types = Type::paginate(50);
 
         return response()->json($types);
     }
