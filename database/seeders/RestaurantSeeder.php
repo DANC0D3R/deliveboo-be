@@ -210,7 +210,7 @@ class RestaurantSeeder extends Seeder
             'p_iva' => 'IT123456784',
             'phone' => '+39 33 4352634',
             'description' => 'Come un giorno a Napoli',
-            'img' => 'https://claudiotroisi.it/wp-content/uploads/2021/02/Logo-Starbucks-1.png'
+            'img' => 'https://www.rossopomodoro.it/web/img/marchio.png'
         ])->types()->attach($type_id);
 
         // 16

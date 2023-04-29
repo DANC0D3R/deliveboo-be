@@ -25,7 +25,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 0,
-                "img" => "https://www.askanews.it/wp-content/uploads/2018/11/spaghetti-alla-carbonara-640x478.jpg"
+                "img" => "https://www.cucinaevini.it/wp-content/uploads/2020/12/SPAGHETTI-ALLA-CARBONARA-scaled-1.jpg"
             ],
             [
                 'restaurant_id' => '1',
@@ -85,7 +85,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 1,
                 "vegan" => 0,
                 "glutenfree" => 0,
-                "img" => "https://www.cucinain.it/wp-content/uploads/2020/11/Tagliatelle-ai-funghi-porcini.png"
+                "img" => "https://www.ricettedalmondo.it/images/foto-ricette/t/28891-tagliatelle-ai-funghi-porcini.jpg"
             ],
             [
                 'restaurant_id' => '1',
@@ -115,7 +115,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 1,
                 "vegan" => 0,
                 "glutenfree" => 1,
-                "img" => "https://www.giallozafferano.it/images/ricette/201/20104/foto_hd/hd750x421_wm.jpg"
+                "img" => "https://blog.giallozafferano.it/adryincucina/wp-content/uploads/2019/11/risotto-ai-funghi-porcini.jpg"
             ],
 
 
@@ -138,7 +138,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 1,
                 "vegan" => 0,
                 "glutenfree" => 0,
-                "img" => "https://dueruoteatavola.it/wp-content/uploads/2020/04/Tagliolini-al-tartufo-nero-di-Norcia-e-lo-sfizio-di-vinotti.jpg"
+                "img" => "https://www.giallozafferano.it/images/ricette/14/1459/foto_hd/hd650x433_wm.jpg"
             ],
             [
                 'restaurant_id' => '2',
@@ -158,7 +158,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 1,
-                "img" => "https://www.giallozafferano.it/images/186-1863/Carpaccio-di-Manzo-aggiornata_690x460.jpg"
+                "img" => "https://cavour313.it/wp-content/uploads/2016/09/Carpaccio-di-manzo-marinato.jpg"
             ],
             [
                 'restaurant_id' => '2',
@@ -187,7 +187,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 0,
-                "img" => "https://www.giallozafferano.it/images/ricette/85/8548/foto_hd/hd750x421_wm.jpg"
+                "img" => "https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2021/10/Spaghetti-alle-vongole.jpg"
             ],
             [
                 'restaurant_id' => '2',
@@ -197,7 +197,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 1,
-                "img" => "https://www.giallozafferano.it/images/ricette/64/6423/foto_hd/hd750x421_wm.jpg"
+                "img" => "https://www.gnamgnam.it/wp-content/uploads/2017/10/13-polpo-alla-griglia.jpg"
             ],
             [
                 'restaurant_id' => '2',
@@ -207,7 +207,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 1,
-                "img" => "https://www.giallozafferano.it/images/ricette/139/13963/foto_hd/hd750x421_wm.jpg"
+                "img" => "https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2022/10/filetti-di-branzino-finale-3.jpg"
             ],
             [
                 'restaurant_id' => '2',
@@ -230,7 +230,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 1,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2019/03/pizza-margherita/jcr:content/header-par/image-single.img10.jpg/1553057913437.jpg'
+                'img' => 'https://images.dissapore.com/wp-content/uploads/2020/03/pizza-margherita-2-scaled.jpg'
             ],
             [
                 'restaurant_id' => '3',
@@ -240,7 +240,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2018/04/pizza-capricciosa/jcr:content/header-par/image-single.img10.jpg/1522911194266.jpg'
+                'img' => 'https://www.ricettealvolo.it/wp-content/uploads/2023/02/pizza-capricciosa-scaled.jpg'
             ],
             [
                 'restaurant_id' => '3',
@@ -250,7 +250,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 1,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2020/06/pizza-vegetariana/jcr:content/header-par/image-single.img10.jpg/1593705439785.jpg'
+                'img' => 'https://www.fruttaweb.com/consigli/wp-content/uploads/2018/06/pizza-vegana.jpg'
             ],
             [
                 'restaurant_id' => '3',
@@ -260,7 +260,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2018/05/pizza-diavola/jcr:content/header-par/image-single.img10.jpg/1525996097949.jpg'
+                'img' => 'https://s3.eu-central-1.amazonaws.com/quomi/media/133057/conversions/Pizza-Diavola-thumb-big.jpg'
             ],
             [
                 'restaurant_id' => '3',
@@ -270,7 +270,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2019/03/pizza-napoli/jcr:content/header-par/image-single.img10.jpg/1553058017537.jpg'
+                'img' => 'https://www.soniaperonaci.it/wp-content/uploads/2017/07/Pizza-fritta-4-1.jpg'
             ],
             [
                 'restaurant_id' => '3',
@@ -280,7 +280,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2018/09/pizza-prosciutto-e-funghi/jcr:content/header-par/image-single.img10.jpg/1537486390342.jpg'
+                'img' => 'https://www.petitchef.it/imgupl/recipe/pizza-al-prosciutto-e-funghi-la-ricetta-spiegata-passo-a-passo--455633p707852.jpg'
             ],
             [
                 'restaurant_id' => '3',
@@ -290,7 +290,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 1,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2019/10/pizza-4-formaggi/jcr:content/header-par/image-single.img10.jpg/1570040487214.jpg'
+                'img' => 'https://blog.giallozafferano.it/ricettechepassione/wp-content/uploads/2020/05/pizza-napoletana-4-formaggi-bianca.jpg'
             ],
             [
                 'restaurant_id' => '3',
@@ -300,7 +300,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2019/02/pizza-salsiccia-e-friarielli/jcr:content/header-par/image-single.img10.jpg/1550679561219.jpg'
+                'img' => 'https://www.lucianopignataro.it/wp-content/uploads/2018/03/Pizza-salsiccia-e-friarielli-Al-22.jpg'
             ],
             [
                 'restaurant_id' => '3',
@@ -310,7 +310,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2019/10/pizza-tonno-e-cipolla/jcr:content/header-par/image-single.img10.jpg/1570040439312.jpg'
+                'img' => 'https://media-assets.lacucinaitaliana.it/photos/61fbd8df3697f3ffd0cffbc5/3:2/w_1200,h_800,c_limit/pizza-tonno-cipolle-800.jpg'
             ],
             [
                 'restaurant_id' => '3',
@@ -320,7 +320,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 1,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2021/04/pizza-con-patatine-fritte/jcr:content/header-par/image-single.img10.jpg/1617321655016.jpg'
+                'img' => 'https://garage.pizza/wp-content/uploads/2022/03/2-6.jpg'
             ],
 
 
@@ -446,7 +446,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 1,
-                "img" => "https://www.myfoodandfamily.com/sites/default/files/styles/625x469/public/image_legacy/ENL-3809_1.jpg?itok=18KAEv0Y"
+                "img" => "https://sazondemama.com/wp-content/uploads/2022/09/Como-preparar-la-receta-Mexicana-de-enchiladas-verdes-y-cuantas-calorias-tienen.jpg"
             ],
             [
                 'restaurant_id' => '5',
@@ -466,7 +466,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 1,
-                "img" => "https://www.seriouseats.com/thmb/0xTCyfR01j_wP_ZJz09fo5UK5q0=/1500x1125/smart/filters:no_upscale()/20200407-tostadas-de-pollo-vicky-wasik27-377452c1efb040159282f2e60213557e.jpg"
+                "img" => "https://assets.unileversolutions.com/recipes-v2/153594.jpg"
             ],
             [
                 'restaurant_id' => '5',
@@ -476,7 +476,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 1,
-                "img" => "https://www.simplyrecipes.com/thmb/BZmoeGFtz_Ev7VW61T8xZNiV1F4=/1800x1200/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2010__05__chile-rellenos-horiz-a-1800-8d260ee7b84a43b9ac26b50d2ff2c7fc.jpg"
+                "img" => "https://assets.unileversolutions.com/recipes-v2/109069.jpg"
             ],
             [
                 'restaurant_id' => '5',
@@ -486,7 +486,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 1,
-                "img" => "https://www.inspiredtaste.net/wp-content/uploads/2019/07/Cheese-Quesadilla-Recipe-2-1200.jpg"
+                "img" => "https://assets.unileversolutions.com/recipes-v2/231998.jpg"
             ],
             [
                 'restaurant_id' => '5',
@@ -506,7 +506,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 1,
-                "img" => "https://www.foodnetwork.com/content/dam/images/food/video/0/00/000/0000/0001/6646/6646_s3x4.jpg"
+                "img" => "https://tastecooking.com/wp-content/uploads/2020/11/Article-Tamales-de-Pollo.jpg"
             ],
             [
                 'restaurant_id' => '5',
@@ -526,7 +526,7 @@ class FoodSeeder extends Seeder
                 "vegetarian" => 0,
                 "vegan" => 0,
                 "glutenfree" => 1,
-                "img" => "https://www.cookingclassy.com/wp-content/uploads/2019/04/chicken-chimichanga-10.jpg"
+                "img" => "https://staticcookist.akamaized.net/wp-content/uploads/sites/21/2023/02/Chimichangas-1200x675.jpg"
             ],
 
 
@@ -1177,7 +1177,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 1,
                 'vegan' => 1,
                 'glutenfree' => 1,
-                'img' => 'https://www.acaperinthekitchen.com/wp-content/uploads/2019/08/Moutabbal-the-Classic-Smoky-Aubergine-Tahini-Dip.jpg',
+                'img' => 'https://www.kensingtonmums.co.uk/wp-content/uploads/2018/04/30710390_927842587379020_6061133478194315264_o.jpg',
             ],
             [
                 'restaurant_id' => '12',
@@ -1462,11 +1462,11 @@ class FoodSeeder extends Seeder
                 'restaurant_id' => '15',
                 'name' => 'Margherita',
                 'description' => 'pomodoro, mozzarella, basilico',
-                'price' => 5.50,
+                'price' => '5.50',
                 'vegetarian' => 1,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2019/03/pizza-margherita/jcr:content/header-par/image-single.img10.jpg/1553057913437.jpg'
+                'img' => 'https://images.dissapore.com/wp-content/uploads/2020/03/pizza-margherita-2-scaled.jpg'
             ],
             [
                 'restaurant_id' => '15',
@@ -1476,7 +1476,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2018/04/pizza-capricciosa/jcr:content/header-par/image-single.img10.jpg/1522911194266.jpg'
+                'img' => 'https://www.ricettealvolo.it/wp-content/uploads/2023/02/pizza-capricciosa-scaled.jpg'
             ],
             [
                 'restaurant_id' => '15',
@@ -1486,7 +1486,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 1,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2020/06/pizza-vegetariana/jcr:content/header-par/image-single.img10.jpg/1593705439785.jpg'
+                'img' => 'https://www.fruttaweb.com/consigli/wp-content/uploads/2018/06/pizza-vegana.jpg'
             ],
             [
                 'restaurant_id' => '15',
@@ -1496,7 +1496,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2018/05/pizza-diavola/jcr:content/header-par/image-single.img10.jpg/1525996097949.jpg'
+                'img' => 'https://s3.eu-central-1.amazonaws.com/quomi/media/133057/conversions/Pizza-Diavola-thumb-big.jpg'
             ],
             [
                 'restaurant_id' => '15',
@@ -1506,7 +1506,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2019/03/pizza-napoli/jcr:content/header-par/image-single.img10.jpg/1553058017537.jpg'
+                'img' => 'https://www.soniaperonaci.it/wp-content/uploads/2017/07/Pizza-fritta-4-1.jpg'
             ],
             [
                 'restaurant_id' => '15',
@@ -1516,7 +1516,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2018/09/pizza-prosciutto-e-funghi/jcr:content/header-par/image-single.img10.jpg/1537486390342.jpg'
+                'img' => 'https://www.petitchef.it/imgupl/recipe/pizza-al-prosciutto-e-funghi-la-ricetta-spiegata-passo-a-passo--455633p707852.jpg'
             ],
             [
                 'restaurant_id' => '15',
@@ -1526,7 +1526,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 1,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2019/10/pizza-4-formaggi/jcr:content/header-par/image-single.img10.jpg/1570040487214.jpg'
+                'img' => 'https://blog.giallozafferano.it/ricettechepassione/wp-content/uploads/2020/05/pizza-napoletana-4-formaggi-bianca.jpg'
             ],
             [
                 'restaurant_id' => '15',
@@ -1536,7 +1536,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2019/02/pizza-salsiccia-e-friarielli/jcr:content/header-par/image-single.img10.jpg/1550679561219.jpg'
+                'img' => 'https://www.lucianopignataro.it/wp-content/uploads/2018/03/Pizza-salsiccia-e-friarielli-Al-22.jpg'
             ],
             [
                 'restaurant_id' => '15',
@@ -1546,7 +1546,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 0,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2019/10/pizza-tonno-e-cipolla/jcr:content/header-par/image-single.img10.jpg/1570040439312.jpg'
+                'img' => 'https://media-assets.lacucinaitaliana.it/photos/61fbd8df3697f3ffd0cffbc5/3:2/w_1200,h_800,c_limit/pizza-tonno-cipolle-800.jpg'
             ],
             [
                 'restaurant_id' => '15',
@@ -1556,7 +1556,7 @@ class FoodSeeder extends Seeder
                 'vegetarian' => 1,
                 'vegan' => 0,
                 "glutenfree" => 1,
-                'img' => 'https://www.cucchiaio.it/content/cucchiaio/it/ricette/2021/04/pizza-con-patatine-fritte/jcr:content/header-par/image-single.img10.jpg/1617321655016.jpg'
+                'img' => 'https://garage.pizza/wp-content/uploads/2022/03/2-6.jpg'
             ],
 
 
