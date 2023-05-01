@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1 class="text-center mb-3">I tuoi ordini</h1>
+    <h1 class="text-center my-3">I tuoi ordini</h1>
 
     <div class="my-table-bg shadow">
         <table class="table table-striped">
