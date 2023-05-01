@@ -57,7 +57,7 @@
               labels: data.map(row => row.month),
               datasets: [
                 {
-                  label: 'Incassi per mese',
+                  label: 'Incassi per mese in € ',
                   data: data.map(row => row.price)
                 }
               ]
