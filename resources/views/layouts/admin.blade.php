@@ -128,6 +128,10 @@
                                         <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.orders.index' ? 'active' : '' }}" href="{{route('admin.orders.index')}}">
                                             <i class="fa-solid fa-circle-check"></i> Ordini
                                         </a>
+
+                                        <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.stats.index' ? 'active' : '' }}" href="{{route('admin.stats.index')}}">
+                                            <i class="fa-solid fa-circle-check"></i> Statistiche ordini
+                                        </a>
                                     @endif
                                 </li>
                             </ul>
