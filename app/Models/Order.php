@@ -10,6 +10,7 @@ class Order extends Model
     use HasFactory;
     // validazione back end
     protected $fillable = [ 
+        'restaurant_id',
         'notes',
         'total_price',
         'client_name', 
