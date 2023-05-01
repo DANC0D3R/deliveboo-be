@@ -3,11 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Http\Request;
+
 // Controllers
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::post('/payments', [PaymentController::class, 'store']);
 
 require __DIR__.'/auth.php';
