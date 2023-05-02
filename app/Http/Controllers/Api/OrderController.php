@@ -48,7 +48,7 @@ class OrderController extends Controller
         $foodIdArray = explode(',', $foodIndex);
         $food_id=Food::whereIn('id', $foodIdArray)->pluck('id')->toArray();
 
-        // $plateCounter = $request->quantity;
+        $plateCounter = $request->quantity;
         // $countArray = explode(',', $plateCounter);
         // $keys = [];
         // foreach ($plateCounter as $singlePlate) {
@@ -57,8 +57,8 @@ class OrderController extends Controller
 
         
         // $newOrder->foods()->attach($singlePlate);
-        $newOrder->foods()->attach($food_id);
-        // $newOrder->foods()->attach($food_id, ['quantity' => $plateCounter]);
+        // $newOrder->foods()->attach($food_id);
+        $newOrder->foods()->attach($food_id, ['quantity' => $plateCounter]);
         // if (array_key_exists('foods', $data)) {
         //     foreach ($data['foods'] as $foodId) {
         //         $newOrder->foods()->attach($foodId);

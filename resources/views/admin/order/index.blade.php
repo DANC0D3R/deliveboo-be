@@ -33,7 +33,7 @@
                         <td>
                             <ul>
                                 @foreach ($singleOrder->foods as $food)
-                                    <li>{{ $food->name }}</li>
+                                    <li>{{ $food->name }} x{{ $food->pivot->quantity }}</li>
                                 @endforeach
                             </ul>
                         </td>
