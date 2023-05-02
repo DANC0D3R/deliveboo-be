@@ -33,7 +33,7 @@ return new class extends Migration
             // Definizione chiave primaria
             $table->primary(['food_id', 'order_id']);
 
-            $table->unsignedTinyInteger('quantity');
+            $table->unsignedTinyInteger('quantity')->default(1);
             $table->timestamps();
 
         });

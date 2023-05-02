@@ -18,7 +18,8 @@ class Order extends Model
         'client_address', 
         'client_phone',
         'client_email',
-        'notes'
+        'notes',
+        'foods'
     ];
     
     public function foods() {

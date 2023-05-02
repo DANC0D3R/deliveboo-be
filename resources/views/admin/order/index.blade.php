@@ -15,9 +15,11 @@
                     <th scope="col">Email</th>
                     <th scope="col">Ricezione ordine</th>
                     <th scope="col">Note</th>
+                    <th scope="col">Piatti</th>
                 </tr>
             </thead>
             <tbody>
+                {{-- @dd($order) --}}
                 @foreach ($order as $singleOrder)
                     <tr>
                         <th scope="row">{{ $singleOrder->id }}</th>
@@ -28,6 +30,13 @@
                         <td>{{ $singleOrder->client_email }}</td>
                         <td>{{ $singleOrder->created_at }}</td>
                         <td>{{ $singleOrder->notes }}</td>
+                        <td>
+                            <ul>
+                                @foreach ($singleOrder->foods as $food)
+                                    <li>{{ $food->name }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

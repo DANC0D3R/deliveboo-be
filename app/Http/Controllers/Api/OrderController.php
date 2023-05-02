@@ -40,8 +40,18 @@ class OrderController extends Controller
     {
         // Qui nello store credo che potremmo inserire le funzioni che ci servono per calcolare il prezzo finale dell'ordine e per connetterlo con la tabella ponte.
         // Dovremmo anche pensare a come far passare i dati da una validazione back end prima di arrivare a creare l'ordine
-        
-        Order::create($request->all()); //così prendiamo i dati ricevuti dal front end in request e creiamo un nuovo ordine nel database
+        $data = $request->all();
+        $newOrder = Order::create($data); //così prendiamo i dati ricevuti dal front end in request e creiamo un nuovo ordine nel database
+
+        if (array_key_exists('foods', $data)) {
+            foreach ($data['foods'] as $foodId) {
+                $newOrder->foods()->attach($foodId);
+            }
+        }
+
+        // if (array_key_exists('foods', $data)) {
+        //     $newOrder->foods()->sync($data['foods']);
+        // }
 
         return (['message' => 'Ordine ricevuto']); //il messaggio di ordine ricevuto verrà visualizzato nell'inspector, alla sezione network->fetch/xhr
     }
