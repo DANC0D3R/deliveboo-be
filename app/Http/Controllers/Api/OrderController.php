@@ -58,7 +58,11 @@ class OrderController extends Controller
         
         // $newOrder->foods()->attach($singlePlate);
         // $newOrder->foods()->attach($food_id);
-        $newOrder->foods()->attach($food_id, ['quantity' => $plateCounter]);
+
+        // così in qualche modo salva la quantità, ma salva due volte anche il food id, e non si può fare
+        foreach ($plateCounter as $singlePlate) {
+            $newOrder->foods()->attach($food_id, ['quantity' => $singlePlate]);
+        }        
         // if (array_key_exists('foods', $data)) {
         //     foreach ($data['foods'] as $foodId) {
         //         $newOrder->foods()->attach($foodId);
