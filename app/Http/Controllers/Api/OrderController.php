@@ -3,8 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewOrder;
 use App\Models\Order;
 use Illuminate\Http\Request;
+
+// Helpers
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Contracts\Mail\Mailable;
 
 
 class OrderController extends Controller
@@ -40,8 +47,15 @@ class OrderController extends Controller
     {
         // Qui nello store credo che potremmo inserire le funzioni che ci servono per calcolare il prezzo finale dell'ordine e per connetterlo con la tabella ponte.
         // Dovremmo anche pensare a come far passare i dati da una validazione back end prima di arrivare a creare l'ordine
-        
-        Order::create($request->all()); //così prendiamo i dati ricevuti dal front end in request e creiamo un nuovo ordine nel database
+        $user = Auth::user();
+
+        $data = $request->all();
+        $newOrder = Order::create($data); //così prendiamo i dati ricevuti dal front end in request e creiamo un nuovo ordine nel database
+
+        Mail::to([
+            $user->email,
+            $newOrder->client_email
+        ])->send(new NewOrder($newOrder));
 
         return (['message' => 'Ordine ricevuto']); //il messaggio di ordine ricevuto verrà visualizzato nell'inspector, alla sezione network->fetch/xhr
     }
