@@ -37,7 +37,7 @@ class NewOrder extends Mailable
     {
         return new Envelope(
             replyTo: 'deliveboonoreply@email.com',
-            subject: 'Nuovo post pubblicato!'
+            subject: 'Nuovo ordine ricevuto!'
         );
     }
 
