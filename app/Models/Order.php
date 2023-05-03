@@ -18,10 +18,11 @@ class Order extends Model
         'client_address', 
         'client_phone',
         'client_email',
-        'notes'
+        'notes',
+        'foods'
     ];
     
     public function foods() {
-        return $this->belongsToMany(Food::class);
+        return $this->belongsToMany(Food::class)->withPivot('quantity');
     }
 }

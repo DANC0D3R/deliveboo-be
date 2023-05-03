@@ -33,6 +33,7 @@ class StoreOrderRequest extends FormRequest
             'notes'=> 'required',
             'restaurant_id' => 'required',
             'food_id' => 'required',
+            'foods'=> 'required | array | exists:foods,id',
         ];
     }
 }
