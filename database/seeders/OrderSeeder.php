@@ -56,49 +56,49 @@ class OrderSeeder extends Seeder
         // $dishIds4 = Food::whereIn('id', [9, 7, 6, 8])->pluck('id')->toArray();
 
         // Crea tre ordini associati a questi piatti
-        $food_id=Food::whereIn('id',[1,3])->pluck('id')->toArray();
+        $food_id=Food::whereIn('id',[154,152])->pluck('id')->toArray();
         Order::create([
-            'notes'=>'ordine completato',
+            'notes'=>'Scala B, secondo piano',
             'total_price' => '18.50',
-            'client_name' => 'Mario ',
-            'client_surname'=>'Rossi',
+            'client_name' => 'Zineb',
+            'client_surname'=>'Atlassi',
             'client_address' => 'Via Boolean Careers, 6',
-            'client_phone' => '3313131313',
-            'client_email' => 'mariorossi@gmail.com',
-            'restaurant_id' => '1',
+            'client_phone' => '3354234562',
+            'client_email' => 'zineb@gmail.com',
+            'restaurant_id' => '16',
             'created_at' => '2023/01/16 09:01:46',
             'updated_at' => '2023/01/16 09:01:46',
         ])->foods()->attach($food_id);
 
-        $food_id=Food::whereIn('id',[2,3])->pluck('id')->toArray();
+        $food_id=Food::whereIn('id',[151,152])->pluck('id')->toArray();
         Order::create([
-            'notes'=>' ordine completato',
+            'notes'=>'Piano terra, interno 2',
             'total_price' => '17.50',
             'client_name' => 'Alberto ',
             'client_surname'=>'Giardina',
             'client_address' => 'Via Alberto, 6',
             'client_phone' => '3313131313',
             'client_email' => 'alberto@gmail.com',
-            'restaurant_id' => '2',
-            'created_at' => '2023/01/16 09:01:46',
-            'updated_at' => '2023/01/16 09:01:46',
+            'restaurant_id' => '16',
+            'created_at' => '2023/02/16 09:01:46',
+            'updated_at' => '2023/02/16 09:01:46',
         ])->foods()->attach($food_id);
 
-        $food_id=Food::whereIn('id',[3,4])->pluck('id')->toArray();
+        $food_id=Food::whereIn('id',[151,157])->pluck('id')->toArray();
         Order::create([
-            'notes'=>'in lavorazione',
+            'notes'=>'Scala A, terzo piano',
             'total_price' => '22.50',
             'client_name' => 'Daniele ',
             'client_surname'=>' Minieri',
-            'client_address' => 'Via Danile, 6',
+            'client_address' => 'Via Italia, 6',
             'client_phone' => '3313131313',
             'client_email' => 'daniele@gmail.com',
-            'restaurant_id' => '3',
+            'restaurant_id' => '16',
             'created_at' => '2023/01/16 09:01:46',
             'updated_at' => '2023/01/16 09:01:46',
         ])->foods()->attach($food_id);
 
-        $food_id=Food::whereIn('id',[1,3])->pluck('id')->toArray();
+        $food_id=Food::whereIn('id',[153,156])->pluck('id')->toArray();
         Order::create([
             'notes'=>'in lavorazione',
             'total_price' => '24.50',
@@ -107,23 +107,93 @@ class OrderSeeder extends Seeder
             'client_address' => 'Via lorenzo, 6',
             'client_phone' => '3313131313',
             'client_email' => 'lorenzo@gmail.com',
-            'restaurant_id' => '4',
-            'created_at' => '2023/01/16 09:01:46',
-            'updated_at' => '2023/01/16 09:01:46',
+            'restaurant_id' => '16',
+            'created_at' => '2023/03/16 09:01:46',
+            'updated_at' => '2023/03/16 09:01:46',
         ])->foods()->attach($food_id);
 
-        $food_id=Food::whereIn('id',[1,3])->pluck('id')->toArray();
+        $food_id=Food::whereIn('id',[154,153])->pluck('id')->toArray();
         Order::create([
-            'notes'=>'in lavorazione',
+            'notes'=>'Scala A, terzo piano',
+            'total_price' => '22.50',
+            'client_name' => 'Daniele ',
+            'client_surname'=>' Minieri',
+            'client_address' => 'Via Italia, 6',
+            'client_phone' => '3313131313',
+            'client_email' => 'daniele@gmail.com',
+            'restaurant_id' => '16',
+            'created_at' => '2023/02/16 09:01:46',
+            'updated_at' => '2023/02/16 09:01:46',
+        ])->foods()->attach($food_id);
+
+        $food_id=Food::whereIn('id',[158,160])->pluck('id')->toArray();
+        Order::create([
+            'notes'=>'Scala A, terzo piano',
+            'total_price' => '22.50',
+            'client_name' => 'Daniele ',
+            'client_surname'=>' Minieri',
+            'client_address' => 'Via Italia, 6',
+            'client_phone' => '3313131313',
+            'client_email' => 'daniele@gmail.com',
+            'restaurant_id' => '16',
+            'created_at' => '2023/03/16 09:01:46',
+            'updated_at' => '2023/03/16 09:01:46',
+        ])->foods()->attach($food_id);
+
+        $food_id=Food::whereIn('id',[160,512])->pluck('id')->toArray();
+        Order::create([
+            'notes'=>'Scala B, primo piano',
             'total_price' => '22.50',
             'client_name' => 'Davide ',
             'client_surname'=>' Di Girolamo',
             'client_address' => 'Via Davide, 6',
             'client_phone' => '3313131313',
             'client_email' => 'davide@gmail.com',
-            'restaurant_id' => '5',
-            'created_at' => '2023/01/16 09:01:46',
-            'updated_at' => '2023/01/16 09:01:46',
+            'restaurant_id' => '16',
+            'created_at' => '2023/04/16 09:01:46',
+            'updated_at' => '2023/04/16 09:01:46',
+        ])->foods()->attach($food_id);
+
+        $food_id=Food::whereIn('id',[153,154])->pluck('id')->toArray();
+        Order::create([
+            'notes'=>'Scala A, terzo piano',
+            'total_price' => '22.50',
+            'client_name' => 'Daniele ',
+            'client_surname'=>' Minieri',
+            'client_address' => 'Via Italia, 6',
+            'client_phone' => '3313131313',
+            'client_email' => 'daniele@gmail.com',
+            'restaurant_id' => '16',
+            'created_at' => '2023/04/16 09:01:46',
+            'updated_at' => '2023/04/16 09:01:46',
+        ])->foods()->attach($food_id);
+
+        $food_id=Food::whereIn('id',[156,157])->pluck('id')->toArray();
+        Order::create([
+            'notes'=>'Scala A, terzo piano',
+            'total_price' => '22.50',
+            'client_name' => 'Daniele ',
+            'client_surname'=>' Minieri',
+            'client_address' => 'Via Italia, 6',
+            'client_phone' => '3313131313',
+            'client_email' => 'daniele@gmail.com',
+            'restaurant_id' => '16',
+            'created_at' => '2023/04/16 09:01:46',
+            'updated_at' => '2023/04/16 09:01:46',
+        ])->foods()->attach($food_id);
+
+        $food_id=Food::whereIn('id',[156,152])->pluck('id')->toArray();
+        Order::create([
+            'notes'=>'Scala A, terzo piano',
+            'total_price' => '22.50',
+            'client_name' => 'Daniele ',
+            'client_surname'=>' Minieri',
+            'client_address' => 'Via Italia, 6',
+            'client_phone' => '3313131313',
+            'client_email' => 'daniele@gmail.com',
+            'restaurant_id' => '16',
+            'created_at' => '2023/04/16 09:01:46',
+            'updated_at' => '2023/04/16 09:01:46',
         ])->foods()->attach($food_id);
     }
 }
