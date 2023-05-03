@@ -130,7 +130,7 @@
                                         </a>
 
                                         <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.stats.index' ? 'active' : '' }}" href="{{route('admin.stats.index')}}">
-                                            <i class="fa-solid fa-circle-check"></i> Statistiche ordini
+                                            <i class="fa-solid fa-chart-simple"></i> Statistiche ordini
                                         </a>
                                     @endif
                                 </li>
