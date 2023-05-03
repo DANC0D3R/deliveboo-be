@@ -4,7 +4,9 @@
     <p>
         L'ordine è stato effettuato con successo!
         <br>
+        <br>
         I tuoi piatti verranno preparati e consegnati il prima possibile.
+        <br>
         <br>
         Grazie per averci scelti!
     </p>
