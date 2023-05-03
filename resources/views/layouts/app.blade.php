@@ -28,7 +28,7 @@
               
                 {{-- Logo --}}
                 <div class="logo fs-2 fw-bold d-flex align-items-center custom-color m-2 p-2" style="height:48px">
-                    <a href="http://localhost:5174/Home" style="text-decoration: none; color: #000000">
+                    <a href="http://localhost:5174/Home" style="text-decoration: none; color: #FF8400">
                         <i class="fa-solid fa-burger"></i>
                         DeliveBoo
                     </a>
@@ -156,7 +156,6 @@
 
 <style scoped>
 .orange-color{
-    color: #8f4a00;
+    color: #FF8400;
 }
-   
 </style>
