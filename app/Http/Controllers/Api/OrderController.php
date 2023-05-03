@@ -3,9 +3,19 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewOrder;
 use App\Models\Order;
 use App\Models\Food;
 use Illuminate\Http\Request;
+
+// Helpers
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Contracts\Mail\Mailable;
+use App\Models\User;
+use App\Models\Restaurant;
+use Illuminate\Support\Facades\DB;
 
 
 class OrderController extends Controller
@@ -63,22 +73,16 @@ class OrderController extends Controller
         // }
 
         
-        // $newOrder->foods()->attach($singlePlate);
-        // $newOrder->foods()->attach($food_id);
+        $data = $request->except(['foods', 'quantity']);
+        $newOrder = Order::create($data); //così prendiamo i dati ricevuti dal front end in request e creiamo un nuovo ordine nel database
+        
+        $restaurant = DB::table('restaurants')->where('id', $request->restaurant_id)->first();
+        $user = User::where('id', $restaurant->user_id)->first();
 
-        // così in qualche modo salva la quantità, ma salva due volte anche il food id, e non si può fare
-        // foreach ($plateCounter as $singlePlate) {
-        //     $newOrder->foods()->attach($food_id, ['quantity' => $singlePlate]);
-        // }  
-        // if (array_key_exists('foods', $data)) {
-        //     foreach ($data['foods'] as $foodId) {
-        //         $newOrder->foods()->attach($foodId);
-        //     }
-        // }
-
-        // if (array_key_exists('foods', $data)) {
-        //     $newOrder->foods()->sync($data['foods']);
-        // }
+        Mail::to([
+            $user->email,
+            $request->client_email,
+        ])->send(new NewOrder($newOrder));
 
         return (['message' => 'Ordine ricevuto']); //il messaggio di ordine ricevuto verrà visualizzato nell'inspector, alla sezione network->fetch/xhr
     }
