@@ -49,6 +49,13 @@ class OrderController extends Controller
         $food_id=Food::whereIn('id', $foodIdArray)->pluck('id')->toArray();
 
         $plateCounter = $request->quantity;
+        $plateArray = [];
+        foreach ($plateCounter as $singlePlate) {
+            array_push($plateArray, $singlePlate);
+        }
+        for ($i=0; $i < count($food_id); $i++) { 
+            $newOrder->foods()->attach($food_id[$i], ['quantity' => $plateArray[$i]]);
+        }
         // $countArray = explode(',', $plateCounter);
         // $keys = [];
         // foreach ($plateCounter as $singlePlate) {
@@ -60,9 +67,9 @@ class OrderController extends Controller
         // $newOrder->foods()->attach($food_id);
 
         // così in qualche modo salva la quantità, ma salva due volte anche il food id, e non si può fare
-        foreach ($plateCounter as $singlePlate) {
-            $newOrder->foods()->attach($food_id, ['quantity' => $singlePlate]);
-        }        
+        // foreach ($plateCounter as $singlePlate) {
+        //     $newOrder->foods()->attach($food_id, ['quantity' => $singlePlate]);
+        // }  
         // if (array_key_exists('foods', $data)) {
         //     foreach ($data['foods'] as $foodId) {
         //         $newOrder->foods()->attach($foodId);
