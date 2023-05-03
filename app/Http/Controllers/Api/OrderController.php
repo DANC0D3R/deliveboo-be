@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Contracts\Mail\Mailable;
+use App\Models\User;
+use App\Models\Restaurant;
+use Illuminate\Support\Facades\DB;
 
 
 class OrderController extends Controller
@@ -47,14 +50,16 @@ class OrderController extends Controller
     {
         // Qui nello store credo che potremmo inserire le funzioni che ci servono per calcolare il prezzo finale dell'ordine e per connetterlo con la tabella ponte.
         // Dovremmo anche pensare a come far passare i dati da una validazione back end prima di arrivare a creare l'ordine
-        $user = Auth::user();
-
-        $data = $request->all();
+        
+        $data = $request->except(['foods', 'quantity']);
         $newOrder = Order::create($data); //così prendiamo i dati ricevuti dal front end in request e creiamo un nuovo ordine nel database
+        
+        $restaurant = DB::table('restaurants')->where('id', $request->restaurant_id)->first();
+        $user = User::where('id', $restaurant->user_id)->first();
 
         Mail::to([
             $user->email,
-            $newOrder->client_email
+            $request->client_email,
         ])->send(new NewOrder($newOrder));
 
         return (['message' => 'Ordine ricevuto']); //il messaggio di ordine ricevuto verrà visualizzato nell'inspector, alla sezione network->fetch/xhr
