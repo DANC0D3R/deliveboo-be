@@ -72,10 +72,6 @@ class OrderController extends Controller
         //     $keys = $singlePlate->keys();
         // }
 
-        
-        $data = $request->except(['foods', 'quantity']);
-        $newOrder = Order::create($data); //così prendiamo i dati ricevuti dal front end in request e creiamo un nuovo ordine nel database
-        
         $restaurant = DB::table('restaurants')->where('id', $request->restaurant_id)->first();
         $user = User::where('id', $restaurant->user_id)->first();
 
