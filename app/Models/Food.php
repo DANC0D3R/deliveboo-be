@@ -23,6 +23,28 @@ class Food extends Model
         'img',
     ];
 
+    protected $appends = [
+        'full_img_path',
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     *
+    */
+
+    public function getFullImgPathAttribute()
+    {
+        $fullPath = null;
+
+        if ($this->img) {
+            $fullPath = asset('storage/'.$this->img);
+        }
+
+        return $fullPath;
+    }
+
     // relazione con tabella Restaurants
     public function restaurant() {
         return $this->belongsTo(Restaurant::class);
