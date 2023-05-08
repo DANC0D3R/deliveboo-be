@@ -14,8 +14,7 @@
                     <th scope="col">Telefono</th>
                     <th scope="col">Email</th>
                     <th scope="col">Ricezione ordine</th>
-                    <th scope="col">Note</th>
-                    <th scope="col">Piatti</th>
+                    <th scope="col">Dettagli Ordine</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,13 +28,24 @@
                         <td>{{ $singleOrder->client_phone }}</td>
                         <td>{{ $singleOrder->client_email }}</td>
                         <td>{{ $singleOrder->created_at }}</td>
-                        <td>{{ $singleOrder->notes }}</td>
                         <td>
+                            <button  class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $singleOrder->id }}" aria-expanded="false" aria-controls="collapse{{ $singleOrder->id }}">Espandi</button>
+                        </td>
+                    </tr>
+                    <tr id="collapse{{ $singleOrder->id }}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <td colspan="3" class="accordion-body">
+                            <h6>Piatti</h6>
+
                             <ul>
                                 @foreach ($singleOrder->foods as $food)
                                     <li>{{ $food->name }} x{{ $food->pivot->quantity }}</li>
                                 @endforeach
                             </ul>
+                        </td>
+                        <td colspan="5" class="accordion-body">
+                            <h6>Note</h6>
+
+                            {{ $singleOrder->notes }}
                         </td>
                     </tr>
                 @endforeach
